@@ -1,8 +1,19 @@
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class TESTMOVEMENT : MonoBehaviour
 {
     Rigidbody2D rb;
+
+    [SerializeField] CinemachineImpulseSource CMISource;
+
+    private bool _iswarping;
+
+    [SerializeField] private Transform _interactCheckPoint;
+    [SerializeField] private Vector2 _interactCheckSize;
+
+    [Header("Layers & Tags")]
+    [SerializeField] private LayerMask _warpLayer;
 
     private void Awake()
     {
@@ -23,5 +34,19 @@ public class TESTMOVEMENT : MonoBehaviour
             rb.linearVelocityX = 5;
         else 
             rb.linearVelocityX = 0;
+
+        if(Physics2D.OverlapBox(_interactCheckPoint.position, _interactCheckSize, _warpLayer))
+        {
+            if (Input.GetKeyUp(KeyCode.E) && !_iswarping)
+            {
+                CMISource.GenerateImpulse();
+                _iswarping = true;
+            }
+        }
+        else if (!Physics2D.OverlapBox(_interactCheckPoint.position, _interactCheckSize, _warpLayer))
+        {
+            _iswarping = false;
+        }
     }
+    
 }
