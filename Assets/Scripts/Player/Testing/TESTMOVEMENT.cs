@@ -16,7 +16,6 @@ public class TESTMOVEMENT : MonoBehaviour
     [Header("Layers & Tags")]
     [SerializeField] private LayerMask _warpLayer;
 
-    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,5 +55,4 @@ public class TESTMOVEMENT : MonoBehaviour
             _iswarping = false;
         }
     }
-    
 }

@@ -17,7 +17,9 @@ public class SceneController : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);
+        else
             Instance = this;
     }
     private void Start()
@@ -25,6 +27,7 @@ public class SceneController : MonoBehaviour
     }
     private void Update()
     {
+        DontDestroyOnLoad(gameObject);
         CurrentOpenScene = SceneManager.GetActiveScene().buildIndex;
 
         if (Input.GetKeyUp(KeyCode.Escape))
@@ -53,7 +56,7 @@ public class SceneController : MonoBehaviour
     }
     private IEnumerator Loading()
     {
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(1);
         LoadingMenu.SetActive(false);
         Time.timeScale = 1.0f;
     }
