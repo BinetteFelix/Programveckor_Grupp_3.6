@@ -368,6 +368,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4617888124856588248, guid: 5446d97ce7abb3e43990961c6be7ffe7, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617888124856588248, guid: 5446d97ce7abb3e43990961c6be7ffe7, type: 3}
       propertyPath: m_TagString
       value: SendToNormalWorld
       objectReference: {fileID: 0}
@@ -462,6 +466,10 @@ PrefabInstance:
     - target: {fileID: 6059136188188799214, guid: 5446d97ce7abb3e43990961c6be7ffe7, type: 3}
       propertyPath: m_Color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323089918767860013, guid: 5446d97ce7abb3e43990961c6be7ffe7, type: 3}
+      propertyPath: DefaultVelocity.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6841465099529080323, guid: 5446d97ce7abb3e43990961c6be7ffe7, type: 3}
       propertyPath: m_Color.b

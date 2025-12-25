@@ -1,20 +1,17 @@
 using UnityEngine;
 using Unity.Cinemachine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class TESTMOVEMENT : MonoBehaviour
 {
+    public PlayerData Data;
+
     Rigidbody2D rb;
 
     [SerializeField] CinemachineImpulseSource CMISource;
 
     private bool _iswarping;
-
-    [SerializeField] private Transform _interactCheckPoint;
-    [SerializeField] private Vector2 _interactCheckSize;
-
-    [Header("Layers & Tags")]
-    [SerializeField] private LayerMask _warpLayer;
 
     private void Awake()
     {
@@ -23,20 +20,22 @@ public class TESTMOVEMENT : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Collider2D warpObjectCollision = Physics2D.OverlapBox(_interactCheckPoint.position, _interactCheckSize, _warpLayer);
+        Collider2D warpObjectCollision = Physics2D.OverlapCircle(transform.position, Data.interactionRadius, Data._interactableSceneObjectsLayer);
 
-        if (Input.GetKey(KeyCode.A))
-            rb.linearVelocityX = -5;
-        else if (Input.GetKey(KeyCode.D))
-            rb.linearVelocityX = 5;
-        else 
-            rb.linearVelocityX = 0;
+        if (!SceneController.Instance.IsPaused)
+        {
+            if (Input.GetKey(KeyCode.A))
+                rb.linearVelocityX = -5;
+            else if (Input.GetKey(KeyCode.D))
+                rb.linearVelocityX = 5;
+            else
+                rb.linearVelocityX = 0;
+        }
 
         if (warpObjectCollision)
         {
@@ -55,4 +54,8 @@ public class TESTMOVEMENT : MonoBehaviour
             _iswarping = false;
         }
     }
+
+    #region EDITOR METHODS
+    
+    #endregion
 }

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6185622847740626553}
   - component: {fileID: 6257516627634863007}
   - component: {fileID: 9079398090973228226}
-  m_Layer: 0
+  - component: {fileID: 2091652677100060086}
+  m_Layer: 10
   m_Name: WarpObject
   m_TagString: WarpObject
   m_Icon: {fileID: 0}
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7626468262133428791}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4.79, y: 0.12, z: 0}
+  m_LocalPosition: {x: 4.79, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -414,4 +415,17 @@ MonoBehaviour:
     DissipationMode: 2
     DissipationDistance: 100
     PropagationSpeed: 343
-  DefaultVelocity: {x: 1.25, y: 0, z: 0}
+  DefaultVelocity: {x: 0.5, y: 0, z: 0}
+--- !u!114 &2091652677100060086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626468262133428791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b910f5f23fbf44d930c5bf84862a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  Data: {fileID: 11400000, guid: 74b4ea3dd2b4870478b22bd0e7c74166, type: 2}

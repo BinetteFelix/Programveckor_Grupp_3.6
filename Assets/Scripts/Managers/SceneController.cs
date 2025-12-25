@@ -30,7 +30,7 @@ public class SceneController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         CurrentOpenScene = SceneManager.GetActiveScene().buildIndex;
 
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetButtonUp("Pause"))
         {
             TogglePause();
         }
