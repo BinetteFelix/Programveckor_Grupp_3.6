@@ -11,7 +11,7 @@ public class SceneController : MonoBehaviour
 
     #region STATE PARAMETERS
     public bool IsPaused { get; private set; }
-
+    public bool HasFinishedLoading { get; private set; }
     public int CurrentOpenScene { get; private set; }
     #endregion
 
@@ -47,6 +47,7 @@ public class SceneController : MonoBehaviour
 
     public IEnumerator LoadScene(int index)
     {
+        HasFinishedLoading = false;
         yield return new WaitForSeconds(4.5f);
 
         SceneManager.LoadScene(index);
@@ -56,8 +57,10 @@ public class SceneController : MonoBehaviour
     }
     private IEnumerator Loading()
     {
+        
         yield return new WaitForSecondsRealtime(1);
         LoadingMenu.SetActive(false);
         Time.timeScale = 1.0f;
+        HasFinishedLoading = true;
     }
 }

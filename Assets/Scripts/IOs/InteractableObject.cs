@@ -3,52 +3,44 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-    public IOData Data;
+    public IOData ioData;
+    public NPCData npcData;
+    private CinemachineImpulseSource CMISource;
 
+    public bool IsWarping {  get; set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        CMISource = GetComponent<CinemachineImpulseSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (SceneController.Instance.HasFinishedLoading)
+            IsWarping = false;
     }
 
-    public void Interact()
+    public void PickUpItem()
     {
-        switch (Data.interactMethod)
-        {
-            case 1:
-                
-
-
-            case 2:
-
-            case 3:
-
-            default:
-                return;
-
-        }
-        
+        InventoryManager.Instance.Add(ioData);
+        Destroy(gameObject);
     }
 
-    private void WarpObject()
+    public void TalkToPlayer()
     {
-        CinemachineImpulseSource CMISource = GetComponent<CinemachineImpulseSource>();
+
+    }
+    public void InteractWarpObject()
+    {
+        IsWarping = true;
+        Debug.Log("startcamerashake");
+        
         CMISource.GenerateImpulse();
        
         if (SceneController.Instance.CurrentOpenScene == 1)
             SceneController.Instance.StartCoroutine(SceneController.Instance.LoadScene(2));
         else if (SceneController.Instance.CurrentOpenScene == 2)
             SceneController.Instance.StartCoroutine(SceneController.Instance.LoadScene(1));
-    }
-
-    private void OnValidate()
-    {
-        gameObject.layer = Data.interactionLayer;
-        gameObject.tag = Data.objectTag;
     }
 }

@@ -9,10 +9,6 @@ public class TESTMOVEMENT : MonoBehaviour
 
     Rigidbody2D rb;
 
-    [SerializeField] CinemachineImpulseSource CMISource;
-
-    private bool _iswarping;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,22 +33,6 @@ public class TESTMOVEMENT : MonoBehaviour
                 rb.linearVelocityX = 0;
         }
 
-        if (warpObjectCollision)
-        {
-            if (Input.GetKeyUp(KeyCode.E) && !_iswarping)
-            {
-                CMISource.GenerateImpulse();
-                _iswarping = true;
-                if (SceneController.Instance.CurrentOpenScene == 1)
-                    SceneController.Instance.StartCoroutine(SceneController.Instance.LoadScene(2));
-                else if (SceneController.Instance.CurrentOpenScene == 2)
-                    SceneController.Instance.StartCoroutine(SceneController.Instance.LoadScene(1));
-            }
-        }
-        else if (!warpObjectCollision)
-        {
-            _iswarping = false;
-        }
     }
 
     #region EDITOR METHODS

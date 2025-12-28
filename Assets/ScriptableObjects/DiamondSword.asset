@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba47f485fe08c1438373920e546c3d7, type: 3}
   m_Name: DiamondSword
   m_EditorClassIdentifier: Assembly-CSharp::IOData
-  itemName: DiamondSword
-  itemSprite: {fileID: 0}
-  interactMethod: 3
+  name: 
+  isNPC: 0
+  isItem: 1
+  isWarpObject: 0
   interactionLayer:
     serializedVersion: 2
     m_Bits: 4096
   objectTag: Item
+  messages: []
+  itemSprite: {fileID: 0}

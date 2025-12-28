@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba47f485fe08c1438373920e546c3d7, type: 3}
   m_Name: WarpObjectData
   m_EditorClassIdentifier: Assembly-CSharp::InteractionData
-  itemName: 
-  itemSprite: {fileID: 0}
-  interactMethod: 1
+  name: 
+  isNPC: 0
+  isItem: 0
+  isWarpObject: 1
   interactionLayer:
     serializedVersion: 2
     m_Bits: 1024
   objectTag: WarpObject
+  messages: []
+  itemSprite: {fileID: 0}

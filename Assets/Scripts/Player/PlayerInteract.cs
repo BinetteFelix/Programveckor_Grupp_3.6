@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -5,8 +7,11 @@ public class PlayerInteract : MonoBehaviour
 {
     private GameObject IO;
     private InteractableObject ioHandler;
-    public PlayerData PlayerData;
+    private IOData ioData;
     private CircleCollider2D cC2D;
+
+    public PlayerData PlayerData;
+    
 
     public bool IsInteractRange { get; private set; }
     private bool isItemTrigger;
@@ -28,11 +33,18 @@ public class PlayerInteract : MonoBehaviour
         #endregion
 
         #region INPUT HANDLER
-        _interactInput = Input.GetButtonUp("Interact");
+        //_interactInput = Input.GetButtonUp("Interact");
+        _interactInput = Input.GetKeyUp(KeyCode.E);
 
         if (_interactInput)
             OnInteractInput();
         #endregion
+
+        if (CanPickUp() && LastPressedInteractTime > 0)
+        {
+            Interact();
+        }
+
     }
 
     private void OnInteractInput()
@@ -42,16 +54,12 @@ public class PlayerInteract : MonoBehaviour
     
     private void Interact()
     {
-        GameObject[] itemObjects = GameObject.FindGameObjectsWithTag("Item");
-        foreach (var item in itemObjects)
-        {
-            if (itemObjects != null && Vector2.Distance(gameObject.transform.position, item.transform.position) < PlayerData.interactionRadius)
-            {
-
-                ioHandler.Interact();
-                Debug.Log($"{ioHandler.Data.objectTag} was picked up");
-            }
-        }
+        if (ioData.isNPC)
+            ioHandler.TalkToPlayer();
+        else if (ioData.isItem)
+            ioHandler.PickUpItem();
+        else if (ioData.isWarpObject && !ioHandler.IsWarping)
+            ioHandler.InteractWarpObject();
     }
 
     private bool CanPickUp()
@@ -62,13 +70,25 @@ public class PlayerInteract : MonoBehaviour
     {
         IO = collision.gameObject;
         ioHandler = IO.GetComponent<InteractableObject>();
+        ioData = ioHandler.ioData;
 
-        if (ioHandler != null)
+        if (ioHandler != null && collision.isTrigger)
         {
-            if (ioHandler.Data.interactionLayer == PlayerData._itemLayer)
-            {
-                ioHandler.Interact();
-            }
+            IsInteractRange = true;
+            Debug.Log("Can interact");
+            
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        IO = collision.gameObject;
+        ioHandler = IO.GetComponent<InteractableObject>();
+        ioData = ioHandler.ioData;
+
+        if (ioHandler != null && collision.isTrigger)
+        {
+            Debug.Log("Can't interact");
+            IsInteractRange = false;
         }
     }
 }
