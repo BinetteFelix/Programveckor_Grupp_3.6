@@ -12,7 +12,6 @@ public class SceneController : MonoBehaviour
 
     #region STATE PARAMETERS
     public bool IsPaused { get; private set; }
-    private bool _invIsActive;
     public bool HasFinishedLoading { get; private set; }
     public int CurrentOpenScene { get; private set; }
     #endregion
@@ -38,6 +37,7 @@ public class SceneController : MonoBehaviour
         }
     }
 
+    #region OPENING & CLOSING PANELS
     public void TogglePause()
     {
         IsPaused = !PauseMenu.activeSelf;
@@ -49,8 +49,8 @@ public class SceneController : MonoBehaviour
     public void ToggleInventory()
     {
         InventoryMenu.SetActive(!InventoryMenu.activeSelf);
-        InventoryManager.Instance.LoadInventory();
     }
+    #endregion
 
     public IEnumerator LoadScene(int index)
     {

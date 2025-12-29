@@ -23,7 +23,6 @@ public class InteractableObject : MonoBehaviour
 
     public void PickUpItem()
     {
-        InventoryManager.Instance.Add(ioData);
         Destroy(gameObject);
     }
 
