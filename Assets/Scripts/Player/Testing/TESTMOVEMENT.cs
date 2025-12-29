@@ -31,6 +31,10 @@ public class TESTMOVEMENT : MonoBehaviour
                 rb.linearVelocityX = 5;
             else
                 rb.linearVelocityX = 0;
+
+            if (Input.GetButtonUp("Inventory"))
+                SceneController.Instance.ToggleInventory();
+
         }
 
     }

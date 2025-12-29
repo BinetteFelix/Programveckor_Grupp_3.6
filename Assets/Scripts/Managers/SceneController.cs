@@ -6,11 +6,13 @@ public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject InventoryMenu;
     [SerializeField] private GameObject SettingsMenu;
     [SerializeField] private GameObject LoadingMenu;
 
     #region STATE PARAMETERS
     public bool IsPaused { get; private set; }
+    private bool _invIsActive;
     public bool HasFinishedLoading { get; private set; }
     public int CurrentOpenScene { get; private set; }
     #endregion
@@ -43,6 +45,11 @@ public class SceneController : MonoBehaviour
         SettingsMenu.SetActive(false);
 
         Time.timeScale = PauseMenu.activeSelf ? 0.0f : 1.0f;
+    }
+    public void ToggleInventory()
+    {
+        InventoryMenu.SetActive(!InventoryMenu.activeSelf);
+        InventoryManager.Instance.LoadInventory();
     }
 
     public IEnumerator LoadScene(int index)

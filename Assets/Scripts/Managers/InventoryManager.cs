@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -40,11 +38,20 @@ public class InventoryManager : MonoBehaviour
         {
             GameObject itemObject = Instantiate(BaseInventoryItem, InventoryGrid);
             
-            Image itemSprite = itemObject.GetComponent<Image>();
-            itemSprite.sprite = item.itemSprite;
+            Image[] itemSprites = itemObject.GetComponentsInChildren<Image>();
 
+            foreach (Image iSprite in itemSprites)
+            {
+                if (iSprite.name == "ItemSprite")
+                {
+                    iSprite.sprite = item.itemSprite;
+                    Debug.Log("Set image");
+                }
+            }
+            /* 
             TextMeshProUGUI itemName = GetComponent<TextMeshProUGUI>();
             itemName.text = item.name;
+            */
         }
     }
 }
