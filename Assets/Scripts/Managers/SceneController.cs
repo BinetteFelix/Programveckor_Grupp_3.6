@@ -49,6 +49,17 @@ public class SceneController : MonoBehaviour
     public void ToggleInventory()
     {
         InventoryMenu.SetActive(!InventoryMenu.activeSelf);
+
+        #region Close ItemInformationTab
+        GameObject itemInformationParent = GameObject.FindGameObjectWithTag("ItemInformation");
+
+        if (itemInformationParent != null)
+        {
+            itemInformationParent.GetComponent<ItemInformationContent>().selectedItemSprite.gameObject.SetActive(false);
+            itemInformationParent.GetComponent<ItemInformationContent>().selectedItemName.gameObject.SetActive(false);
+            itemInformationParent.GetComponent<ItemInformationContent>().selectedItemDescription.gameObject.SetActive(false);
+        }
+        #endregion
     }
     #endregion
 

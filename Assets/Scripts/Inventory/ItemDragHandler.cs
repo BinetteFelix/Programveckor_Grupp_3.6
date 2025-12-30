@@ -72,19 +72,13 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         GameObject itemInformationParent = GameObject.FindGameObjectWithTag("ItemInformation");
-        itemInformationParent.GetComponentInChildren<Image>().sprite = itemData.itemSprite;
 
-        TextMeshProUGUI[] texts = itemInformationParent.GetComponentsInChildren<TextMeshProUGUI>();
-        foreach(TextMeshProUGUI text in texts)
-        {
-            if (text.name == "Name_Text")
-            {
-                text.text = itemData.itemName;
-            }
-            else
-            {
-                text.text = itemData.itemInformation;
-            }
-        }
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemSprite.gameObject.SetActive(true);
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemName.gameObject.SetActive(true);
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemDescription.gameObject.SetActive(true);
+
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemSprite.sprite = itemData.itemSprite;
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemName.text = itemData.itemName;
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemDescription.text = itemData.itemInformation;
     }
 }

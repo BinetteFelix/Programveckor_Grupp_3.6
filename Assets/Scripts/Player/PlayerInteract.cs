@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
@@ -70,7 +67,10 @@ public class PlayerInteract : MonoBehaviour
     {
         IO = collision.gameObject;
         ioHandler = IO.GetComponent<InteractableObject>();
-        ioData = ioHandler.ioData;
+        if (ioHandler != null)
+        {
+            ioData = ioHandler.ioData;
+        }
 
         if (ioHandler != null && collision.isTrigger)
         {
@@ -83,8 +83,10 @@ public class PlayerInteract : MonoBehaviour
     {
         IO = collision.gameObject;
         ioHandler = IO.GetComponent<InteractableObject>();
-        ioData = ioHandler.ioData;
-
+        if (ioHandler != null)
+        {
+            ioData = ioHandler.ioData;
+        }
         if (ioHandler != null && collision.isTrigger)
         {
             Debug.Log("Can't interact");
