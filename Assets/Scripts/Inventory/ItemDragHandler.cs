@@ -1,8 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
+    public ItemData itemData;
     Transform originalParent;
     CanvasGroup canvasGroup;
 
@@ -14,11 +17,10 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     public void OnBeginDrag(PointerEventData eventData)
     {
         originalParent = transform.parent;
-        transform.SetParent(transform.root);
+        transform.SetParent(transform);
         canvasGroup.blocksRaycasts = false;
-        //canvasGroup.alpha = 0.9f;
+        canvasGroup.alpha = 0.6f;
     }
-
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = eventData.position;
@@ -65,5 +67,24 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         }
 
         GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // center the item
-    }   
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        GameObject itemInformationParent = GameObject.FindGameObjectWithTag("ItemInformation");
+        itemInformationParent.GetComponentInChildren<Image>().sprite = itemData.itemSprite;
+
+        TextMeshProUGUI[] texts = itemInformationParent.GetComponentsInChildren<TextMeshProUGUI>();
+        foreach(TextMeshProUGUI text in texts)
+        {
+            if (text.name == "Name_Text")
+            {
+                text.text = itemData.itemName;
+            }
+            else
+            {
+                text.text = itemData.itemInformation;
+            }
+        }
+    }
 }

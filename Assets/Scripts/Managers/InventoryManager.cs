@@ -8,13 +8,10 @@ public class InventoryManager : MonoBehaviour
     private ItemDictionary itemDictionary;
 
     [SerializeField] private Transform PotionsGrid;
-    [SerializeField] private Transform UtilitiesGrid;
-    [SerializeField] private Transform KeysGridGrid;
     [SerializeField] private GameObject SlotPrefab;
     [SerializeField] private GameObject BaseItemPrefab;
     public int slotCount;
     public List<GameObject> itemPrefabs = new List<GameObject>();
-    public List<IOData> Items = new List<IOData>();
 
 
     private void Awake()

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class IOData : ScriptableObject
 {
     [Header("Names & states")]
-    public string name;
+    public string ioName;
     public bool isNPC;
     public bool isItem;
     public bool isWarpObject;
@@ -20,4 +20,5 @@ public class IOData : ScriptableObject
 
     [Header("Item values")]
     public Sprite itemSprite;
+    public string itemInformation;
 }

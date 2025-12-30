@@ -88,13 +88,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3989148792492122257, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: ID
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8292628813738167024, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 659e4df3d1f5cea43bde5f640f9aed29, type: 3}
+      objectReference: {fileID: 21300000, guid: 3fc06d64a1f503b4ea06730dc174ed4c, type: 3}
+    - target: {fileID: 9010499415107904481, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: dfc7b019dfdd322438dbeee1529cb75c, type: 2}
     - target: {fileID: 9083831389197573502, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
       propertyPath: m_Name
-      value: Idk
+      value: Potion_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
