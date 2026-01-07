@@ -6,6 +6,8 @@ public class InteractableObject : MonoBehaviour
     public IOData ioData;
     public NPCData npcData;
     private CinemachineImpulseSource CMISource;
+    public int NormalSceneIndex;
+    public int DistortedSceneIndex;
 
     public bool IsWarping {  get; set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,9 +39,9 @@ public class InteractableObject : MonoBehaviour
         
         CMISource.GenerateImpulse();
        
-        if (SceneController.Instance.CurrentOpenScene == 1)
+        if (SceneController.Instance.CurrentOpenScene == NormalSceneIndex)
             SceneController.Instance.StartCoroutine(SceneController.Instance.LoadScene(2));
-        else if (SceneController.Instance.CurrentOpenScene == 2)
+        else if (SceneController.Instance.CurrentOpenScene == DistortedSceneIndex)
             SceneController.Instance.StartCoroutine(SceneController.Instance.LoadScene(1));
     }
 }

@@ -71,6 +71,9 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+
+
+        #region Get and Set ItemInformation
         GameObject itemInformationParent = GameObject.FindGameObjectWithTag("ItemInformation");
 
         itemInformationParent.GetComponent<ItemInformationContent>().selectedItemSprite.gameObject.SetActive(true);
@@ -80,5 +83,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         itemInformationParent.GetComponent<ItemInformationContent>().selectedItemSprite.sprite = itemData.itemSprite;
         itemInformationParent.GetComponent<ItemInformationContent>().selectedItemName.text = itemData.itemName;
         itemInformationParent.GetComponent<ItemInformationContent>().selectedItemDescription.text = itemData.itemInformation;
+        #endregion
+
     }
 }
