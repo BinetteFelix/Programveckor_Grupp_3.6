@@ -12,6 +12,7 @@ TagManager:
   - SendToNormalWorld
   - Item
   - ItemInformation
+  - Ground
   layers:
   - Default
   - TransparentFX
