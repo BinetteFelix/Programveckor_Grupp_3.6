@@ -875,7 +875,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0
+  near clip plane: 0.01
   far clip plane: 50
   field of view: 34
   orthographic: 1
@@ -1292,10 +1292,10 @@ MonoBehaviour:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
       Enabled: 1
-      Size: {x: 0.05, y: 0.2}
+      Size: {x: 0.07, y: 0.2}
     HardLimits:
       Enabled: 1
-      Size: {x: 0.05, y: 0.8}
+      Size: {x: 0.07, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 0
   TargetOffset: {x: 0, y: 0, z: 0}
@@ -1331,7 +1331,7 @@ MonoBehaviour:
   Lens:
     FieldOfView: 34
     OrthographicSize: 5
-    NearClipPlane: 0
+    NearClipPlane: 0.01
     FarClipPlane: 50
     Dutch: 0
     ModeOverride: 0
