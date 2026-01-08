@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
     private ItemDictionary itemDictionary;
 
-    [SerializeField] private Transform PotionsGrid;
+    [SerializeField] private Transform InventoryGrid;
     [SerializeField] private GameObject SlotPrefab;
     [SerializeField] private GameObject BaseItemPrefab;
     public int slotCount;
@@ -26,11 +26,27 @@ public class InventoryManager : MonoBehaviour
         itemDictionary = FindAnyObjectByType<ItemDictionary>();
     }
 
+    public bool AddItem(GameObject itemPrefab)
+    {
+        foreach (Transform slotTransform in InventoryGrid)
+        {
+            Slot slot = slotTransform.GetComponent<Slot>();
+            if (slot != null && slot.currentItem == null)
+            {
+                GameObject newItem = Instantiate(itemPrefab, slot.transform);
+                newItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                slot.currentItem = newItem;
+                return true;
+            }
+        }
+        Debug.Log("Inventory is full");
+        return false;
+    }
     public List<InventorySaveData> GetInventoryItems()
     {
         List <InventorySaveData> invData = new List <InventorySaveData>();
 
-        foreach (Transform slotTransform in PotionsGrid)
+        foreach (Transform slotTransform in InventoryGrid)
         {
             Slot slot = slotTransform.GetComponent<Slot>();
             if (slot.currentItem != null)
@@ -44,19 +60,19 @@ public class InventoryManager : MonoBehaviour
 
     public void SetInventoryItems(List<InventorySaveData> inventorySaveData)
     {
-        foreach (Transform child in PotionsGrid.transform)
+        foreach (Transform child in InventoryGrid.transform)
         {
             Destroy(child.gameObject);
         }
         for(int i = 0; i < slotCount; i++)
         {
-            Instantiate(SlotPrefab, PotionsGrid.transform);
+            Instantiate(SlotPrefab, InventoryGrid.transform);
         }
         foreach(InventorySaveData data in inventorySaveData)
         {
             if (data .slotIndex < slotCount)
             {
-                Slot slot = PotionsGrid.transform.GetChild(data.slotIndex).GetComponent<Slot>();
+                Slot slot = InventoryGrid.transform.GetChild(data.slotIndex).GetComponent<Slot>();
                 GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
                 if (itemPrefab != null)
                 {

@@ -9,16 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba47f485fe08c1438373920e546c3d7, type: 3}
-  m_Name: DiamondSword
-  m_EditorClassIdentifier: Assembly-CSharp::IOData
-  name: 
-  isNPC: 0
-  isItem: 1
-  isWarpObject: 0
-  interactionLayer:
-    serializedVersion: 2
-    m_Bits: 4096
-  objectTag: Item
-  messages: []
+  m_Script: {fileID: 11500000, guid: 473c27e0d0658f04b81df26aac9f4d1c, type: 3}
+  m_Name: DiamondSword 1
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: Diamond Sword
   itemSprite: {fileID: 21300000, guid: 92f35aeb3278a174eb448c8339407ceb, type: 3}
+  itemInformation: PlaceHolderMelee
