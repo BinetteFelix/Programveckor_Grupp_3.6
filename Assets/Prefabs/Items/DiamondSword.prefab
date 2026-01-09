@@ -104,10 +104,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.98828125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.9707031
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.506
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989148792492122257, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: ID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8292628813738167024, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 92f35aeb3278a174eb448c8339407ceb, type: 3}
+    - target: {fileID: 9010499415107904481, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 61166f2d6ea99e3419d733bec154e13b, type: 2}
     - target: {fileID: 9083831389197573502, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
       propertyPath: m_Name
       value: DiamondSword
