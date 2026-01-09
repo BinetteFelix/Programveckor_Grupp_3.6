@@ -5,53 +5,85 @@ public class Movement : MonoBehaviour
 {
     //Variables
     Rigidbody2D rb;
-    InputAction moveAction;
-    InputAction jumpAction;
+    InputAction moveAction, jumpAction, runAction;
+    Vector2 moveValue;
+    bool jumpValue;
+    bool runValue;
     bool isJumping;
-    bool isFalling;
+    bool isFalling = false;
+    bool isRunning;
+
 
     //Values
     [SerializeField]
-    float maxSpeed = 5f;
-    float jumpPower = 10f;
+    float maxSpeed;
+    [SerializeField]
+    float jumpPower = 5.5f;
     float maxFallSpeed = 10f;
+    [SerializeField]
+    float fallSpeedIncrease = 5f;
 
     void Start()
     {
         InputSystem.actions.Enable();
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
+        runAction = InputSystem.actions.FindAction("Run");
+
         rb = this.GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        // Get the values from the actions;
+        moveValue = moveAction.ReadValue<Vector2>();
+        jumpValue = jumpAction.IsPressed();
+        runValue = runAction.IsPressed();
+        
+    }
 
-        // Get the values from the move action and jump action
-        Vector2 moveValue = moveAction.ReadValue<Vector2>();
-        bool jumpValue = jumpAction.IsPressed();
+    private void FixedUpdate()
+    {
+        Move(1);
+        Jump();
+    }
 
+    private void Move(float lerpAmount)
+    {
         //Make the player move faster depending on how close they are to the max speed
         float targetSpeed = moveValue.x * maxSpeed;
+        targetSpeed = Mathf.Lerp(rb.linearVelocityX, targetSpeed, lerpAmount);
         float speedDif = targetSpeed - rb.linearVelocityX;
         float movement = speedDif * 3f;
         rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
-        //Jump
-        if(jumpValue && isJumping == false)
+        //Deaccelerera när man slutar röra på sig
+        if (moveValue.x == 0 && isJumping == false)
         {
+           // rb.linearVelocityX = 0;
+        }
+        //Increase speed if running
+        maxSpeed = (runValue) ? 7.5f : 6f;
+    }
+
+    private void Jump()
+    {
+        //Jump
+        if (jumpValue && isJumping == false)
+        {
+            Debug.Log("Jump!");
             isJumping = true;
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-        } 
-        if(!jumpValue && rb.linearVelocityY > 0)
+        }
+        //Make it so when you release the jump button velocity is halfed, so you can do shorter jumps by just tapping
+        if (!jumpValue && rb.linearVelocityY > 0)
         {
-            rb.linearVelocityY = rb.linearVelocityY / 2;
+            rb.linearVelocityY /= 2;
         }
         //Make it so you gravity increases when you start falling
         if (rb.linearVelocityY < 0 && isFalling == false)
         {
             isFalling = true;
-            SetGravityScale(1.5f);
-            Debug.Log(rb.gravityScale);
+            SetGravityScale(5f);
         }
         //Limit max fall speed
         rb.linearVelocityY = Mathf.Max(rb.linearVelocityY, -maxFallSpeed);
@@ -60,12 +92,10 @@ public class Movement : MonoBehaviour
         {
             rb.gravityScale = 1.0f;
         }
-
-
     }
     private void SetGravityScale(float amount)
     {
-        rb.gravityScale = rb.gravityScale * amount;
+        rb.gravityScale *= amount;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
