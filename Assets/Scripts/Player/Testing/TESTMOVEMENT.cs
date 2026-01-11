@@ -1,8 +1,5 @@
-using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class TESTMOVEMENT : MonoBehaviour
 {
@@ -18,12 +15,14 @@ public class TESTMOVEMENT : MonoBehaviour
     [SerializeField] Transform groundCheck;
 
     public PlayerData Data;
-
+    bool canjump;
     //Values
     float maxSpeed = 7f;
     [SerializeField] float jumpPower = 10f;
     float maxFallSpeed = 10f;
     float fallSpeedIncreaseAtJumpApex = 2f;
+
+    private float LastPressedJumpTime;
 
     void Start()
     {
@@ -37,6 +36,8 @@ public class TESTMOVEMENT : MonoBehaviour
 
     void Update()
     {
+        LastPressedJumpTime -= Time.deltaTime;
+
         // Get the values from the actions;
         moveValue = moveAction.ReadValue<Vector2>();
         jumpValue = jumpAction.IsPressed();
@@ -55,10 +56,14 @@ public class TESTMOVEMENT : MonoBehaviour
 
     bool GroundCheck()
     {
-        if (Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer))
+        if(Physics2D.Raycast(transform.position, Vector2.down, 0.63f, groundLayer))
         {
             return true;
         }
+        /*if (Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer))
+        {
+            return true;
+        }*/
         else return false;
     }
 
@@ -105,27 +110,28 @@ public class TESTMOVEMENT : MonoBehaviour
     private void Jump()
     {
         //Jump
-        if (jumpValue && GroundCheck())
+        if (jumpValue && GroundCheck() && LastPressedJumpTime < 0)
         {
+            LastPressedJumpTime = 0.2f;
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
         //Make it so when you release the jump button velocity is halfed, so you can do shorter jumps by just tapping
-        if (!jumpValue && rb.linearVelocityY > 0)
+        else if (!jumpValue && rb.linearVelocityY > 0 && !GroundCheck())
         {
-            rb.linearVelocityY /= 2;
+            rb.linearVelocityY /= 3;
         }
         //Make it so you gravity increases when you start falling
-        if (rb.linearVelocityY < 0 && isFalling == false)
+        else if (rb.linearVelocityY < 0 && isFalling == false)
         {
             isFalling = true;
             rb.gravityScale *= fallSpeedIncreaseAtJumpApex;
         }
-        //Limit max fall speed
-        rb.linearVelocityY = Mathf.Max(rb.linearVelocityY, -maxFallSpeed);
-        //Reset gravity scale
-        if (isFalling == false && rb.linearVelocityY == 0 | rb.linearVelocityY > 0)
+        else
         {
-            rb.gravityScale = 1.0f;
+            rb.gravityScale = 2;
         }
+            //Limit max fall speed
+            rb.linearVelocityY = Mathf.Max(rb.linearVelocityY, -maxFallSpeed);
+        
     }
 }
