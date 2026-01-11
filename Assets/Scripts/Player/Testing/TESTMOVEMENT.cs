@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,9 @@ public class TESTMOVEMENT : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
 
+    [SerializeField] Transform leftRayOrigin;
+    [SerializeField] Transform rightRayOrigin;
+
     public PlayerData Data;
     bool canjump;
     //Values
@@ -23,6 +27,7 @@ public class TESTMOVEMENT : MonoBehaviour
     float fallSpeedIncreaseAtJumpApex = 2f;
 
     private float LastPressedJumpTime;
+    private float LastOnGroundTime;
 
     void Start()
     {
@@ -37,6 +42,7 @@ public class TESTMOVEMENT : MonoBehaviour
     void Update()
     {
         LastPressedJumpTime -= Time.deltaTime;
+        LastOnGroundTime -= Time.deltaTime;
 
         // Get the values from the actions;
         moveValue = moveAction.ReadValue<Vector2>();
@@ -52,20 +58,40 @@ public class TESTMOVEMENT : MonoBehaviour
                 SceneController.Instance.ToggleInventory();
             }
         }
-    }
+
+        if (GroundCheck())
+        {
+            LastOnGroundTime = 0.1f;
+        }
+
+        if (LastOnGroundTime < 0 && rb.linearVelocityY < -1.5)
+        {
+            jumpAction.Disable();
+        }
+        else
+            jumpAction.Enable();
+    } 
 
     bool GroundCheck()
     {
-        /*if(Physics2D.Raycast(transform.position, Vector2.down, 0.63f, groundLayer))
+        bool rayHit;
+        RaycastHit2D[] rayCasts = new RaycastHit2D[2];
+
+        rayCasts[0] = Physics2D.Raycast(leftRayOrigin.position, Vector2.down, 0.63f, groundLayer);
+        rayCasts[1] = Physics2D.Raycast(rightRayOrigin.position, Vector2.down, 0.63f, groundLayer);
+
+        if (Physics2D.RaycastNonAlloc(transform.position, Vector2.down, rayCasts, 0.63f, groundLayer) > 0)
         {
-            return true;
+            rayHit = true;
+            return rayHit;
         }
-        */
-        if (Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer))
+        else
         {
-            return true;
+            rayHit = false;
+            return rayHit;
         }
-        else return false;
+
+        
     }
 
 
@@ -84,7 +110,7 @@ public class TESTMOVEMENT : MonoBehaviour
         float speedDif = targetSpeed - rb.linearVelocityX;
         float movement = speedDif * 3f;
         //Increase speed if running
-        if (running == false)
+        if (!running)
         {
             rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
         }
@@ -113,7 +139,7 @@ public class TESTMOVEMENT : MonoBehaviour
         //Jump
         if (jumpValue && GroundCheck() && LastPressedJumpTime < 0)
         {
-            LastPressedJumpTime = 0.2f;
+            LastPressedJumpTime = 0.25f;
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
         //Make it so when you release the jump button velocity is halfed, so you can do shorter jumps by just tapping
