@@ -4,22 +4,38 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     //Variables
-    Rigidbody2D rb;
-    InputAction moveAction, jumpAction, runAction;
-    Vector2 moveValue;
-    bool jumpValue;
-    bool running;
-    bool isFalling = false;
-    bool isRunning;
+    private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+    private InputAction moveAction, jumpAction, runAction;
+
+    private Vector2 moveValue;
+    private bool jumpValue;
+    private bool runValue;
+    private bool isFalling = false;
+   
+    private bool isWallSliding;
+    private bool isFacingRight = true;
+
+    private float maxSpeed = 7f;
+    private float jumpPower = 10f;
+    private float maxFallSpeed = 10f;
+    private float wallSlidingSpeed = 2f;
+
+    private float fallSpeedIncreaseAtJumpApex = 2f;
+    private float LastPressedJumpTime;
+
+    private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingTime = 0.2f;
+    private float wallJumpingCounter;
+    private float wallJumpingDuration = 0.05f;
+    private Vector2 wallJumpingPower = new Vector2(4f, 8f);
+
+    
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
-
-
-    //Values
-    float maxSpeed = 7f;
-    [SerializeField] float jumpPower = 10f;
-    float maxFallSpeed = 10f;
-    float fallSpeedIncreaseAtJumpApex = 2f;
+    [SerializeField] LayerMask wallLayer;
+    [SerializeField] Transform wallCheck;
 
     void Start()
     {
@@ -29,31 +45,63 @@ public class Movement : MonoBehaviour
         runAction = InputSystem.actions.FindAction("Run");
 
         rb = this.GetComponent<Rigidbody2D>();
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
+        LastPressedJumpTime -= Time.deltaTime;
         // Get the values from the actions;
         moveValue = moveAction.ReadValue<Vector2>();
         jumpValue = jumpAction.IsPressed();
-        running = runAction.IsPressed();
-    }
-
-    bool GroundCheck()
-    {
-        if (Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer))
+        runValue = runAction.IsPressed();
+        WallSlide();
+        WallJump();
+        if (!isWallJumping)
         {
-            return true;
+            Flip();
         }
-        else return false;
     }
-    
 
     private void FixedUpdate()
     {
-        Move(1);
-        Jump();
+        if (!isWallJumping)
+        {
+            Move(1);
+            Jump();
+        }
+        
     }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer);
+        /* if (Physics2D.Raycast(transform.position, Vector2.down, 0.63f, groundLayer))
+         {
+             return true;
+         }
+        */
+    }
+
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.02f, wallLayer);
+    }
+
+
+
+    void Flip()
+    {
+        if(isFacingRight && moveValue.x < 0f || !isFacingRight && moveValue.x > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+    }
+
+
 
     private void Move(float lerpAmount)
     {
@@ -64,7 +112,7 @@ public class Movement : MonoBehaviour
         float speedDif = targetSpeed - rb.linearVelocityX;
         float movement = speedDif * 3f;
         //Increase speed if running
-        if (running == false)
+        if (runValue == false)
         {
             rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
         } else
@@ -75,10 +123,11 @@ public class Movement : MonoBehaviour
         //Set velocity to 0 when you stop holding the stick
         if (moveValue.x == 0)
         {
-            if(rb.linearVelocityX > 0)
+            if (rb.linearVelocityX > 0)
             {
                 rb.linearVelocityX -= 0.075f;
-            } else
+            }
+            else
             {
                 rb.linearVelocityX += 0.075f;
             }
@@ -89,27 +138,78 @@ public class Movement : MonoBehaviour
     private void Jump()
     {
         //Jump
-        if (jumpValue && GroundCheck())
+        if (jumpValue && IsGrounded() && LastPressedJumpTime < 0)
         {
+            LastPressedJumpTime = 0.2f;
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
         //Make it so when you release the jump button velocity is halfed, so you can do shorter jumps by just tapping
-        if (!jumpValue && rb.linearVelocityY > 0)
+        else if (!jumpValue && rb.linearVelocityY > 0 && !IsGrounded())
         {
-            rb.linearVelocityY /= 2;
+            rb.linearVelocityY /= 3;
         }
         //Make it so you gravity increases when you start falling
-        if (rb.linearVelocityY < 0 && isFalling == false)
+        else if (rb.linearVelocityY < 0 && isFalling == false)
         {
             isFalling = true;
             rb.gravityScale *= fallSpeedIncreaseAtJumpApex;
         }
+        else
+        {
+            rb.gravityScale = 2;
+        }
         //Limit max fall speed
         rb.linearVelocityY = Mathf.Max(rb.linearVelocityY, -maxFallSpeed);
-        //Reset gravity scale
-        if (isFalling == false && rb.linearVelocityY == 0 | rb.linearVelocityY > 0)
+    }
+
+    private void WallSlide()
+    {
+        if(IsWalled() && !IsGrounded() && moveValue.x != 0f)
         {
-            rb.gravityScale = 1.0f;
+            isWallSliding = true;
+            rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -wallSlidingSpeed, maxSpeed);
         }
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+
+    private void WallJump()
+    {
+        if(isWallSliding == true)
+        {
+            isWallJumping = false;
+            wallJumpingDirection = -transform.localScale.x;
+            wallJumpingCounter = wallJumpingTime;
+
+            CancelInvoke(nameof(StopWallJumping));
+        }
+        else
+        {
+            wallJumpingCounter -= Time.deltaTime;
+        }
+        if (jumpValue && wallJumpingCounter > 0f && LastPressedJumpTime < 0)
+        {
+            isWallJumping = true;
+            LastPressedJumpTime = 0.2f;
+            rb.linearVelocity = new Vector2(-wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            wallJumpingCounter = 0f;
+
+            if (transform.localScale.x != wallJumpingDirection)
+            {
+                isFacingRight = !isFacingRight;
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1f;
+                transform.localScale = localScale;
+            }
+            Invoke(nameof(StopWallJumping), wallJumpingDuration);
+        }
+        
+    }
+
+    private void StopWallJumping()
+    {
+        isWallJumping = false;
     }
 }

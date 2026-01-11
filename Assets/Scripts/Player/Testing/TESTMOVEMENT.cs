@@ -56,14 +56,15 @@ public class TESTMOVEMENT : MonoBehaviour
 
     bool GroundCheck()
     {
-        if(Physics2D.Raycast(transform.position, Vector2.down, 0.63f, groundLayer))
+        /*if(Physics2D.Raycast(transform.position, Vector2.down, 0.63f, groundLayer))
         {
             return true;
         }
-        /*if (Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer))
+        */
+        if (Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer))
         {
             return true;
-        }*/
+        }
         else return false;
     }
 
@@ -131,7 +132,6 @@ public class TESTMOVEMENT : MonoBehaviour
             rb.gravityScale = 2;
         }
             //Limit max fall speed
-            rb.linearVelocityY = Mathf.Max(rb.linearVelocityY, -maxFallSpeed);
-        
+            rb.linearVelocityY = Mathf.Max(rb.linearVelocityY, -maxFallSpeed); 
     }
 }
