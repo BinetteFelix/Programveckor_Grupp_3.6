@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
@@ -31,7 +32,7 @@ public class SceneController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         CurrentOpenScene = SceneManager.GetActiveScene().buildIndex;
 
-        if (Input.GetButtonUp("Pause"))
+        if (InputManager.instance.menuAction.WasPressedThisFrame())
         {
             TogglePause();
         }
@@ -61,17 +62,28 @@ public class SceneController : MonoBehaviour
         }
         #endregion
     }
+
+    public void SetSelectedGameObject(GameObject button)
+    {
+        EventSystem.current.SetSelectedGameObject(button);
+    }
     #endregion
 
     public IEnumerator LoadScene(int index)
     {
         HasFinishedLoading = false;
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSecondsRealtime(4.5f);
 
         SceneManager.LoadScene(index);
         LoadingMenu.SetActive(true);
 
         StartCoroutine(Loading());
+    }
+
+    public void ChangeScene(int sceneIndex)
+    {
+        Debug.Log("tried changing scene!");
+        StartCoroutine(LoadScene(sceneIndex));
     }
     private IEnumerator Loading()
     {

@@ -43,10 +43,9 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        InputSystem.actions.Enable();
-        moveAction = InputSystem.actions.FindAction("Move");
-        jumpAction = InputSystem.actions.FindAction("Jump");
-        runAction = InputSystem.actions.FindAction("Run");
+        moveAction = InputManager.instance.moveAction;
+        jumpAction = InputManager.instance.jumpAction;
+        runAction = InputManager.instance.runAction;
 
         rb = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
