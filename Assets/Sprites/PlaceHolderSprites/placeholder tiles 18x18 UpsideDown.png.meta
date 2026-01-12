@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 836209c0be1e74c46a0e7196726cbbcd
+guid: 8c919a77b9fe7394b95cf0fcda5a35eb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1246678598450881068
-    second: placeholder tiles 18x18_0
+      213: -8397378956848725596
+    second: placeholder tiles 18x18 UpsideDown_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: placeholder tiles 18x18_0
+      name: placeholder tiles 18x18 UpsideDown_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,14 +115,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ddd04e7b68e2bee0800000000000000
-      internalID: -1246678598450881068
+      spriteID: 4a101b87454867b80800000000000000
+      internalID: -8397378956848725596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placeholder tiles 18x18_1
+      name: placeholder tiles 18x18 UpsideDown_1
       rect:
         serializedVersion: 2
         x: 18
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f17f86838a91f6439f0d84e815b6707
-      internalID: 1582111347
+      spriteID: fd7180e50b316de4f9341f075d44fc34
+      internalID: 1255818477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placeholder tiles 18x18_2
+      name: placeholder tiles 18x18 UpsideDown_2
       rect:
         serializedVersion: 2
         x: 36
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55ca8a6b34be5d846be8bce7e20f8a15
-      internalID: 335785218
+      spriteID: 8fa80fd9705d2a144bc65a9fad6a0277
+      internalID: 1742947233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placeholder tiles 18x18_3
+      name: placeholder tiles 18x18 UpsideDown_3
       rect:
         serializedVersion: 2
         x: 0
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac22acb57b6923e4aa6cce7a7eae95b5
-      internalID: 1391490552
+      spriteID: f6d6613c9b16d7143aa3678310159238
+      internalID: -124402116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placeholder tiles 18x18_4
+      name: placeholder tiles 18x18 UpsideDown_4
       rect:
         serializedVersion: 2
         x: 18
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee1eb0073f0e2d248a0017592ac06d60
-      internalID: 1273415127
+      spriteID: 1b2491761c23a6c419b4405ec5d1945e
+      internalID: 1132886949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placeholder tiles 18x18_5
+      name: placeholder tiles 18x18 UpsideDown_5
       rect:
         serializedVersion: 2
         x: 36
@@ -225,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a686e233cb62dfb47a79724a0cb3fd12
-      internalID: -1867792851
+      spriteID: 8b8789eeecaf3f847b6fb5f80a30bff0
+      internalID: 855915317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placeholder tiles 18x18_6
+      name: placeholder tiles 18x18 UpsideDown_6
       rect:
         serializedVersion: 2
         x: 0
@@ -247,14 +247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee11d768ad12f1f4da4110e7cc4cf954
-      internalID: 1574731889
+      spriteID: 1a47593ba2feac44383372d4bcd9f26c
+      internalID: 1221528371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placeholder tiles 18x18_7
+      name: placeholder tiles 18x18 UpsideDown_7
       rect:
         serializedVersion: 2
         x: 18
@@ -269,14 +269,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74be7872998f8574fa462263242c6964
-      internalID: 797608563
+      spriteID: f32afd31ab0d0ec49951325f624c2bf2
+      internalID: -1250682790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: placeholder tiles 18x18_8
+      name: placeholder tiles 18x18 UpsideDown_8
       rect:
         serializedVersion: 2
         x: 36
@@ -291,8 +291,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4d1704fc883c9d4290701750f259e57
-      internalID: 1157524481
+      spriteID: 96ff0f39fc8a5ef469b12659c2db0b46
+      internalID: -276529960
       vertices: []
       indices: 
       edges: []
@@ -301,7 +301,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fdb6444db4ff6284c8259cac5aea42a7
+    spriteID: 9ef7ef6f731008f4fb91d45e3440e778
     internalID: 0
     vertices: []
     indices: 
@@ -313,15 +313,15 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":18.0,"y":18.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      placeholder tiles 18x18_0: -1246678598450881068
-      placeholder tiles 18x18_1: 1582111347
-      placeholder tiles 18x18_2: 335785218
-      placeholder tiles 18x18_3: 1391490552
-      placeholder tiles 18x18_4: 1273415127
-      placeholder tiles 18x18_5: -1867792851
-      placeholder tiles 18x18_6: 1574731889
-      placeholder tiles 18x18_7: 797608563
-      placeholder tiles 18x18_8: 1157524481
+      placeholder tiles 18x18 UpsideDown_0: -8397378956848725596
+      placeholder tiles 18x18 UpsideDown_1: 1255818477
+      placeholder tiles 18x18 UpsideDown_2: 1742947233
+      placeholder tiles 18x18 UpsideDown_3: -124402116
+      placeholder tiles 18x18 UpsideDown_4: 1132886949
+      placeholder tiles 18x18 UpsideDown_5: 855915317
+      placeholder tiles 18x18 UpsideDown_6: 1221528371
+      placeholder tiles 18x18 UpsideDown_7: -1250682790
+      placeholder tiles 18x18 UpsideDown_8: -276529960
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
