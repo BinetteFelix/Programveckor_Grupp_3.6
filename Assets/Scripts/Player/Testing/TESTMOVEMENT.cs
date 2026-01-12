@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class TESTMOVEMENT : MonoBehaviour
 {
+    [SerializeField] private AudioClip slashSoundFX;
+
     //Variables
     Rigidbody2D rb;
     InputAction moveAction, jumpAction, runAction;
@@ -57,6 +59,11 @@ public class TESTMOVEMENT : MonoBehaviour
             {
                 SceneController.Instance.ToggleInventory();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            SoundFXManager.Instance.PlaySoundFXClip(slashSoundFX, transform, 1f);
         }
 
         if (GroundCheck())
