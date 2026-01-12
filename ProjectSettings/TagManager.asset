@@ -50,5 +50,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3895764665
+    locked: 0
+  - name: Trees Back
+    uniqueID: 921382473
+    locked: 0
+  - name: Trees Middle
+    uniqueID: 2671536721
+    locked: 0
+  - name: Trees Front
+    uniqueID: 3261066763
+    locked: 0
+  - name: Ground
+    uniqueID: 865756547
+    locked: 0
+  - name: InfrontCameraLayer
+    uniqueID: 478435951
+    locked: 0
   m_RenderingLayers:
   - Default
