@@ -145,7 +145,7 @@ public class TESTMOVEMENT : MonoBehaviour
     private void Jump()
     {
         //Jump
-        if (jumpValue && GroundCheck() && LastPressedJumpTime < 0)
+        if (jumpValue && GroundCheck() && LastPressedJumpTime < 0 && LastOnGroundTime > 0)
         {
             LastPressedJumpTime = 0.25f;
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);

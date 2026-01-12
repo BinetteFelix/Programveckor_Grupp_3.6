@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
 
     private float fallSpeedIncreaseAtJumpApex = 2f;
     private float LastPressedJumpTime;
+    private float LastOnGroundTime;
 
     private bool isWallJumping;
     private float wallJumpingDirection;
@@ -65,6 +66,12 @@ public class Movement : MonoBehaviour
         {
             Flip();
         }
+        if (LastOnGroundTime < 0 && rb.linearVelocityY < -1.5)
+        {
+            jumpAction.Disable();
+        }
+        else
+            jumpAction.Enable();
     }
 
     private void FixedUpdate()
@@ -80,10 +87,12 @@ public class Movement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer);
-        /* if (Physics2D.Raycast(transform.position, Vector2.down, 0.63f, groundLayer))
-         {
-             return true;
-         }
+        // Maybe use raycast instead (or maybe that's more for enemy AI)
+
+       /* if (Physics2D.Raycast(transform.position, Vector2.down, 0.63f, groundLayer))
+        {
+            return true;
+        }
         */
     }
 

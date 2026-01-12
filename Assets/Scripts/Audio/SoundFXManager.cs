@@ -25,6 +25,10 @@ public class SoundFXManager : MonoBehaviour
 
         float clipLength = audioSource.clip.length;
 
+        float randomPitch = Random.Range(0.95f, 1.05f);
+
+        audioSource.pitch = randomPitch;
+
         Destroy(audioSource.gameObject, clipLength);
     }
 }
