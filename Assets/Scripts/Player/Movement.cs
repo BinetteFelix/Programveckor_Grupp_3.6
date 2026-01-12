@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,9 +13,9 @@ public class Movement : MonoBehaviour
     private bool jumpValue;
     private bool runValue;
     private bool isFalling = false;
-   
+
     private bool isWallSliding;
-    private bool isFacingRight = true;
+    private bool isFacingRight = false;
 
     private float maxSpeed = 7f;
     private float jumpPower = 10f;
@@ -29,7 +30,10 @@ public class Movement : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.05f;
-    private Vector2 wallJumpingPower = new Vector2(4f, 8f);
+    private Vector2 wallJumpingPower = new Vector2(10f, 4f);
+
+    private float moveDisabledAfterWallJumpTime = 0.5f;
+    private Animator animator;
 
     
     [SerializeField] LayerMask groundLayer;
@@ -46,6 +50,7 @@ public class Movement : MonoBehaviour
 
         rb = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
+        animator = this.GetComponent<Animator>();
     }
 
     void Update()
@@ -95,9 +100,10 @@ public class Movement : MonoBehaviour
         if(isFacingRight && moveValue.x < 0f || !isFacingRight && moveValue.x > 0f)
         {
             isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            Vector3 wallCheckLocalPos = wallCheck.transform.localPosition;
+            wallCheckLocalPos.x *= -1f;
+            wallCheck.transform.localPosition = wallCheckLocalPos;
+           // transform.localScale = localScale;
         }
     }
 
@@ -114,9 +120,11 @@ public class Movement : MonoBehaviour
         //Increase speed if running
         if (runValue == false)
         {
+            animator.SetFloat("DirectionX", moveValue.x);
             rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
         } else
         {
+            animator.SetFloat("DirectionX", moveValue.x); //Change to actual run animation later
             rb.AddForce((movement * Vector2.right) * 1.25f, ForceMode2D.Force);
         }
 
@@ -189,7 +197,7 @@ public class Movement : MonoBehaviour
         {
             wallJumpingCounter -= Time.deltaTime;
         }
-        if (jumpValue && wallJumpingCounter > 0f && LastPressedJumpTime < 0)
+        if (jumpAction.WasPressedThisFrame() && wallJumpingCounter > 0f && LastPressedJumpTime < 0)
         {
             isWallJumping = true;
             LastPressedJumpTime = 0.2f;
@@ -198,10 +206,11 @@ public class Movement : MonoBehaviour
 
             if (transform.localScale.x != wallJumpingDirection)
             {
+                //Flip
                 isFacingRight = !isFacingRight;
-                Vector3 localScale = transform.localScale;
-                localScale.x *= -1f;
-                transform.localScale = localScale;
+                Vector3 wallCheckLocalPos = wallCheck.transform.localPosition;
+                wallCheckLocalPos.x *= -1f;
+                wallCheck.transform.localPosition = wallCheckLocalPos;
             }
             Invoke(nameof(StopWallJumping), wallJumpingDuration);
         }
