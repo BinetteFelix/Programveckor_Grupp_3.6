@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] private AudioClip slashSoundFX;
+
     //Variables
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -81,7 +83,11 @@ public class Movement : MonoBehaviour
             Move(1);
             Jump();
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            SoundFXManager.Instance.PlaySoundFXClip(slashSoundFX, transform);
+        }
     }
 
     private bool IsGrounded()

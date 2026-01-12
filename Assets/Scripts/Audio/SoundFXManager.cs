@@ -12,13 +12,11 @@ public class SoundFXManager : MonoBehaviour
             Instance = this;
     }
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform)
     {
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
 
         audioSource.resource = audioClip;
-
-        audioSource.volume = volume;
 
         if (!audioSource.isPlaying)
             audioSource.Play();

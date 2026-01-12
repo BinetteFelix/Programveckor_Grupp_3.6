@@ -64,7 +64,7 @@ public class TESTMOVEMENT : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            SoundFXManager.Instance.PlaySoundFXClip(slashSoundFX, transform, 1f);
+            SoundFXManager.Instance.PlaySoundFXClip(slashSoundFX, transform);
         }
 
         if (GroundCheck())
