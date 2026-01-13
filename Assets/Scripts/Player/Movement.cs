@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -215,8 +216,8 @@ public class Movement : MonoBehaviour
         if (jumpAction.WasPressedThisFrame() && wallJumpingCounter > 0f && LastPressedJumpTime < 0)
         {
             isWallJumping = true;
+            StartCoroutine(DisableAndReenableMovement());
             LastPressedJumpTime = 0.2f;
-            Debug.Log(wallJumpingDirection);
             rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             wallJumpingCounter = 0f;
 
@@ -231,6 +232,14 @@ public class Movement : MonoBehaviour
             Invoke(nameof(StopWallJumping), wallJumpingDuration);
         }
         
+    }
+
+    private IEnumerator DisableAndReenableMovement()
+    {
+        moveAction.Disable();
+        yield return new WaitForSeconds(0.1f);
+        moveAction.Enable();
+
     }
 
     private void StopWallJumping()
