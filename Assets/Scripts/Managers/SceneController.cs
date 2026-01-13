@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
@@ -11,6 +12,10 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject SettingsMenu;
     [SerializeField] private GameObject LoadingMenu;
 
+    [SerializeField] private GameObject UserInterfaceObject;
+    [SerializeField] private GameObject ResumeButton;
+    [SerializeField] private PlayerInput playerInput;
+
     #region STATE PARAMETERS
     public bool IsPaused { get; private set; }
     public bool HasFinishedLoading { get; private set; }
@@ -19,21 +24,23 @@ public class SceneController : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(UserInterfaceObject);
         if (Instance != null && Instance != this)
             Destroy(gameObject);
         else
             Instance = this;
+
+
     }
     private void Start()
     {
     }
     private void Update()
     {
-        DontDestroyOnLoad(gameObject);
-        if(EventSystem.current != null) DontDestroyOnLoad(EventSystem.current);
         CurrentOpenScene = SceneManager.GetActiveScene().buildIndex;
 
-        if (InputManager.instance.menuAction.WasPressedThisFrame())
+        if (InputManager.instance.menuAction.WasPressedThisFrame() && CurrentOpenScene != 0)
         {
             TogglePause();
         }
@@ -45,7 +52,7 @@ public class SceneController : MonoBehaviour
         IsPaused = !PauseMenu.activeSelf;
         PauseMenu.SetActive(IsPaused);
         SettingsMenu.SetActive(false);
-
+        EventSystem.current.SetSelectedGameObject(ResumeButton);
         Time.timeScale = PauseMenu.activeSelf ? 0.0f : 1.0f;
     }
     public void ToggleInventory()
@@ -73,12 +80,20 @@ public class SceneController : MonoBehaviour
     public IEnumerator LoadScene(int index)
     {
         HasFinishedLoading = false;
-        yield return new WaitForSecondsRealtime(4.5f);
+        yield return new WaitForSecondsRealtime(0f);
 
         SceneManager.LoadScene(index);
         LoadingMenu.SetActive(true);
 
         StartCoroutine(Loading());
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetActiveScene());
+        SceneManager.MoveGameObjectToScene(UserInterfaceObject, SceneManager.GetActiveScene());
+        TogglePause();
+        StartCoroutine(LoadScene(0));
     }
 
     public void ChangeScene(int sceneIndex)
@@ -88,7 +103,7 @@ public class SceneController : MonoBehaviour
     }
     private IEnumerator Loading()
     {
-        
+
         yield return new WaitForSecondsRealtime(1);
         LoadingMenu.SetActive(false);
         Time.timeScale = 1.0f;

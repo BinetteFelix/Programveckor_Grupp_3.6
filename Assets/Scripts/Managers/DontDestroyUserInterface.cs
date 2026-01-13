@@ -18,7 +18,6 @@ public class DontDestroyUserInterface : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DontDestroyOnLoad(gameObject);
     }
     private void OnSceneLoad()
     {

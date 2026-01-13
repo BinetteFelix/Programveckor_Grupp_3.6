@@ -20,7 +20,7 @@ public class SaveController : MonoBehaviour
     public void SaveGame()
     {
         SaveData saveData = new SaveData()
-        {
+        { 
             playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
             inventorySaveData = inventoryManager.GetInventoryItems()
         };
@@ -34,7 +34,8 @@ public class SaveController : MonoBehaviour
         {
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
 
-            GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
+            // Stänger av det här temporarily för man börjar på fel ställe i vissa scener
+            // GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
 
             inventoryManager.SetInventoryItems(saveData.inventorySaveData);
         }

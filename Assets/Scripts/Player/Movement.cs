@@ -38,6 +38,7 @@ public class Movement : MonoBehaviour
 
     private Animator animator;
     private float runSpeedMultiplier = 5f;
+    private bool canRun = true;
 
     
     [SerializeField] LayerMask groundLayer;
@@ -58,6 +59,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
         LastPressedJumpTime -= Time.deltaTime;
         // Get the values from the actions;
         moveValue = moveAction.ReadValue<Vector2>();
@@ -138,7 +140,7 @@ public class Movement : MonoBehaviour
         {
             animator.SetFloat("DirectionX", moveValue.x);
             rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
-        } else
+        } else if (runValue == true && canRun && !isWallSliding)
         {
             animator.SetFloat("DirectionX", moveValue.x * 2); //Change to actual run animation later
             rb.AddForce((movement * Vector2.right) * runSpeedMultiplier, ForceMode2D.Force);
@@ -238,8 +240,12 @@ public class Movement : MonoBehaviour
     private IEnumerator DisableAndReenableMovement()
     {
         moveAction.Disable();
+        animator.SetFloat("DirectionX", (isFacingRight) ? -2 : 2);
+        canRun = false;
         yield return new WaitForSeconds(0.1f);
         moveAction.Enable();
+        yield return new WaitForSeconds(0.5f);
+        canRun = true;
 
     }
 
