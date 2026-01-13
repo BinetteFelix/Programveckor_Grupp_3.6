@@ -41,7 +41,8 @@ public class Enemy : MonoBehaviour
         }
         if (Physics2D.OverlapBox(hurtBox.position, this.transform.localScale, 90f).gameObject.CompareTag("Player"))
         {
-            Debug.Log("hit!");
+            //Debug.Log("hit!");
+            //Hurt player code here
         }
 
     }
