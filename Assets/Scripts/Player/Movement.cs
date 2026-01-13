@@ -35,7 +35,6 @@ public class Movement : MonoBehaviour
     private float wallJumpingDuration = 0.05f;
     private Vector2 wallJumpingPower = new Vector2(10f, 4f);
 
-    private float moveDisabledAfterWallJumpTime = 0.5f;
     private Animator animator;
 
     
@@ -78,16 +77,18 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(IsWalled());
         if (!isWallJumping)
         {
             Move(1);
             Jump();
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+       /* if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            SoundFXManager.Instance.PlaySoundFXClip(slashSoundFX, transform);
+          //  SoundFXManager.Instance.PlaySoundFXClip(slashSoundFX, transform);
         }
+       */
     }
 
     private bool IsGrounded()
