@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private AudioClip slashSoundFX;
+    [SerializeField] private AudioClip[] slashSoundFXs;
 
     //Variables
     private Rigidbody2D rb;
@@ -77,6 +77,11 @@ public class Movement : MonoBehaviour
         }
         else
             jumpAction.Enable();
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            SoundFXManager.Instance.PlaySoundFXClip(slashSoundFXs, transform);
+        }
     }
 
     private void FixedUpdate()
