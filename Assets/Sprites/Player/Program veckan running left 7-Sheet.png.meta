@@ -1,22 +1,25 @@
 fileFormatVersion: 2
-guid: 9210551abfe183b40823493d58ecbf9f
+guid: b36c424638f7dfa4aba0c68a4cef2d04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5185773896116996381
-    second: front trees_0
+      213: 8041842393260281769
+    second: Program veckan running left 7-Sheet_0
   - first:
-      213: 6663698019214017846
-    second: front trees_1
+      213: 9058140564031346850
+    second: Program veckan running left 7-Sheet_1
   - first:
-      213: -8426130729514523751
-    second: front trees_2
+      213: -8782500729802465865
+    second: Program veckan running left 7-Sheet_2
   - first:
-      213: 7183403023958689023
-    second: front trees_3
+      213: -7882255871547558944
+    second: Program veckan running left 7-Sheet_3
   - first:
-      213: 6329493719543920246
-    second: front trees_4
+      213: 947064098696000556
+    second: Program veckan running left 7-Sheet_4
+  - first:
+      213: -679371920140035070
+    second: Program veckan running left 7-Sheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,10 +63,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 36
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -85,8 +88,8 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -112,111 +115,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: front trees_0
+      name: Program veckan running left 7-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 343
-        width: 22
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3e6f37ced1e6808b0800000000000000
-      internalID: -5185773896116996381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: front trees_1
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 337
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 635c9bdea063a7c50800000000000000
-      internalID: 6663698019214017846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: front trees_2
-      rect:
-        serializedVersion: 2
-        x: 79
         y: 0
-        width: 176
-        height: 360
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 993a84cbebe501b80800000000000000
-      internalID: -8426130729514523751
+      spriteID: 9afc4f59c0d5a9f60800000000000000
+      internalID: 8041842393260281769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: front trees_3
+      name: Program veckan running left 7-Sheet_1
       rect:
         serializedVersion: 2
-        x: 379
+        x: 48
         y: 0
-        width: 165
-        height: 360
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff44681bdf290b360800000000000000
-      internalID: 7183403023958689023
+      spriteID: 2a815a4d9daf4bd70800000000000000
+      internalID: 9058140564031346850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: front trees_4
+      name: Program veckan running left 7-Sheet_2
       rect:
         serializedVersion: 2
-        x: 616
-        y: 338
-        width: 24
-        height: 22
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6763b79b001e6d750800000000000000
-      internalID: 6329493719543920246
+      spriteID: 7bdd3803e1a4e1680800000000000000
+      internalID: -8782500729802465865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Program veckan running left 7-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e3bbabfb0a9c9290800000000000000
+      internalID: -7882255871547558944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Program veckan running left 7-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c24fc4ea7c5a42d00800000000000000
+      internalID: 947064098696000556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Program veckan running left 7-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20c9dad86d26296f0800000000000000
+      internalID: -679371920140035070
       vertices: []
       indices: 
       edges: []
@@ -225,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -233,13 +258,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      front trees_0: -5185773896116996381
-      front trees_1: 6663698019214017846
-      front trees_2: -8426130729514523751
-      front trees_3: 7183403023958689023
-      front trees_4: 6329493719543920246
+      Program veckan running left 7-Sheet_0: 8041842393260281769
+      Program veckan running left 7-Sheet_1: 9058140564031346850
+      Program veckan running left 7-Sheet_2: -8782500729802465865
+      Program veckan running left 7-Sheet_3: -7882255871547558944
+      Program veckan running left 7-Sheet_4: 947064098696000556
+      Program veckan running left 7-Sheet_5: -679371920140035070
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
