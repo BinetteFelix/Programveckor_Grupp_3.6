@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5c29ca73a70fd3942ab5ac2fb3e5d1cb
+guid: e1d76e04898327348ab5d52cb972cf37
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1082265317597914113
-    second: bushes background_0
+      213: 3139262810999938314
+    second: bushes middle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bushes background_0
+      name: bushes middle_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 22
         width: 640
-        height: 135
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ffbd9df7d650bf0f0800000000000000
-      internalID: -1082265317597914113
+      spriteID: a0dde32e4e6e09b20800000000000000
+      internalID: 3139262810999938314
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bushes background_0: -1082265317597914113
+      bushes middle_0: 3139262810999938314
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

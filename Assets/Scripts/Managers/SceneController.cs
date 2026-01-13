@@ -25,13 +25,10 @@ public class SceneController : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(UserInterfaceObject);
         if (Instance != null && Instance != this)
             Destroy(gameObject);
         else
             Instance = this;
-
-
     }
     private void Start()
     {
@@ -90,8 +87,6 @@ public class SceneController : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetActiveScene());
-        SceneManager.MoveGameObjectToScene(UserInterfaceObject, SceneManager.GetActiveScene());
         TogglePause();
         StartCoroutine(LoadScene(0));
     }

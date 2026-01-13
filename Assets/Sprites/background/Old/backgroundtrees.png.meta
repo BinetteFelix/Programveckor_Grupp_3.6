@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: c16b67022320c6944a0cc04978d24983
+guid: 0d09fdf9665e45c4cb6e43e960e89543
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5573480880708877342
-    second: trees front evil_0
-  - first:
-      213: 4905607819481593844
-    second: trees front evil_1
-  - first:
-      213: 3526531704282056279
-    second: trees front evil_2
-  - first:
-      213: -1264519411344974023
-    second: trees front evil_3
+      213: 6256581846970020171
+    second: trees background_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -55,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 36
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,8 +73,8 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -105,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trees front evil_0
+      name: trees background_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 545
-        height: 400
+        y: 6
+        width: 640
+        height: 345
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e38ae62ba407a2b0800000000000000
-      internalID: -5573480880708877342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trees front evil_1
-      rect:
-        serializedVersion: 2
-        x: 573
-        y: 313
-        width: 67
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f7349f1258341440800000000000000
-      internalID: 4905607819481593844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trees front evil_2
-      rect:
-        serializedVersion: 2
-        x: 581
-        y: 320
-        width: 7
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 75682e296e1c0f030800000000000000
-      internalID: 3526531704282056279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trees front evil_3
-      rect:
-        serializedVersion: 2
-        x: 606
-        y: 317
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 93f523b8b46837ee0800000000000000
-      internalID: -1264519411344974023
+      spriteID: b413ec08a08d3d650800000000000000
+      internalID: 6256581846970020171
       vertices: []
       indices: 
       edges: []
@@ -200,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      trees front evil_0: -5573480880708877342
-      trees front evil_1: 4905607819481593844
-      trees front evil_2: 3526531704282056279
-      trees front evil_3: -1264519411344974023
+      trees background_0: 6256581846970020171
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

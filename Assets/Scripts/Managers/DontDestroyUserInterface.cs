@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DontDestroyUserInterface : MonoBehaviour
 {
@@ -6,9 +7,11 @@ public class DontDestroyUserInterface : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        DontDestroyOnLoad(gameObject);
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);
+        else
             Instance = this;
-        OnSceneLoad();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,11 +22,9 @@ public class DontDestroyUserInterface : MonoBehaviour
     void Update()
     {
     }
-    private void OnSceneLoad()
+
+    public void MoveObjectToScene()
     {
-        if (Instance != null && Instance != this)
-            Destroy(gameObject);
-        else
-            Instance = this;
+        //SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
     }
 }
