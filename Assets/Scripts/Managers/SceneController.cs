@@ -30,6 +30,7 @@ public class SceneController : MonoBehaviour
     private void Update()
     {
         DontDestroyOnLoad(gameObject);
+        if(EventSystem.current != null) DontDestroyOnLoad(EventSystem.current);
         CurrentOpenScene = SceneManager.GetActiveScene().buildIndex;
 
         if (InputManager.instance.menuAction.WasPressedThisFrame())

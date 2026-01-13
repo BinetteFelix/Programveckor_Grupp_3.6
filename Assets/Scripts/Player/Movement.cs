@@ -33,9 +33,10 @@ public class Movement : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.05f;
-    private Vector2 wallJumpingPower = new Vector2(10f, 4f);
+    private Vector2 wallJumpingPower = new Vector2(10f, 6f);
 
     private Animator animator;
+    private float runSpeedMultiplier = 5f;
 
     
     [SerializeField] LayerMask groundLayer;
@@ -77,7 +78,6 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(IsWalled());
         if (!isWallJumping)
         {
             Move(1);
@@ -140,7 +140,7 @@ public class Movement : MonoBehaviour
         } else
         {
             animator.SetFloat("DirectionX", moveValue.x); //Change to actual run animation later
-            rb.AddForce((movement * Vector2.right) * 1.25f, ForceMode2D.Force);
+            rb.AddForce((movement * Vector2.right) * runSpeedMultiplier, ForceMode2D.Force);
         }
 
         //Set velocity to 0 when you stop holding the stick
@@ -203,7 +203,7 @@ public class Movement : MonoBehaviour
         if(isWallSliding == true)
         {
             isWallJumping = false;
-            wallJumpingDirection = -transform.localScale.x;
+            wallJumpingDirection = (isFacingRight) ? -1 : 1;
             wallJumpingCounter = wallJumpingTime;
 
             CancelInvoke(nameof(StopWallJumping));
@@ -216,7 +216,8 @@ public class Movement : MonoBehaviour
         {
             isWallJumping = true;
             LastPressedJumpTime = 0.2f;
-            rb.linearVelocity = new Vector2(-wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            Debug.Log(wallJumpingDirection);
+            rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             wallJumpingCounter = 0f;
 
             if (transform.localScale.x != wallJumpingDirection)
