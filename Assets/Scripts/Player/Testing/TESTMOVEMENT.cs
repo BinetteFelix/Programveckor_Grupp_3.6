@@ -62,11 +62,6 @@ public class TESTMOVEMENT : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            SoundFXManager.Instance.PlaySoundFXClip(slashSoundFX, transform);
-        }
-
         if (GroundCheck())
         {
             LastOnGroundTime = 0.1f;

@@ -9,20 +9,19 @@ public class InputManager : MonoBehaviour
     public InputAction jumpAction {get; private set;}
     public InputAction runAction  {get; private set;}
     public InputAction menuAction { get; private set; }
-
-    private PlayerInput playerInput;
     
 
     private void Awake()
     {
+        InputSystem.actions.Enable();
         if(instance == null)
         {
             instance = this;
         }
-        playerInput = this.GetComponent<PlayerInput>();
-        moveAction = playerInput.actions["Move"];
-        jumpAction = playerInput.actions["Jump"];
-        runAction = playerInput.actions["Run"];
-        menuAction = playerInput.actions["Menu"];
+        moveAction = InputSystem.actions.FindAction("Move");
+        if (moveAction != null) Debug.Log("move exists!!"); 
+        jumpAction = InputSystem.actions.FindAction("Jump");
+        runAction = InputSystem.actions.FindAction("Run");
+        menuAction = InputSystem.actions.FindAction("Menu");
     }
 }

@@ -1,10 +1,11 @@
+using System.Collections;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private AudioClip slashSoundFX;
+    [SerializeField] private AudioClip[] slashSoundFXs;
 
     //Variables
     private Rigidbody2D rb;
@@ -33,9 +34,11 @@ public class Movement : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.05f;
-    private Vector2 wallJumpingPower = new Vector2(10f, 4f);
+    private Vector2 wallJumpingPower = new Vector2(10f, 7.5f);
 
     private Animator animator;
+    private float runSpeedMultiplier = 5f;
+    private bool canRun = true;
 
     
     [SerializeField] LayerMask groundLayer;
@@ -56,6 +59,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
         LastPressedJumpTime -= Time.deltaTime;
         // Get the values from the actions;
         moveValue = moveAction.ReadValue<Vector2>();
@@ -73,11 +77,15 @@ public class Movement : MonoBehaviour
         }
         else
             jumpAction.Enable();
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            SoundFXManager.Instance.PlaySoundFXClip(slashSoundFXs, transform);
+        }
     }
 
     private void FixedUpdate()
     {
-        Debug.Log(IsWalled());
         if (!isWallJumping)
         {
             Move(1);
@@ -137,10 +145,10 @@ public class Movement : MonoBehaviour
         {
             animator.SetFloat("DirectionX", moveValue.x);
             rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
-        } else
+        } else if (runValue == true && canRun && !isWallSliding)
         {
-            animator.SetFloat("DirectionX", moveValue.x); //Change to actual run animation later
-            rb.AddForce((movement * Vector2.right) * 1.25f, ForceMode2D.Force);
+            animator.SetFloat("DirectionX", moveValue.x * 2); //Change to actual run animation later
+            rb.AddForce((movement * Vector2.right) * runSpeedMultiplier, ForceMode2D.Force);
         }
 
         //Set velocity to 0 when you stop holding the stick
@@ -190,6 +198,7 @@ public class Movement : MonoBehaviour
         if(IsWalled() && !IsGrounded() && moveValue.x != 0f)
         {
             isWallSliding = true;
+            animator.SetFloat("DirectionX", 0);
             rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -wallSlidingSpeed, maxSpeed);
         }
         else
@@ -203,7 +212,7 @@ public class Movement : MonoBehaviour
         if(isWallSliding == true)
         {
             isWallJumping = false;
-            wallJumpingDirection = -transform.localScale.x;
+            wallJumpingDirection = (isFacingRight) ? -1 : 1;
             wallJumpingCounter = wallJumpingTime;
 
             CancelInvoke(nameof(StopWallJumping));
@@ -215,8 +224,9 @@ public class Movement : MonoBehaviour
         if (jumpAction.WasPressedThisFrame() && wallJumpingCounter > 0f && LastPressedJumpTime < 0)
         {
             isWallJumping = true;
+            StartCoroutine(DisableAndReenableMovement());
             LastPressedJumpTime = 0.2f;
-            rb.linearVelocity = new Vector2(-wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             wallJumpingCounter = 0f;
 
             if (transform.localScale.x != wallJumpingDirection)
@@ -230,6 +240,18 @@ public class Movement : MonoBehaviour
             Invoke(nameof(StopWallJumping), wallJumpingDuration);
         }
         
+    }
+
+    private IEnumerator DisableAndReenableMovement()
+    {
+        moveAction.Disable();
+        animator.SetFloat("DirectionX", (isFacingRight) ? -2 : 2);
+        canRun = false;
+        yield return new WaitForSeconds(0.1f);
+        moveAction.Enable();
+        yield return new WaitForSeconds(0.5f);
+        canRun = true;
+
     }
 
     private void StopWallJumping()
