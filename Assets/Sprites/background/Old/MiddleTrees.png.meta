@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 0d09fdf9665e45c4cb6e43e960e89543
+guid: b8297ce39d5c8e94ebb64d9c6ce2194b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6256581846970020171
-    second: trees background_0
+      213: -6600326306819483769
+    second: middle trees_0
+  - first:
+      213: 8922684964189344863
+    second: middle trees_1
+  - first:
+      213: 5612774625396743051
+    second: middle trees_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 36
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -74,7 +80,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trees background_0
+      name: middle trees_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 6
-        width: 640
-        height: 345
+        y: 0
+        width: 146
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b413ec08a08d3d650800000000000000
-      internalID: 6256581846970020171
+      spriteID: 787db58a13ee664a0800000000000000
+      internalID: -6600326306819483769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: middle trees_1
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 0
+        width: 229
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f54993553beb3db70800000000000000
+      internalID: 8922684964189344863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: middle trees_2
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 329
+        width: 148
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b5917b8c494ed40800000000000000
+      internalID: 5612774625396743051
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      trees background_0: 6256581846970020171
+      middle trees_0: -6600326306819483769
+      middle trees_1: 8922684964189344863
+      middle trees_2: 5612774625396743051
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

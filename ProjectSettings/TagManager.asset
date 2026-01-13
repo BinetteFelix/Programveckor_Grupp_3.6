@@ -59,11 +59,14 @@ TagManager:
   - name: Trees Middle
     uniqueID: 2671536721
     locked: 0
-  - name: Trees Front
-    uniqueID: 3261066763
-    locked: 0
   - name: Ground
     uniqueID: 865756547
+    locked: 0
+  - name: BushesFront
+    uniqueID: 2407589739
+    locked: 0
+  - name: Trees Front
+    uniqueID: 3261066763
     locked: 0
   - name: InfrontCameraLayer
     uniqueID: 478435951
