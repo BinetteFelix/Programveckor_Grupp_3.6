@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.05f;
-    private Vector2 wallJumpingPower = new Vector2(10f, 6f);
+    private Vector2 wallJumpingPower = new Vector2(10f, 7.5f);
 
     private Animator animator;
     private float runSpeedMultiplier = 5f;
@@ -140,7 +140,7 @@ public class Movement : MonoBehaviour
             rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
         } else
         {
-            animator.SetFloat("DirectionX", moveValue.x); //Change to actual run animation later
+            animator.SetFloat("DirectionX", moveValue.x * 2); //Change to actual run animation later
             rb.AddForce((movement * Vector2.right) * runSpeedMultiplier, ForceMode2D.Force);
         }
 
@@ -191,6 +191,7 @@ public class Movement : MonoBehaviour
         if(IsWalled() && !IsGrounded() && moveValue.x != 0f)
         {
             isWallSliding = true;
+            animator.SetFloat("DirectionX", 0);
             rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, -wallSlidingSpeed, maxSpeed);
         }
         else
