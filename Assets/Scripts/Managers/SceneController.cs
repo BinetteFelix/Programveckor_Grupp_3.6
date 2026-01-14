@@ -15,8 +15,10 @@ public class SceneController : MonoBehaviour
 
     [SerializeField] private GameObject UserInterfaceObject;
     [SerializeField] private GameObject ResumeButton;
-    [SerializeField] private PlayerInput playerInput;
-    public EventSystem eventSystem;
+    [SerializeField] private GameObject PlayButton;
+    [SerializeField] private GameObject MainMenuUI;
+
+    [SerializeField] private GameObject ControlsPopup;
 
     #region STATE PARAMETERS
     public bool IsPaused { get; private set; }
@@ -42,12 +44,6 @@ public class SceneController : MonoBehaviour
         if (InputManager.instance.menuAction.WasPressedThisFrame() && CurrentOpenScene != 0)
         {
             TogglePause();
-        }
-        if (CurrentOpenScene != 0)
-        {
-            if (EventSystem.current != eventSystem) Destroy(EventSystem.current);
-            eventSystem.enabled = true;
-            eventSystem.firstSelectedGameObject = ResumeButton;
         }
     }
 
@@ -88,7 +84,15 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSecondsRealtime(0f);
         SceneManager.LoadScene(index);
         LoadingMenu.SetActive(true);
-
+        if(index != 0) MainMenuUI.SetActive(false);
+        if(index == 1)
+        {
+            ControlsPopup.SetActive(true);
+        }
+        if(index == 0)
+        {
+            EventSystem.current.SetSelectedGameObject(PlayButton);
+        }
         StartCoroutine(Loading());
 
     }
@@ -97,7 +101,7 @@ public class SceneController : MonoBehaviour
     {
         TogglePause();
         StartCoroutine(LoadScene(0));
-        eventSystem.enabled = false;
+        MainMenuUI.SetActive(true);
     }
 
     public void ChangeScene(int sceneIndex)
@@ -108,7 +112,6 @@ public class SceneController : MonoBehaviour
     }
     private IEnumerator Loading()
     {
-
         yield return new WaitForSecondsRealtime(1);
         LoadingMenu.SetActive(false);
         Time.timeScale = 1.0f;
