@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject LoadingMenu;
+    [SerializeField] private EventSystem mainMenuEventSystem;
+
+    private void Awake()
+    {
+        if (SceneController.Instance != null) mainMenuEventSystem.enabled = false;
+    }
 
     public void LoadScene(int index)
     {

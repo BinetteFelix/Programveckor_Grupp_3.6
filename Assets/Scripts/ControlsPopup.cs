@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -7,7 +8,9 @@ public class ControlsPopup : MonoBehaviour
     [SerializeField] private GameObject ExitButton;
     void Start()
     {
-        EventSystem.current.firstSelectedGameObject = ExitButton;
+        Debug.Log("ControlPopup startmethod ran!");
+        Debug.Log(ExitButton);
+        SceneController.Instance.eventSystem.firstSelectedGameObject = ExitButton;
         InputManager.instance.moveAction.Disable();
         InputManager.instance.jumpAction.Disable();
         InputManager.instance.menuAction.Disable();

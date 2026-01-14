@@ -19,7 +19,6 @@ public class InputManager : MonoBehaviour
             instance = this;
         }
         moveAction = InputSystem.actions.FindAction("Move");
-        if (moveAction != null) Debug.Log("move exists!!"); 
         jumpAction = InputSystem.actions.FindAction("Jump");
         runAction = InputSystem.actions.FindAction("Run");
         menuAction = InputSystem.actions.FindAction("Menu");

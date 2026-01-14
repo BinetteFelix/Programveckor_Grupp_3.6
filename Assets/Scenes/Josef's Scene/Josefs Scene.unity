@@ -79534,6 +79534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundFXManager
   soundFXObject: {fileID: 1120846293782207557, guid: 1fcbe4d0c56ce1e47a69dd33c27d13a2, type: 3}
+  SoundFXDelay: 0
 --- !u!1 &223434841
 GameObject:
   m_ObjectHideFlags: 0
@@ -80242,6 +80243,7 @@ MonoBehaviour:
   UserInterfaceObject: {fileID: 1347137678}
   ResumeButton: {fileID: 835374139}
   playerInput: {fileID: 0}
+  eventSystem: {fileID: 1683506108}
 --- !u!4 &399724986
 Transform:
   m_ObjectHideFlags: 0

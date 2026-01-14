@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,6 +16,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject UserInterfaceObject;
     [SerializeField] private GameObject ResumeButton;
     [SerializeField] private PlayerInput playerInput;
+    public EventSystem eventSystem;
 
     #region STATE PARAMETERS
     public bool IsPaused { get; private set; }
@@ -40,6 +42,12 @@ public class SceneController : MonoBehaviour
         if (InputManager.instance.menuAction.WasPressedThisFrame() && CurrentOpenScene != 0)
         {
             TogglePause();
+        }
+        if (CurrentOpenScene != 0)
+        {
+            if (EventSystem.current != eventSystem) Destroy(EventSystem.current);
+            eventSystem.enabled = true;
+            eventSystem.firstSelectedGameObject = ResumeButton;
         }
     }
 
@@ -78,22 +86,24 @@ public class SceneController : MonoBehaviour
     {
         HasFinishedLoading = false;
         yield return new WaitForSecondsRealtime(0f);
-
         SceneManager.LoadScene(index);
         LoadingMenu.SetActive(true);
 
         StartCoroutine(Loading());
+
     }
 
     public void ReturnToMenu()
     {
         TogglePause();
         StartCoroutine(LoadScene(0));
+        eventSystem.enabled = false;
     }
 
     public void ChangeScene(int sceneIndex)
     {
         Debug.Log("tried changing scene!");
+        
         StartCoroutine(LoadScene(sceneIndex));
     }
     private IEnumerator Loading()
