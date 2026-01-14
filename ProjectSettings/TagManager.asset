@@ -13,6 +13,10 @@ TagManager:
   - Item
   - ItemInformation
   - Ground
+  - InventoryMenu
+  - DeathMenu
+  - ResumeButton
+  - UIObject
   layers:
   - Default
   - TransparentFX
@@ -60,13 +64,13 @@ TagManager:
     uniqueID: 2671536721
     locked: 0
   - name: Ground
-    uniqueID: 865756547
+    uniqueID: 3171343323
     locked: 0
-  - name: BushesFront
-    uniqueID: 1512784553
+  - name: FrontObjects1
+    uniqueID: 63585819
     locked: 0
-  - name: Trees Front
-    uniqueID: 3261066763
+  - name: FrontObjects2
+    uniqueID: 142317825
     locked: 0
   - name: InfrontCameraLayer
     uniqueID: 478435951

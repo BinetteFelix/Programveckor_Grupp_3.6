@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 17126707}
   m_Layer: 5
   m_Name: InventoryPanel
-  m_TagString: Untagged
+  m_TagString: InventoryMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79686,7 +79686,7 @@ GameObject:
   - component: {fileID: 224366924}
   m_Layer: 5
   m_Name: DeathPanel
-  m_TagString: Untagged
+  m_TagString: DeathMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80831,19 +80831,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_Size.x
-      value: 0.5347595
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_Size.y
-      value: 1.1855619
+      value: 0.978342
       objectReference: {fileID: 0}
     - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_Offset.x
-      value: -0.0032615662
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_Offset.y
-      value: -0.021499753
+      value: -0.06638631
       objectReference: {fileID: 0}
     - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -80853,6 +80853,18 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.3333334
       objectReference: {fileID: 0}
+    - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
+      propertyPath: slashSoundFXs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
+      propertyPath: 'slashSoundFXs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b88ba24f82df2064fad1a97da414a813, type: 3}
+    - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
+      propertyPath: 'slashSoundFXs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 20dcb2ea908d63d4cac0c81f24533ddd, type: 3}
     - target: {fileID: 3719511269527332482, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: SOs.Array.size
       value: 0
@@ -125415,6 +125427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResumeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1259088353598564093, guid: bbf514af82676b548bf586d696bfb5db, type: 3}
+      propertyPath: m_TagString
+      value: ResumeButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4226243717831589568, guid: bbf514af82676b548bf586d696bfb5db, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
       value: 1.5
@@ -127871,15 +127887,32 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1347137680}
-  - component: {fileID: 1347137679}
+  - component: {fileID: 1347137681}
   m_Layer: 0
   m_Name: ___USER INTERFACE___
-  m_TagString: Untagged
+  m_TagString: UIObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1347137679
+--- !u!4 &1347137680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347137678}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1441677306}
+  - {fileID: 1683506106}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1347137681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127891,23 +127924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64089cb394543842b5a95a7ffabdfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DontDestroyUserInterface
---- !u!4 &1347137680
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347137678}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.55161, y: -26.16105, z: 84.22433}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1441677306}
-  - {fileID: 1683506106}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1371171520
 GameObject:
   m_ObjectHideFlags: 0
@@ -130303,6 +130319,6 @@ SceneRoots:
   - {fileID: 1634958680}
   - {fileID: 2038489501}
   - {fileID: 620184428}
+  - {fileID: 878418007}
   - {fileID: 399724986}
   - {fileID: 1347137680}
-  - {fileID: 878418007}
