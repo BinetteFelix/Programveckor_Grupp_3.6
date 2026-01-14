@@ -45,6 +45,11 @@ public class SceneController : MonoBehaviour
         {
             TogglePause();
         }
+        if (InputManager.instance.inventoryAction.WasPressedThisFrame())
+        {
+            ToggleInventory();
+        }
+
     }
 
     #region OPENING & CLOSING PANELS
