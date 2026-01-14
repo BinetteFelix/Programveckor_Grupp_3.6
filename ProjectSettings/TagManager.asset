@@ -13,10 +13,7 @@ TagManager:
   - Item
   - ItemInformation
   - Ground
-  - InventoryMenu
-  - DeathMenu
-  - ResumeButton
-  - UIObject
+  - SoundFX
   layers:
   - Default
   - TransparentFX
