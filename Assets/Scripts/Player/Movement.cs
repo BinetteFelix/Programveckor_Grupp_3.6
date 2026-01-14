@@ -66,10 +66,13 @@ public class Movement : MonoBehaviour
         spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
         LastPressedJumpTime -= Time.deltaTime;
         LastOnGroundTime -= Time.deltaTime;
-        // Get the values from the actions;
+
+        #region GET ACTION VALUES
         moveValue = moveAction.ReadValue<Vector2>();
         jumpValue = jumpAction.IsPressed();
         runValue = runAction.IsPressed();
+        #endregion
+
         WallSlide();
         WallJump();
         if (!isWallJumping)

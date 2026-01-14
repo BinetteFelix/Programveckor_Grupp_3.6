@@ -1,5 +1,6 @@
 using SoundSystem;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class MusicManager : MonoBehaviour
         else
             instance = this;
 
+
+
         SetupMusicPlayers();
     }
     private void Update()
@@ -46,12 +49,34 @@ public class MusicManager : MonoBehaviour
     {
         _audioSource = gameObject.AddComponent<AudioSource>();
     }
-    public void PlayMusic(MusicEvent musicEvent, float fadeTime)
+    public void PlayMusic(MusicEvent musicEvent, AudioMixerGroup audioMixerGroup)
     {
         if (!IsPlayingClip)
         {
             _audioSource.clip = musicEvent.MusicLayers[0];
+            _audioSource.outputAudioMixerGroup = audioMixerGroup;
             _audioSource.Play();
         }
+    }
+    public void StopMusic(MusicEvent musicEvent, AudioMixerGroup audioMixerGroup)
+    {
+        if (IsPlayingClip)
+        {
+            _audioSource.clip = musicEvent.MusicLayers[0];
+            _audioSource.outputAudioMixerGroup = audioMixerGroup;
+            _audioSource.Stop();
+        }
+    }
+
+    public void PlayMenuMusic(MusicEvent song, AudioMixerGroup audioMixerGroup)
+    {
+        if (!_audioSource.isPlaying && _audioSource.clip != song)
+        {
+            PlayMusic(song, audioMixerGroup);
+        }   
+    }
+    public void StopMenuMusic(MusicEvent song, AudioMixerGroup audioMixerGroup)
+    {
+        StopMusic(song, audioMixerGroup);
     }
 }

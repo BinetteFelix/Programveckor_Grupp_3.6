@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Mus_MainMenuMusic_1
   m_EditorClassIdentifier: Assembly-CSharp::SoundSystem.MusicEvent
   _musicLayers:
-  - {fileID: 8300000, guid: b88ba24f82df2064fad1a97da414a813, type: 3}
+  - {fileID: 8300000, guid: 9a0dbee0e005a3e41919cf3f0d6cf1e5, type: 3}
   _layerType: 0
   _mixer: {fileID: -2221993235946724623, guid: 57dce75041a6e6b48a3ee87083a6dbba, type: 2}

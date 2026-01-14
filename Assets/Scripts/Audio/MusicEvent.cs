@@ -22,7 +22,11 @@ namespace SoundSystem
 
         public void Play(float fadeTime)
         {
-            MusicManager.Instance.PlayMusic(this, fadeTime);
+            MusicManager.Instance.PlayMusic(this, _mixer);
+        }
+        public void Stop()
+        {
+            MusicManager.Instance.StopMusic(this, _mixer);
         }
     }
 }

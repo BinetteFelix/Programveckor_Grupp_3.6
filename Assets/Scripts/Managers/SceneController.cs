@@ -1,6 +1,8 @@
+using SoundSystem;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -20,6 +22,12 @@ public class SceneController : MonoBehaviour
 
     [SerializeField] private GameObject ControlsPopup;
 
+    #region MUSIC 
+    [SerializeField] private AudioMixerGroup mixerGroup;
+    [SerializeField] private MusicEvent _songA;
+    [SerializeField] private MusicEvent _songB;
+    #endregion
+
     #region STATE PARAMETERS
     public bool IsPaused { get; private set; }
     public bool HasFinishedLoading { get; private set; }
@@ -36,6 +44,8 @@ public class SceneController : MonoBehaviour
     }
     private void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            MusicManager.Instance.PlayMenuMusic(_songA, mixerGroup);
     }
     private void Update()
     {
@@ -61,6 +71,21 @@ public class SceneController : MonoBehaviour
         SettingsMenu.SetActive(false);
         EventSystem.current.SetSelectedGameObject(ResumeButton);
         Time.timeScale = PauseMenu.activeSelf ? 0.0f : 1.0f;
+    }
+
+    public void CloseSettingsMenu()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            SettingsMenu.SetActive(false);
+            PauseMenu.SetActive(true);
+        }
+        else
+        {
+            MainMenuUI.SetActive(true);
+            PauseMenu.SetActive(false);
+            SettingsMenu.SetActive(false);
+        }
     }
     public void ToggleInventory()
     {
@@ -122,5 +147,18 @@ public class SceneController : MonoBehaviour
         LoadingMenu.SetActive(false);
         Time.timeScale = 1.0f;
         HasFinishedLoading = true;
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            MusicManager.Instance.StopMenuMusic(_songA, mixerGroup);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 1)
+            MusicManager.Instance.StopMenuMusic(_songB, mixerGroup);
+
+        yield return new WaitForSecondsRealtime(0.1f);
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            MusicManager.Instance.PlayMenuMusic(_songA, mixerGroup);
+        else
+            MusicManager.Instance.PlayMenuMusic(_songB, mixerGroup);
     }
 }
