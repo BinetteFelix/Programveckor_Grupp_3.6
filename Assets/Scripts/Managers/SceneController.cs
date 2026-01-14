@@ -39,13 +39,14 @@ public class SceneController : MonoBehaviour
     }
     private void Update()
     {
+        
         CurrentOpenScene = SceneManager.GetActiveScene().buildIndex;
 
-        if (InputManager.instance.menuAction.WasPressedThisFrame() && CurrentOpenScene != 0)
+        if (InputManager.instance.menuAction.WasPressedThisFrame() && CurrentOpenScene != 0 && !InventoryMenu.activeSelf)
         {
             TogglePause();
         }
-        if (InputManager.instance.inventoryAction.WasPressedThisFrame())
+        if (InputManager.instance.inventoryAction.WasPressedThisFrame() && !PauseMenu.activeSelf && CurrentOpenScene != 0)
         {
             ToggleInventory();
         }
