@@ -65,6 +65,7 @@ public class Movement : MonoBehaviour
         if (rb.linearVelocityY < -1) animator.ResetTrigger("Jump");
         spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
         LastPressedJumpTime -= Time.deltaTime;
+        LastOnGroundTime -= Time.deltaTime;
         // Get the values from the actions;
         moveValue = moveAction.ReadValue<Vector2>();
         jumpValue = jumpAction.IsPressed();
@@ -85,6 +86,10 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             SoundFXManager.Instance.PlaySoundFXClip(slashSoundFXs, transform);
+        }
+        if (IsGrounded())
+        {
+            LastOnGroundTime = 0.1f;
         }
     }
 
@@ -183,7 +188,7 @@ public class Movement : MonoBehaviour
     private void Jump()
     {
         //Jump
-        if (jumpValue && IsGrounded() && LastPressedJumpTime < 0)
+        if (jumpValue && IsGrounded() && LastPressedJumpTime < 0 && LastOnGroundTime > 0)
         {
             animator.SetTrigger("Jump");
             LastPressedJumpTime = 0.2f;
