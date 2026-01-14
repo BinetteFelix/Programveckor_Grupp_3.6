@@ -39,6 +39,9 @@ public class Movement : MonoBehaviour
     private Animator animator;
     private float runSpeedMultiplier = 5f;
     private bool canRun = true;
+    private float AnimationDirection;
+
+    private bool lastDirection;
 
     
     [SerializeField] LayerMask groundLayer;
@@ -59,7 +62,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(IsGrounded());
+        if (rb.linearVelocityY < -1) animator.ResetTrigger("Jump");
         spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
         LastPressedJumpTime -= Time.deltaTime;
         // Get the values from the actions;
@@ -87,6 +90,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(canRun);
         if (!isWallJumping)
         {
             Move(1);
@@ -114,7 +118,15 @@ public class Movement : MonoBehaviour
 
     private bool IsWalled()
     {
-        return Physics2D.OverlapCircle(wallCheck.position, 0.02f, wallLayer);
+        bool isWalled = Physics2D.OverlapCircle(wallCheck.position, 0.02f, wallLayer);
+        if (isWalled && isWallSliding)
+        {
+            canRun = false;
+        }
+        else
+            canRun = true;
+
+        return isWalled;
     }
 
 
@@ -131,7 +143,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-
+    
 
     private void Move(float lerpAmount)
     {
@@ -142,15 +154,16 @@ public class Movement : MonoBehaviour
         float speedDif = targetSpeed - rb.linearVelocityX;
         float movement = speedDif * 3f;
         //Increase speed if running
-        if (runValue == false)
+        if (!runValue && !isWallSliding)
         {
             animator.SetFloat("DirectionX", moveValue.x);
             rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
-        } else if (runValue == true && canRun && !isWallSliding)
+        } else if (runValue && canRun && !isWallSliding)
         {
             animator.SetFloat("DirectionX", moveValue.x * 2); //Change to actual run animation later
             rb.AddForce((movement * Vector2.right) * runSpeedMultiplier, ForceMode2D.Force);
         }
+        
 
         //Set velocity to 0 when you stop holding the stick
         if (moveValue.x == 0)
@@ -172,6 +185,7 @@ public class Movement : MonoBehaviour
         //Jump
         if (jumpValue && IsGrounded() && LastPressedJumpTime < 0)
         {
+            animator.SetTrigger("Jump");
             LastPressedJumpTime = 0.2f;
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
@@ -191,7 +205,7 @@ public class Movement : MonoBehaviour
             rb.gravityScale = 2;
         }
         //Limit max fall speed
-        rb.linearVelocityY = Mathf.Max(rb.linearVelocityY, -maxFallSpeed);
+        rb.linearVelocityY = Mathf.Max(rb.linearVelocityY, -maxFallSpeed); 
     }
 
     private void WallSlide()
@@ -248,7 +262,7 @@ public class Movement : MonoBehaviour
         moveAction.Disable();
         animator.SetFloat("DirectionX", (isFacingRight) ? -2 : 2);
         canRun = false;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.025f);
         moveAction.Enable();
         yield return new WaitForSeconds(0.5f);
         canRun = true;

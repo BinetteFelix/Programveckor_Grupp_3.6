@@ -16,6 +16,16 @@ public class ControlsPopup : MonoBehaviour
         InputManager.instance.menuAction.Disable();
     }
 
+    private void Awake()
+    {
+        Debug.Log("ControlPopup startmethod ran!");
+        Debug.Log(ExitButton);
+        EventSystem.current.SetSelectedGameObject(ExitButton);
+        InputManager.instance.moveAction.Disable();
+        InputManager.instance.jumpAction.Disable();
+        InputManager.instance.menuAction.Disable();
+    }
+
     public void EnableActions()
     {
         InputManager.instance.moveAction.Enable();

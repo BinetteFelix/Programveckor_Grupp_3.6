@@ -7342,7 +7342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WALK - WASD/LEFT JOYSTICK/DPAD\nJUMP - Space or B\nRUN -  SHIFT OR X\n\nYou
+  m_text: "WALK - WASD/LEFT JOYSTICK/DPAD\nJUMP - Space or B\nRUN -  SHIFT OR LT\n\nYou
     are able to wall jump\nPRESS A OR ENTER TO CLOSE \n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6243193451472bd40836cd7836279eca, type: 2}
