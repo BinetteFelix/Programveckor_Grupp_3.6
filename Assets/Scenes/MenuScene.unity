@@ -7358,8 +7358,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WALK - Left Joystick \nJUMP - A \nRUN -  Left Trigger\nINVENTORY - D-Pad
-    Up\n\nYou are able to wall jump\nPRESS A TO CLOSE\n\n"
+  m_text: "WALK - Left Joystick \nJUMP - A \nRUN -  Left Trigger\nINVENTORY - Select\n\nYou
+    are able to wall jump\nPRESS A TO CLOSE\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6243193451472bd40836cd7836279eca, type: 2}
   m_sharedMaterial: {fileID: 2289202533678383468, guid: 6243193451472bd40836cd7836279eca, type: 2}

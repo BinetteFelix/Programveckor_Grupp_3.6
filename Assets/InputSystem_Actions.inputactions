@@ -528,10 +528,10 @@
                 {
                     "name": "",
                     "id": "ccedd285-4746-41c0-80da-9e70e36dd472",
-                    "path": "<Gamepad>/dpad/up",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
