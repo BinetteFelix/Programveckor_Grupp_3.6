@@ -10,7 +10,6 @@ public class MainMenuManager : MonoBehaviour
 
     private void Awake()
     {
-        if (SceneController.Instance != null) mainMenuEventSystem.enabled = false;
     }
 
     public void LoadScene(int index)

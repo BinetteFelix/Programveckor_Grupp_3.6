@@ -10,7 +10,7 @@ public class ControlsPopup : MonoBehaviour
     {
         Debug.Log("ControlPopup startmethod ran!");
         Debug.Log(ExitButton);
-        SceneController.Instance.eventSystem.firstSelectedGameObject = ExitButton;
+        EventSystem.current.SetSelectedGameObject(ExitButton);
         InputManager.instance.moveAction.Disable();
         InputManager.instance.jumpAction.Disable();
         InputManager.instance.menuAction.Disable();
