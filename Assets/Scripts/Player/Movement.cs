@@ -59,6 +59,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(IsGrounded());
         spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
         LastPressedJumpTime -= Time.deltaTime;
         // Get the values from the actions;
