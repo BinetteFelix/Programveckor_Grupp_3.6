@@ -67,6 +67,15 @@ TagManager:
   - name: Ground
     uniqueID: 3171343323
     locked: 0
+  - name: Earth
+    uniqueID: 162543073
+    locked: 0
+  - name: Spikes
+    uniqueID: 2011491903
+    locked: 0
+  - name: Logs
+    uniqueID: 1869882585
+    locked: 0
   - name: InfrontCameraLayer
     uniqueID: 478435951
     locked: 0
