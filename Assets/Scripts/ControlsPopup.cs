@@ -15,14 +15,10 @@ public class ControlsPopup : MonoBehaviour
     private void OnEnable()
     {
         EventSystem.current.SetSelectedGameObject(ExitButton);
-        InputManager.instance.moveAction.Disable();
-        InputManager.instance.jumpAction.Disable();
-        InputManager.instance.menuAction.Disable();
+        InputManager.instance.DisablePlayerActions();
     }
     public void EnableActions()
     {
-        InputManager.instance.moveAction.Enable();
-        InputManager.instance.jumpAction.Enable();
-        InputManager.instance.menuAction.Enable();
+        InputManager.instance.EnablePlayerActions();
     }
 }

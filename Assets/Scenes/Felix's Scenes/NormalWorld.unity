@@ -502,6 +502,7 @@ GameObject:
   - component: {fileID: 185040603}
   - component: {fileID: 185040602}
   - component: {fileID: 185040601}
+  - component: {fileID: 185040606}
   m_Layer: 8
   m_Name: SpikeTilemap
   m_TagString: Untagged
@@ -1068,6 +1069,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &185040606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185040599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448e5dc5455520646a31aedfd9b79ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  damage: 1
 --- !u!1 &268972933
 GameObject:
   m_ObjectHideFlags: 0
@@ -32581,12 +32595,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 49326591714419076, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8247612003943236394, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      insertIndex: -1
+      insertIndex: 6
       addedObject: {fileID: 1607027040}
   m_SourcePrefab: {fileID: 100100000, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
 --- !u!1001 &7023749665387324507

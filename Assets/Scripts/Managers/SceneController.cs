@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
@@ -19,9 +20,11 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject PlayButton;
     [SerializeField] private GameObject MainMenuUI;
 
+    [SerializeField] private GameObject DeathPanel;
+    [SerializeField] private GameObject HealthUI;
     [SerializeField] private GameObject ControlsPopup;
 
-    [SerializeField] private int redirectToTestScene;
+    public bool gameOver;
 
     #region UI ANIMATIONS
     [SerializeField] private Animator settingsAnimator;
@@ -82,6 +85,10 @@ public class SceneController : MonoBehaviour
             {
                 if (child.gameObject.activeSelf && child.gameObject != InventoryMenu) return;
                 ToggleInventory();
+                foreach (Transform grid in InventoryManager.Instance.InventoryGrid)
+                {
+                    if (grid != null) SceneController.Instance.SetSelectedButton(grid.gameObject);
+                }
             }
         }
     }
@@ -142,9 +149,17 @@ public class SceneController : MonoBehaviour
     public void ToggleInventory()
     {
         InventoryMenu.SetActive(!InventoryMenu.activeSelf);
+        if(InventoryMenu.activeSelf)
+        {
+            InputManager.instance.DisablePlayerActions();
+            InputManager.instance.inventoryAction.Enable();
+        } else
+        {
+            InputManager.instance.EnablePlayerActions();
+        }
 
-        #region Close ItemInformationTab
-        GameObject itemInformationParent = GameObject.FindGameObjectWithTag("ItemInformation");
+            #region Close ItemInformationTab
+            GameObject itemInformationParent = GameObject.FindGameObjectWithTag("ItemInformation");
 
         if (itemInformationParent != null)
         {
@@ -167,6 +182,7 @@ public class SceneController : MonoBehaviour
         if(index == 1)
         {
             ControlsPopup.SetActive(true);
+            HealthUI.SetActive(true);
         }
         if(index == 0)
         {
@@ -180,7 +196,17 @@ public class SceneController : MonoBehaviour
     {
         TogglePause();
         StartCoroutine(LoadScene(0));
+        TurnOffAllUI();
         MainMenuUI.SetActive(true);
+        gameOver = false;
+    }
+
+    public void TurnOffAllUI()
+    {
+        foreach (Transform child in UserInterfaceObject.transform.Find("Canvas"))
+        {
+            child.gameObject.SetActive(false);
+        }
     }
 
     public void ChangeScene(int sceneIndex)
@@ -208,5 +234,19 @@ public class SceneController : MonoBehaviour
             MusicManager.Instance.PlayMenuMusic(_songA, mixerGroup);
         else
             MusicManager.Instance.PlayMenuMusic(_songB, mixerGroup);
+    }
+
+    public void TriggerGameOver()
+    {
+        gameOver = true;
+        TurnOffAllUI();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<SpriteRenderer>().enabled = false;
+
+        InputManager.instance.DisablePlayerActions();
+        DeathPanel.SetActive(true);
+
+        GameObject restartButton = DeathPanel.transform.Find("Panel").transform.Find("RestartButton").gameObject;
+        SetSelectedButton(restartButton);
     }
 }

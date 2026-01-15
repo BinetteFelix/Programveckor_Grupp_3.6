@@ -29,4 +29,25 @@ public class InputManager : MonoBehaviour
         interactAction = InputSystem.actions.FindAction("Interact");
 
     }
+
+
+    public void DisablePlayerActions()
+    {
+        moveAction.Disable();
+        jumpAction.Disable();
+        runAction.Disable();
+        menuAction.Disable();
+        inventoryAction.Disable();
+        interactAction.Disable();
+    }
+
+    public void EnablePlayerActions()
+    {
+        moveAction.Enable();
+        jumpAction.Enable();
+        runAction.Enable();
+        menuAction.Enable();
+        inventoryAction.Enable();
+        interactAction.Enable();
+    }
 }

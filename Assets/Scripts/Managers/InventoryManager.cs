@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
     private ItemDictionary itemDictionary;
 
-    [SerializeField] private Transform InventoryGrid;
+    public Transform InventoryGrid;
     [SerializeField] private GameObject SlotPrefab;
     [SerializeField] private GameObject BaseItemPrefab;
     public int slotCount;
