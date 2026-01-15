@@ -47,19 +47,36 @@ public class SceneController : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 0)
             MusicManager.Instance.PlayMenuMusic(_songA, mixerGroup);
     }
+
+    private bool IsMainMenuScene()
+    {
+        return (CurrentOpenScene == 0);
+    }
+
+    public void SetSelectedButton(GameObject button)
+    {
+        EventSystem.current.SetSelectedGameObject(button);
+    }
+
     private void Update()
     {
         
         CurrentOpenScene = SceneManager.GetActiveScene().buildIndex;
 
-        if (InputManager.instance.menuAction.WasPressedThisFrame() && CurrentOpenScene != 0 && !InventoryMenu.activeSelf)
+        if (InputManager.instance.menuAction.WasPressedThisFrame() && !IsMainMenuScene() && !InventoryMenu.activeSelf && !SettingsMenu.activeSelf)
         {
             TogglePause();
         }
-        if (InputManager.instance.inventoryAction.WasPressedThisFrame() && !PauseMenu.activeSelf && CurrentOpenScene != 0)
+        if (InputManager.instance.inventoryAction.WasPressedThisFrame() && !PauseMenu.activeSelf && !IsMainMenuScene())
         {
-            ToggleInventory();
+            foreach (Transform child in UserInterfaceObject.transform.Find("Canvas"))
+            {
+                if (child.gameObject.activeSelf && child.gameObject != InventoryMenu) return;
+                Debug.Log(child.gameObject.name);
+                ToggleInventory();
+            }
         }
+
 
     }
 
@@ -69,13 +86,13 @@ public class SceneController : MonoBehaviour
         IsPaused = !PauseMenu.activeSelf;
         PauseMenu.SetActive(IsPaused);
         SettingsMenu.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(ResumeButton);
+        SetSelectedButton(ResumeButton);
         Time.timeScale = PauseMenu.activeSelf ? 0.0f : 1.0f;
     }
 
     public void CloseSettingsMenu()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if (!IsMainMenuScene())
         {
             SettingsMenu.SetActive(false);
             PauseMenu.SetActive(true);
@@ -87,6 +104,30 @@ public class SceneController : MonoBehaviour
             SettingsMenu.SetActive(false);
         }
     }
+
+    public void GoBack()
+    {
+        
+    }
+
+    public void RestoreMenuButtons()
+    {
+        GameObject titleText;
+        GameObject buttons;
+        GameObject playButton;
+
+        titleText = MainMenuUI.transform.Find("TitleText").gameObject;
+        buttons = MainMenuUI.transform.Find("Buttons").gameObject;
+        playButton = buttons.transform.Find("PlayButton").gameObject;
+
+        if (IsMainMenuScene())
+        {
+            titleText.SetActive(true);
+            buttons.SetActive(true);
+            SetSelectedButton(playButton);
+        }
+    }
+
     public void ToggleInventory()
     {
         InventoryMenu.SetActive(!InventoryMenu.activeSelf);
@@ -101,11 +142,6 @@ public class SceneController : MonoBehaviour
             itemInformationParent.GetComponent<ItemInformationContent>().selectedItemDescription.gameObject.SetActive(false);
         }
         #endregion
-    }
-
-    public void SetSelectedGameObject(GameObject button)
-    {
-        EventSystem.current.SetSelectedGameObject(button);
     }
     #endregion
 
@@ -122,11 +158,12 @@ public class SceneController : MonoBehaviour
         }
         if(index == 0)
         {
-            EventSystem.current.SetSelectedGameObject(PlayButton);
+            SetSelectedButton(PlayButton);
         }
         StartCoroutine(Loading());
 
     }
+
 
     public void ReturnToMenu()
     {

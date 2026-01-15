@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     private bool isFacingRight = false;
 
     private float maxSpeed = 7f;
-    private float jumpPower = 10f;
+    private float jumpPower = 7f;
     private float maxFallSpeed = 10f;
     private float wallSlidingSpeed = 2f;
 
@@ -98,7 +98,6 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(canRun);
         if (!isWallJumping)
         {
             Move(1);
