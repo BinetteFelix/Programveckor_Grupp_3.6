@@ -58,7 +58,7 @@ public class SceneController : MonoBehaviour
             MusicManager.Instance.PlayMenuMusic(_songA, mixerGroup);
     }
 
-    private bool IsMainMenuScene()
+    public bool IsMainMenuScene()
     {
         return (CurrentOpenScene == 0);
     }
