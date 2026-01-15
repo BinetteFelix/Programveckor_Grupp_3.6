@@ -21,7 +21,7 @@ public class SceneController : MonoBehaviour
 
     [SerializeField] private GameObject ControlsPopup;
 
-    [SerializeField] private string redirectToTestScene;
+    [SerializeField] private int redirectToTestScene;
 
     #region UI ANIMATIONS
     [SerializeField] private Animator settingsAnimator;
@@ -162,7 +162,7 @@ public class SceneController : MonoBehaviour
         HasFinishedLoading = false;
         yield return new WaitForSecondsRealtime(0f);
         
-        if(Application.isEditor && SceneManager.GetSceneByName(redirectToTestScene) != null)
+        if(Application.isEditor && SceneManager.GetSceneByBuildIndex(redirectToTestScene) != null)
         {
             EditorSceneManager.LoadScene(redirectToTestScene);
         }
