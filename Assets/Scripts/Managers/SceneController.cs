@@ -58,7 +58,7 @@ public class SceneController : MonoBehaviour
             MusicManager.Instance.PlayMenuMusic(_songA, mixerGroup);
     }
 
-    private bool IsMainMenuScene()
+    public bool IsMainMenuScene()
     {
         return (CurrentOpenScene == 0);
     }
@@ -81,7 +81,6 @@ public class SceneController : MonoBehaviour
             foreach (Transform child in UserInterfaceObject.transform.Find("Canvas"))
             {
                 if (child.gameObject.activeSelf && child.gameObject != InventoryMenu) return;
-                Debug.Log(child.gameObject.name);
                 ToggleInventory();
             }
         }
@@ -161,17 +160,9 @@ public class SceneController : MonoBehaviour
     {
         HasFinishedLoading = false;
         yield return new WaitForSecondsRealtime(0f);
-        
-        if(Application.isEditor && SceneManager.GetSceneByBuildIndex(redirectToTestScene) != null)
-        {
-            EditorSceneManager.LoadScene(redirectToTestScene);
-        }
-        else
-        {
-            SceneManager.LoadScene(index);
-        }
+        SceneManager.LoadScene(index);
 
-            LoadingMenu.SetActive(true);
+        LoadingMenu.SetActive(true);
         if(index != 0) MainMenuUI.SetActive(false);
         if(index == 1)
         {
@@ -194,8 +185,6 @@ public class SceneController : MonoBehaviour
 
     public void ChangeScene(int sceneIndex)
     {
-        Debug.Log("tried changing scene!");
-        
         StartCoroutine(LoadScene(sceneIndex));
     }
     private IEnumerator Loading()
