@@ -1,5 +1,6 @@
 using SoundSystem;
 using System.Collections;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
@@ -19,6 +20,8 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject MainMenuUI;
 
     [SerializeField] private GameObject ControlsPopup;
+
+    [SerializeField] private string redirectToTestScene;
 
     #region UI ANIMATIONS
     [SerializeField] private Animator settingsAnimator;
@@ -158,8 +161,17 @@ public class SceneController : MonoBehaviour
     {
         HasFinishedLoading = false;
         yield return new WaitForSecondsRealtime(0f);
-        SceneManager.LoadScene(index);
-        LoadingMenu.SetActive(true);
+        
+        if(Application.isEditor && SceneManager.GetSceneByName(redirectToTestScene) != null)
+        {
+            EditorSceneManager.LoadScene(redirectToTestScene);
+        }
+        else
+        {
+            SceneManager.LoadScene(index);
+        }
+
+            LoadingMenu.SetActive(true);
         if(index != 0) MainMenuUI.SetActive(false);
         if(index == 1)
         {
