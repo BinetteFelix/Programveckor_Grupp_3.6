@@ -115,7 +115,7 @@ public class Movement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer); 
         // Maybe use raycast instead (or maybe that's more for enemy AI)
 
        /* if (Physics2D.Raycast(transform.position, Vector2.down, 0.63f, groundLayer))
@@ -128,7 +128,7 @@ public class Movement : MonoBehaviour
     private bool IsWalled()
     {
         float wallCheckRadius = 0.05f;
-        bool isWalled = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, wallLayer);
+        bool isWalled = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, wallLayer); //wallLayer is just ground map because that makes it so you don't have to separate the tilemaps.
         if (isWalled && isWallSliding)
         {
             canRun = false;
@@ -163,17 +163,28 @@ public class Movement : MonoBehaviour
         targetSpeed = Mathf.Lerp(rb.linearVelocityX, targetSpeed, lerpAmount);
         float speedDif = targetSpeed - rb.linearVelocityX;
         float movement = speedDif * 3f;
+        Vector2 force = (runValue) ? (movement * Vector2.right * runSpeedMultiplier) : (movement * Vector2.right);
+
+        if (!IsGrounded())
+        {
+            force = movement * Vector2.right;
+        }
+
+        rb.AddForce(force, ForceMode2D.Force);
+        animator.SetFloat("DirectionX", (runValue) ? moveValue.x * 2 : moveValue.x);
+
         //Increase speed if running
+        /*
         if (!runValue && !isWallSliding)
         {
             animator.SetFloat("DirectionX", moveValue.x);
             rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
-        } else if (runValue && canRun && !isWallSliding)
+        } else if (runValue && canRun && !isWallSliding && IsGrounded())
         {
             animator.SetFloat("DirectionX", moveValue.x * 2); //Change to actual run animation later
             rb.AddForce((movement * Vector2.right) * runSpeedMultiplier, ForceMode2D.Force);
         }
-        
+        */
 
         //Set velocity to 0 when you stop holding the stick
         if (moveValue.x == 0)
@@ -192,12 +203,13 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
+        Vector2 force = (runValue) ? ((Vector2.up * jumpPower) * 1.20f) : (Vector2.up * jumpPower);
         //Jump
         if (jumpValue && IsGrounded() && LastPressedJumpTime < 0 && LastOnGroundTime > 0)
         {
             animator.Play("Jump");
             LastPressedJumpTime = 0.2f;
-            rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            rb.AddForce(force, ForceMode2D.Impulse);
         }
         //Make it so when you release the jump button velocity is halfed, so you can do shorter jumps by just tapping
         else if (!jumpValue && rb.linearVelocityY > 0 && !IsGrounded())

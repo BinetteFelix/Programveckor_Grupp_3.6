@@ -1228,6 +1228,7 @@ MonoBehaviour:
   PlayButton: {fileID: 1037569399}
   MainMenuUI: {fileID: 2074037152}
   ControlsPopup: {fileID: 1267946000}
+  redirectToTestScene: Josefs Scene
   settingsAnimator: {fileID: 1897611034}
   controlsAnimator: {fileID: 1267946005}
   mixerGroup: {fileID: -2221993235946724623, guid: 57dce75041a6e6b48a3ee87083a6dbba, type: 2}
