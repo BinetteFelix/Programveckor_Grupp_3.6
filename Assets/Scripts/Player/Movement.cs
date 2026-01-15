@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
 
     private bool isWallJumping;
     private float wallJumpingDirection;
-    private float wallJumpingTime = 0.2f;
+    private float wallJumpingTime = 1f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.05f;
     private Vector2 wallJumpingPower = new Vector2(10f, 7.5f);
@@ -127,7 +127,7 @@ public class Movement : MonoBehaviour
 
     private bool IsWalled()
     {
-        float wallCheckRadius = 0.05f;
+        float wallCheckRadius = 0.1f;
         bool isWalled = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, wallLayer); //wallLayer is just ground map because that makes it so you don't have to separate the tilemaps.
         if (isWalled && isWallSliding)
         {
@@ -135,7 +135,7 @@ public class Movement : MonoBehaviour
         }
         else
             canRun = true;
-
+        Debug.Log(isWalled);
         return isWalled;
     }
 
@@ -241,7 +241,7 @@ public class Movement : MonoBehaviour
         else
         {
             
-            Debug.Log($"IsWalled: {IsWalled()}, IsGrounded: {IsGrounded()}, moveValue.x: {moveValue.x}");//Debugging why wall jump wont work sometimes
+          //  Debug.Log($"IsWalled: {IsWalled()}, IsGrounded: {IsGrounded()}, moveValue.x: {moveValue.x}");//Debugging why wall jump wont work sometimes
             isWallSliding = false;
         }
     }

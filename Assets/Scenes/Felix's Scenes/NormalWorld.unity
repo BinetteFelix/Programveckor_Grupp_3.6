@@ -31630,6 +31630,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4903309965566349656, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.238
+      objectReference: {fileID: 0}
     - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_Sprite
       value: 
