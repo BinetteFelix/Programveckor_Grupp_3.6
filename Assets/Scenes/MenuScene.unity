@@ -1228,7 +1228,7 @@ MonoBehaviour:
   PlayButton: {fileID: 1037569399}
   MainMenuUI: {fileID: 2074037152}
   ControlsPopup: {fileID: 1267946000}
-  redirectToTestScene: Josefs Scene
+  redirectToTestScene: 2
   settingsAnimator: {fileID: 1897611034}
   controlsAnimator: {fileID: 1267946005}
   mixerGroup: {fileID: -2221993235946724623, guid: 57dce75041a6e6b48a3ee87083a6dbba, type: 2}
@@ -4408,7 +4408,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
