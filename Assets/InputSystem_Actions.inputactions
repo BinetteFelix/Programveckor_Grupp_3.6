@@ -528,7 +528,7 @@
                 {
                     "name": "",
                     "id": "ccedd285-4746-41c0-80da-9e70e36dd472",
-                    "path": "<Gamepad>/select",
+                    "path": "<XInputController>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",

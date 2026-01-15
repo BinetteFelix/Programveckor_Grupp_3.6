@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -31,7 +32,7 @@ public class Movement : MonoBehaviour
 
     private bool isWallJumping;
     private float wallJumpingDirection;
-    private float wallJumpingTime = 1f;
+    private float wallJumpingTime = 0.4f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.05f;
     private Vector2 wallJumpingPower = new Vector2(10f, 7.5f);
@@ -81,12 +82,17 @@ public class Movement : MonoBehaviour
         {
             Flip();
         }
-        if (LastOnGroundTime < 0 && rb.linearVelocityY < -1.5)
+        //Disabled because it causes wall jumps to become really precise as it nearly immeadiately disables jump when wall sliding, since wall sliding sets the Y velocity to below -1.5
+        /* if (LastOnGroundTime < 0 && rb.linearVelocityY < -1.5)
         {
             jumpAction.Disable();
         }
+        */
         else
+        {
             jumpAction.Enable();
+        }
+            
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -105,38 +111,16 @@ public class Movement : MonoBehaviour
             Move(1);
             Jump();
         }
-
-       /* if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-          //  SoundFXManager.Instance.PlaySoundFXClip(slashSoundFX, transform);
-        }
-       */
     }
 
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer); 
-        // Maybe use raycast instead (or maybe that's more for enemy AI)
-
-       /* if (Physics2D.Raycast(transform.position, Vector2.down, 0.63f, groundLayer))
-        {
-            return true;
-        }
-        */
     }
 
     private bool IsWalled()
     {
-        float wallCheckRadius = 0.1f;
-        bool isWalled = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, wallLayer); //wallLayer is just ground map because that makes it so you don't have to separate the tilemaps.
-        if (isWalled && isWallSliding)
-        {
-            canRun = false;
-        }
-        else
-            canRun = true;
-        Debug.Log(isWalled);
-        return isWalled;
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
 
 
@@ -148,9 +132,7 @@ public class Movement : MonoBehaviour
             isFacingRight = !isFacingRight;
             Vector3 wallCheckLocalPos = wallCheck.transform.localPosition;
             wallCheckLocalPos.x *= -1f;
-            wallCheck.transform.localPosition = wallCheckLocalPos;
-           // transform.localScale = localScale;
-        }
+            wallCheck.transform.localPosition = wallCheckLocalPos;        }
     }
 
     
@@ -207,6 +189,7 @@ public class Movement : MonoBehaviour
         //Jump
         if (jumpValue && IsGrounded() && LastPressedJumpTime < 0 && LastOnGroundTime > 0)
         {
+            Debug.Log("Jumped!");
             animator.Play("Jump");
             LastPressedJumpTime = 0.2f;
             rb.AddForce(force, ForceMode2D.Impulse);
@@ -248,11 +231,13 @@ public class Movement : MonoBehaviour
 
     private void WallJump()
     {
-        if(isWallSliding == true)
+        if(isWallSliding)
         {
             isWallJumping = false;
             wallJumpingDirection = (isFacingRight) ? -1 : 1;
             wallJumpingCounter = wallJumpingTime;
+            Debug.Log("wall slide + " + wallJumpingCounter);
+            Debug.Log($"jumpAction: {jumpAction.enabled}");
 
             CancelInvoke(nameof(StopWallJumping));
         }
@@ -260,15 +245,15 @@ public class Movement : MonoBehaviour
         {
             wallJumpingCounter -= Time.deltaTime;
         }
-        if (jumpAction.WasPressedThisFrame() && wallJumpingCounter > 0f && LastPressedJumpTime < 0)
+        if (jumpAction.WasPressedThisFrame() && wallJumpingCounter > 0f)
         {
-            Debug.Log("walljump!");
+            Debug.Log("Wall Jump!");
             isWallJumping = true;
-            //StartCoroutine(DisableAndReenableMovement());
             LastPressedJumpTime = 0.2f;
             rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             wallJumpingCounter = 0f;
             int direction = (isFacingRight) ? 1 : -1;
+
             if (direction != wallJumpingDirection)
             {
                 //Flip
@@ -277,22 +262,15 @@ public class Movement : MonoBehaviour
                 wallCheckLocalPos.x *= -1f;
                 wallCheck.transform.localPosition = wallCheckLocalPos;
             }
+
             Invoke(nameof(StopWallJumping), wallJumpingDuration);
         }
         else if(jumpAction.WasPressedThisFrame())
         {
-            if (wallJumpingCounter < 0f | LastPressedJumpTime > 0f)
-            {
-                Debug.Log($"WallJumpCounter: {wallJumpingCounter > 0f}");
-                Debug.Log($"LastPressedJumpTime: {LastPressedJumpTime < 0}");
-                Debug.Log($"WallSliding: {isWallSliding}");
-            }
-
         }
-        
     }
 
-    private IEnumerator DisableAndReenableMovement()
+  /*  private IEnumerator DisableAndReenableMovement()
     {
         moveAction.Disable();
         animator.SetFloat("DirectionX", (isFacingRight) ? -2 : 2);
@@ -303,7 +281,7 @@ public class Movement : MonoBehaviour
         canRun = true;
 
     }
-
+  */
     private void StopWallJumping()
     {
         isWallJumping = false;
