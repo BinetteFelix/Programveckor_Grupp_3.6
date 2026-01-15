@@ -42,11 +42,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 660418924211455692, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 35
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 660418924211455692, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 35
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 660418924211455692, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -95,6 +95,34 @@ PrefabInstance:
     - target: {fileID: 660418924211455692, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.44444445
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.44444445
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098147908355443879, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3989148792492122257, guid: eaf000489930ae4439aa224e5906c89a, type: 3}
       propertyPath: ID

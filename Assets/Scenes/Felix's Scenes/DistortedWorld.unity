@@ -29439,6 +29439,7 @@ MonoBehaviour:
   UserInterfaceObject: {fileID: 17762746}
   ResumeButton: {fileID: 2326340}
   playerInput: {fileID: 0}
+  eventSystem: {fileID: 0}
 --- !u!4 &585803415
 Transform:
   m_ObjectHideFlags: 0

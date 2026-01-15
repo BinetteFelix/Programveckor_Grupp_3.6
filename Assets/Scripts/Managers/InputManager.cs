@@ -10,6 +10,9 @@ public class InputManager : MonoBehaviour
     public InputAction runAction  {get; private set;}
     public InputAction menuAction { get; private set; }
     
+    public InputAction inventoryAction { get; private set; }
+
+    public InputAction interactAction { get; private set; }
 
     private void Awake()
     {
@@ -22,5 +25,8 @@ public class InputManager : MonoBehaviour
         jumpAction = InputSystem.actions.FindAction("Jump");
         runAction = InputSystem.actions.FindAction("Run");
         menuAction = InputSystem.actions.FindAction("Menu");
+        inventoryAction = InputSystem.actions.FindAction("Inventory");
+        interactAction = InputSystem.actions.FindAction("Interact");
+
     }
 }
