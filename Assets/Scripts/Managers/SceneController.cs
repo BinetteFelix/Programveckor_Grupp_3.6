@@ -88,6 +88,7 @@ public class SceneController : MonoBehaviour
                 foreach (Transform grid in InventoryManager.Instance.InventoryGrid)
                 {
                     if (grid != null) SceneController.Instance.SetSelectedButton(grid.gameObject);
+                    break;
                 }
             }
         }
