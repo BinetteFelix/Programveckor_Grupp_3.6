@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     private bool isFacingRight = false;
 
     private float maxSpeed = 7f;
-    private float jumpPower = 7f;
+    private float jumpPower = 8f;
     private float maxFallSpeed = 10f;
     private float wallSlidingSpeed = 2f;
 
@@ -62,6 +62,8 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        animator.SetBool("IsGrounded", IsGrounded());
+
         if (rb.linearVelocityY < -1) animator.ResetTrigger("Jump");
         spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
         LastPressedJumpTime -= Time.deltaTime;
@@ -192,7 +194,7 @@ public class Movement : MonoBehaviour
         //Jump
         if (jumpValue && IsGrounded() && LastPressedJumpTime < 0 && LastOnGroundTime > 0)
         {
-            animator.SetTrigger("Jump");
+            animator.Play("Jump");
             LastPressedJumpTime = 0.2f;
             rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }

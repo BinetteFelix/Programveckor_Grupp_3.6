@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 4ece4e63c9e8fca43a8639593d859df8
+guid: 174a7811d479d1e4a98b7f5eb7dad360
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7308258988061994974
-    second: death spider-Sheet_0
-  - first:
-      213: -164722527146214089
-    second: death spider-Sheet_1
-  - first:
-      213: -1473122090227635051
-    second: death spider-Sheet_2
-  - first:
-      213: 4631259749832143931
-    second: death spider-Sheet_3
-  - first:
-      213: -8423756997195996021
-    second: death spider-Sheet_4
+      213: 8772103741785151221
+    second: spider sprite-Sheet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 36
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -85,8 +73,8 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -108,115 +96,128 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: death spider-Sheet_0
+      name: spider sprite-Sheet_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 18
-        height: 12
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: edfadfd24d62c6560800000000000000
-      internalID: 7308258988061994974
+      spriteID: 5f69af560e5ccb970800000000000000
+      internalID: 8772103741785151221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death spider-Sheet_1
+      name: spider sprite-Sheet_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 16
         y: 0
-        width: 18
-        height: 12
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 73df1fafbb9c6bdf0800000000000000
-      internalID: -164722527146214089
+      spriteID: 712bb972fa423c046ba7006418a197f3
+      internalID: 878234651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death spider-Sheet_2
+      name: spider sprite-Sheet_2
       rect:
         serializedVersion: 2
-        x: 66
+        x: 32
         y: 0
-        width: 18
-        height: 12
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 59c633d834b6e8be0800000000000000
-      internalID: -1473122090227635051
+      spriteID: 769896b15720757448fa45cf04517a31
+      internalID: 589812746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death spider-Sheet_3
+      name: spider sprite-Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 48
         y: 0
-        width: 18
-        height: 12
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b343f4b743a854040800000000000000
-      internalID: 4631259749832143931
+      spriteID: 15c8df4a78ae7f64c8c5645148368f28
+      internalID: -347013950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death spider-Sheet_4
+      name: spider sprite-Sheet_4
       rect:
         serializedVersion: 2
-        x: 126
+        x: 64
         y: 0
-        width: 18
-        height: 12
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b84ebeb54adc81b80800000000000000
-      internalID: -8423756997195996021
+      spriteID: 4796e38e1b38b5347bdb8215dc96fcae
+      internalID: -338695965
       vertices: []
       indices: 
       edges: []
@@ -225,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 70b7f4f1ea7028d49bea59b603b859c4
     internalID: 0
     vertices: []
     indices: 
@@ -233,13 +234,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      death spider-Sheet_0: 7308258988061994974
-      death spider-Sheet_1: -164722527146214089
-      death spider-Sheet_2: -1473122090227635051
-      death spider-Sheet_3: 4631259749832143931
-      death spider-Sheet_4: -8423756997195996021
+      spider sprite-Sheet_0: 8772103741785151221
+      spider sprite-Sheet_1: 878234651
+      spider sprite-Sheet_2: 589812746
+      spider sprite-Sheet_3: -347013950
+      spider sprite-Sheet_4: -338695965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

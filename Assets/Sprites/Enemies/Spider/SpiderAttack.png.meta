@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 4bec57f6a3002454c9e65bb482bdfcf5
+guid: f9ecf2a4d3ebbb84b90d12e69231f271
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9203824657308358873
-    second: spider bite-Sheet_0
-  - first:
-      213: -604559872178035906
-    second: spider bite-Sheet_1
-  - first:
-      213: 6824439776291167780
-    second: spider bite-Sheet_2
-  - first:
-      213: -6274817096219670876
-    second: spider bite-Sheet_3
-  - first:
-      213: 2960574925614832416
-    second: spider bite-Sheet_4
+      213: 1932139851837861697
+    second: SpiderAttack_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 36
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -85,8 +73,8 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -108,115 +96,128 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spider bite-Sheet_0
+      name: SpiderAttack_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 18
-        height: 12
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d898d903cd8abf70800000000000000
-      internalID: 9203824657308358873
+      spriteID: 14feb2555f650da10800000000000000
+      internalID: 1932139851837861697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spider bite-Sheet_1
+      name: SpiderAttack_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae7692f157aefd429ef379c365347d8
+      internalID: 2126570964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiderAttack_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 18
-        height: 12
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e336f55dffb2c97f0800000000000000
-      internalID: -604559872178035906
+      spriteID: 9f9862dfbf7863844858144fd5892dac
+      internalID: -1021686393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spider bite-Sheet_2
+      name: SpiderAttack_3
       rect:
         serializedVersion: 2
-        x: 62
+        x: 48
         y: 0
-        width: 18
-        height: 12
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 42e91e0b1d745be50800000000000000
-      internalID: 6824439776291167780
+      spriteID: 15ddaa3dd789e594497c2ee5cee7a026
+      internalID: 2001503880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spider bite-Sheet_3
+      name: SpiderAttack_4
       rect:
         serializedVersion: 2
-        x: 92
+        x: 64
         y: 0
-        width: 18
-        height: 11
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4a6474da81f5be8a0800000000000000
-      internalID: -6274817096219670876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spider bite-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 121
-        y: 0
-        width: 18
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 02b53348533161920800000000000000
-      internalID: 2960574925614832416
+      spriteID: 997c0ac58960f0647b8fff1b63550365
+      internalID: -869028736
       vertices: []
       indices: 
       edges: []
@@ -225,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ce2cb3d5888dd3b468b51a85cdbcf152
     internalID: 0
     vertices: []
     indices: 
@@ -233,13 +234,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      spider bite-Sheet_0: 9203824657308358873
-      spider bite-Sheet_1: -604559872178035906
-      spider bite-Sheet_2: 6824439776291167780
-      spider bite-Sheet_3: -6274817096219670876
-      spider bite-Sheet_4: 2960574925614832416
+      SpiderAttack_0: 1932139851837861697
+      SpiderAttack_1: 2126570964
+      SpiderAttack_2: -1021686393
+      SpiderAttack_3: 2001503880
+      SpiderAttack_4: -869028736
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

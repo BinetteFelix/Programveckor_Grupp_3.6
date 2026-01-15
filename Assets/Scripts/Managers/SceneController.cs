@@ -1,10 +1,8 @@
 using SoundSystem;
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
@@ -22,6 +20,12 @@ public class SceneController : MonoBehaviour
 
     [SerializeField] private GameObject ControlsPopup;
 
+    #region UI ANIMATIONS
+    [SerializeField] private Animator settingsAnimator;
+    [SerializeField] private Animator controlsAnimator;
+
+    #endregion
+
     #region MUSIC 
     [SerializeField] private AudioMixerGroup mixerGroup;
     [SerializeField] private MusicEvent _songA;
@@ -32,6 +36,9 @@ public class SceneController : MonoBehaviour
     public bool IsPaused { get; private set; }
     public bool HasFinishedLoading { get; private set; }
     public int CurrentOpenScene { get; private set; }
+    #endregion
+
+    #region TIMERS
     #endregion
 
     private void Awake()
@@ -60,7 +67,6 @@ public class SceneController : MonoBehaviour
 
     private void Update()
     {
-        
         CurrentOpenScene = SceneManager.GetActiveScene().buildIndex;
 
         if (InputManager.instance.menuAction.WasPressedThisFrame() && !IsMainMenuScene() && !InventoryMenu.activeSelf && !SettingsMenu.activeSelf)
@@ -76,8 +82,6 @@ public class SceneController : MonoBehaviour
                 ToggleInventory();
             }
         }
-
-
     }
 
     #region OPENING & CLOSING PANELS
@@ -94,15 +98,20 @@ public class SceneController : MonoBehaviour
     {
         if (!IsMainMenuScene())
         {
-            SettingsMenu.SetActive(false);
             PauseMenu.SetActive(true);
+            SettingsMenu.SetActive(false);
         }
         else
         {
+            SettingsMenu.SetActive(false);
             MainMenuUI.SetActive(true);
             PauseMenu.SetActive(false);
-            SettingsMenu.SetActive(false);
         }
+    }
+    public void OpenSettings()
+    {
+        SettingsMenu.SetActive(true);
+        PauseMenu.SetActive(false);
     }
 
     public void GoBack()
@@ -164,7 +173,6 @@ public class SceneController : MonoBehaviour
 
     }
 
-
     public void ReturnToMenu()
     {
         TogglePause();
@@ -184,7 +192,9 @@ public class SceneController : MonoBehaviour
         LoadingMenu.SetActive(false);
         Time.timeScale = 1.0f;
         HasFinishedLoading = true;
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        controlsAnimator.SetTrigger("Open");
+
+        if (IsMainMenuScene())
         {
             MusicManager.Instance.StopMenuMusic(_songA, mixerGroup);
         }
@@ -193,7 +203,7 @@ public class SceneController : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.1f);
 
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (IsMainMenuScene())
             MusicManager.Instance.PlayMenuMusic(_songA, mixerGroup);
         else
             MusicManager.Instance.PlayMenuMusic(_songB, mixerGroup);
