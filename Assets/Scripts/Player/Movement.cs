@@ -127,7 +127,8 @@ public class Movement : MonoBehaviour
 
     private bool IsWalled()
     {
-        bool isWalled = Physics2D.OverlapCircle(wallCheck.position, 0.02f, wallLayer);
+        float wallCheckRadius = 0.05f;
+        bool isWalled = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, wallLayer);
         if (isWalled && isWallSliding)
         {
             canRun = false;
@@ -227,6 +228,8 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            
+            Debug.Log($"IsWalled: {IsWalled()}, IsGrounded: {IsGrounded()}, moveValue.x: {moveValue.x}");//Debugging why wall jump wont work sometimes
             isWallSliding = false;
         }
     }
@@ -247,13 +250,14 @@ public class Movement : MonoBehaviour
         }
         if (jumpAction.WasPressedThisFrame() && wallJumpingCounter > 0f && LastPressedJumpTime < 0)
         {
+            Debug.Log("walljump!");
             isWallJumping = true;
-            StartCoroutine(DisableAndReenableMovement());
+            //StartCoroutine(DisableAndReenableMovement());
             LastPressedJumpTime = 0.2f;
             rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             wallJumpingCounter = 0f;
-
-            if (transform.localScale.x != wallJumpingDirection)
+            int direction = (isFacingRight) ? 1 : -1;
+            if (direction != wallJumpingDirection)
             {
                 //Flip
                 isFacingRight = !isFacingRight;
@@ -262,6 +266,16 @@ public class Movement : MonoBehaviour
                 wallCheck.transform.localPosition = wallCheckLocalPos;
             }
             Invoke(nameof(StopWallJumping), wallJumpingDuration);
+        }
+        else if(jumpAction.WasPressedThisFrame())
+        {
+            if (wallJumpingCounter < 0f | LastPressedJumpTime > 0f)
+            {
+                Debug.Log($"WallJumpCounter: {wallJumpingCounter > 0f}");
+                Debug.Log($"LastPressedJumpTime: {LastPressedJumpTime < 0}");
+                Debug.Log($"WallSliding: {isWallSliding}");
+            }
+
         }
         
     }
