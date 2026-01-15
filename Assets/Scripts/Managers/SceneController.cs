@@ -85,11 +85,12 @@ public class SceneController : MonoBehaviour
             {
                 if (child.gameObject.activeSelf && child.gameObject != InventoryMenu) return;
                 ToggleInventory();
-                foreach (Transform grid in InventoryManager.Instance.InventoryGrid)
+                foreach (Transform slot in InventoryManager.Instance.InventoryGrid)
                 {
-                    if (grid != null) SceneController.Instance.SetSelectedButton(grid.gameObject);
+                    if (slot != null) SceneController.Instance.SetSelectedButton(slot.gameObject);
                     break;
                 }
+
             }
         }
     }
@@ -150,6 +151,7 @@ public class SceneController : MonoBehaviour
     public void ToggleInventory()
     {
         InventoryMenu.SetActive(!InventoryMenu.activeSelf);
+
         if(InventoryMenu.activeSelf)
         {
             InputManager.instance.DisablePlayerActions();
