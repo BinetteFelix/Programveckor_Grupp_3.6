@@ -4651,8 +4651,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076294, y: -238}
-  m_SizeDelta: {x: 1001.634, y: 328.081}
+  m_AnchoredPosition: {x: -0, y: -252.492}
+  m_SizeDelta: {x: 1001.634, y: 357.064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004281957
 MonoBehaviour:
@@ -5559,8 +5559,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0082703, y: 126.9}
-  m_SizeDelta: {x: 1001.6, y: 74.281}
+  m_AnchoredPosition: {x: -0.0071568, y: 134.15}
+  m_SizeDelta: {x: 1001.6, y: 88.777}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1114036655
 MonoBehaviour:
@@ -5582,7 +5582,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'narrator:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6243193451472bd40836cd7836279eca, type: 2}
   m_sharedMaterial: {fileID: 2289202533678383468, guid: 6243193451472bd40836cd7836279eca, type: 2}
@@ -5609,10 +5609,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72.43
+  m_fontSize: 99.4
+  m_fontSizeBase: 99.4
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -7433,8 +7433,8 @@ RectTransform:
   - {fileID: 1707584808}
   - {fileID: 404385503}
   - {fileID: 439165547}
-  - {fileID: 539223606}
   - {fileID: 1004281956}
+  - {fileID: 539223606}
   - {fileID: 2020050110}
   m_Father: {fileID: 607756498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7898,7 +7898,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -5.7724, y: 0, z: -11.544739, w: -23.089653}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
