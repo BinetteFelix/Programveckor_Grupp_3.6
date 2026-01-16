@@ -20,7 +20,7 @@ public class DialogBox : MonoBehaviour
         for (int i = 0; i < dialogue.Length; i++)
         {
             textBoxText.text += dialogue.Substring(i, 1);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             isScrolling = false;
         }
         //if (skipped == false) ControlsPopup.SetActive(true);

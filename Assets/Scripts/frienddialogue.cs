@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class frienddialogue : MonoBehaviour
 {
-
-    [SerializeField] public GameObject creditsObject;
     public DialogBox dialogBox;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,7 +23,7 @@ public class frienddialogue : MonoBehaviour
         {
             InputManager.instance.DisablePlayerActions();
             SceneController.Instance.dialogBox.gameObject.SetActive(true);
-            TriggerDialog();
+            StartCoroutine(TriggerDialog());
 
         }
     }
@@ -49,7 +47,7 @@ public class frienddialogue : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
-        creditsObject.SetActive(true);
+        SceneController.Instance.creditsUi.SetActive(true);
 
     }
 }
