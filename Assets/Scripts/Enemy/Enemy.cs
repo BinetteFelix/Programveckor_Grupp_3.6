@@ -6,12 +6,14 @@ public class Enemy : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private GameObject player;
-    private float speed = 2.5f;
+    
 
     [SerializeField] private Transform hurtBox;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    private float speed = 2.5f;
+    [SerializeField] private int damage;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -39,17 +41,24 @@ public class Enemy : MonoBehaviour
         {
             Jump(6f);
         }
-        if (Physics2D.OverlapBox(hurtBox.position, this.transform.localScale, 90f).gameObject.CompareTag("Player"))
-        {
-            //Debug.Log("hit!");
-            //Hurt player code here
-        }
 
     }
 
-    private void Move()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        rb.linearVelocityX = direction.normalized.x * speed;
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            InvokeRepeating(nameof(Damage), 0.5f, 1);
+        }
+        else
+        {
+            Jump(3f);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        CancelInvoke(nameof(Damage));
     }
 
     private bool IsGrounded()
@@ -57,12 +66,24 @@ public class Enemy : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer);
 
     }
+    private void Move()
+    {
+        rb.linearVelocityX = direction.normalized.x * speed;
+    }
+
+    private void Damage()
+    {
+        if (SceneController.Instance.gameOver) return;
+        HealthManager.Instance.Damage(damage);
+    }
+
+
 
     private void Jump(float force)
     {
         if(IsGrounded())
         {
-            rb.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
         }
     }
 

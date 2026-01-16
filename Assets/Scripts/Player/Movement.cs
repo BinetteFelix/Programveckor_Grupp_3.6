@@ -41,7 +41,6 @@ public class Movement : MonoBehaviour
 
     private Animator animator;
     private float runSpeedMultiplier = 5f;
-    private bool canRun = true;
     private float AnimationDirection;
 
     [Range(0.5f, 5f)] public float AttackDelay;
