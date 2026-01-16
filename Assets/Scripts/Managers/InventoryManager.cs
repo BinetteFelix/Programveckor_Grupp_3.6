@@ -66,6 +66,7 @@ public class InventoryManager : MonoBehaviour
         }
         for(int i = 0; i < slotCount; i++)
         {
+            Debug.Log("Created a slot");
             Instantiate(SlotPrefab, InventoryGrid.transform);
         }
         foreach(InventorySaveData data in inventorySaveData)
