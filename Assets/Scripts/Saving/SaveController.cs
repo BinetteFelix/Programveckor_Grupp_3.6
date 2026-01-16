@@ -3,19 +3,23 @@ using UnityEngine;
 
 public class SaveController : MonoBehaviour
 {
+    public static SaveController Instance;
     private string saveLocation;
     private InventoryManager inventoryManager;
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);
+        else
+            Instance = this;
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         inventoryManager = FindAnyObjectByType<InventoryManager>();
-        if (!SceneController.Instance.IsMainMenuScene())
-            LoadGame();
     }
 
     public void SaveGame()
@@ -33,8 +37,8 @@ public class SaveController : MonoBehaviour
     {
         if (File.Exists(saveLocation))
         {
+            Debug.Log("Exists!!! :D");
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
-
             // Stänger av det här temporarily för man börjar på fel ställe i vissa scener
             GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
 
@@ -42,6 +46,7 @@ public class SaveController : MonoBehaviour
         }
         else
         {
+            Debug.Log("no save? D:");
             SaveGame();
         }
     }
