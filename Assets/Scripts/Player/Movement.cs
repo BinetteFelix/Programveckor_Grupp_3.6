@@ -4,6 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -53,7 +54,15 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        moveAction = InputManager.instance.moveAction;
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            SaveController.Instance.LoadGame();
+        }
+        else
+        {
+            Debug.Log("No load????");
+        }
+            moveAction = InputManager.instance.moveAction;
         jumpAction = InputManager.instance.jumpAction;
         runAction = InputManager.instance.runAction;
 
