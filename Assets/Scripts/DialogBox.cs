@@ -13,7 +13,7 @@ public class DialogBox : MonoBehaviour
     
     public IEnumerator scrollText(string dialogue)
     {
-
+        
         if (isScrolling) StopCoroutine(scrollText(""));
         isScrolling = true;
 

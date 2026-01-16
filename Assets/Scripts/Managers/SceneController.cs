@@ -25,7 +25,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject HealthUI;
     [SerializeField] public GameObject ControlsPopup;
     [SerializeField] private GameObject textBox;
-    [SerializeField] private DialogBox dialogBox;
+    [SerializeField] public DialogBox dialogBox;
 
     public bool gameOver;
     private bool isScrolling;
