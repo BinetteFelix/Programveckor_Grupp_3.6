@@ -1,5 +1,6 @@
 using SoundSystem;
 using System.Collections;
+using TMPro;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -22,9 +23,14 @@ public class SceneController : MonoBehaviour
 
     [SerializeField] private GameObject DeathPanel;
     [SerializeField] private GameObject HealthUI;
-    [SerializeField] private GameObject ControlsPopup;
+    [SerializeField] public GameObject ControlsPopup;
+    [SerializeField] private GameObject textBox;
+    [SerializeField] private DialogBox dialogBox;
 
     public bool gameOver;
+    private bool isScrolling;
+    private string tempText;
+    public GameObject creditsUi;
 
     #region UI ANIMATIONS
     [SerializeField] private Animator settingsAnimator;
@@ -184,7 +190,9 @@ public class SceneController : MonoBehaviour
         if(index != 0) MainMenuUI.SetActive(false);
         if(index == 1)
         {
-            ControlsPopup.SetActive(true);
+            dialogBox.gameObject.SetActive(true);
+            dialogBox.nameText.text = "Narrator:";
+            StartCoroutine(dialogBox.scrollText("In a vast forest filled with a wide range of animals and vegetation alike, Tessa has a mission. A mission to save her lost best friend, Opal. "));
             HealthUI.SetActive(true);
         }
         if(index == 0)
@@ -251,5 +259,11 @@ public class SceneController : MonoBehaviour
 
         GameObject restartButton = DeathPanel.transform.Find("Panel").transform.Find("RestartButton").gameObject;
         SetSelectedButton(restartButton);
+    }
+
+    public void TextEnable()
+    {
+        InputManager.instance.DisablePlayerActions();
+        textBox.SetActive(true);
     }
 }
