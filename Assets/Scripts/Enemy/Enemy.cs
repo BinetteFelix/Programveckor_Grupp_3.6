@@ -14,10 +14,15 @@ public class Enemy : MonoBehaviour
 
     private float speed = 2.5f;
     [SerializeField] private int damage;
+    [SerializeField] private int health;
+    private Animator animator;
+
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -68,16 +73,26 @@ public class Enemy : MonoBehaviour
     }
     private void Move()
     {
+        animator.Play("Walk");
         rb.linearVelocityX = direction.normalized.x * speed;
     }
 
     private void Damage()
     {
         if (SceneController.Instance.gameOver) return;
+        animator.Play("Attack");
         HealthManager.Instance.Damage(damage);
     }
 
-
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if(health <= 0)
+        {
+            animator.Play("Death");
+            Destroy(this.gameObject);
+        }
+    }
 
     private void Jump(float force)
     {

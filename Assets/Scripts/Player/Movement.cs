@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -30,7 +31,6 @@ public class Movement : MonoBehaviour
     private float fallSpeedIncreaseAtJumpApex = 2f;
     private float LastPressedJumpTime;
     private float LastOnGroundTime;
-    private float LastAttackTime;
 
     private bool isWallJumping;
     private float wallJumpingDirection;
@@ -70,7 +70,6 @@ public class Movement : MonoBehaviour
         spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
         LastPressedJumpTime -= Time.deltaTime;
         LastOnGroundTime -= Time.deltaTime;
-        LastAttackTime -= Time.deltaTime;
 
         #region GET ACTION VALUES
         moveValue = moveAction.ReadValue<Vector2>();
@@ -78,10 +77,6 @@ public class Movement : MonoBehaviour
         runValue = runAction.IsPressed();
         #endregion
 
-        if (LastAttackTime < 0)
-            canAttack = true;
-        else
-            canAttack = false;
 
         WallSlide();
         WallJump();
@@ -95,18 +90,7 @@ public class Movement : MonoBehaviour
             jumpAction.Disable();
         }
         */
-        else
-        {
-            jumpAction.Enable();
-        }
-            
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canAttack)
-        {
-            LastAttackTime = AttackDelay;
-            SoundFXManager.Instance.PlaySoundFXClip(slashSoundFXs, transform);
-            animator.Play("AttackLeft");
-        }
+           
         if (IsGrounded())
         {
             LastOnGroundTime = 0.1f;

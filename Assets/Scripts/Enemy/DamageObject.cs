@@ -7,7 +7,7 @@ public class DamageObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        InvokeRepeating(nameof(Damage), 0.35f, 1f);
+        InvokeRepeating(nameof(Damage), 0.20f, 1f);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

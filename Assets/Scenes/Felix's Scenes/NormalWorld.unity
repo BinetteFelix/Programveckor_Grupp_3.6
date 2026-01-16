@@ -1806,6 +1806,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   damage: 1
+  health: 4
+  wanderPos1: {fileID: 0}
+  wanderPos2: {fileID: 0}
 --- !u!61 &477031053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1942,7 +1945,7 @@ Transform:
   m_GameObject: {fileID: 477031051}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.15, y: -1.05, z: 0}
+  m_LocalPosition: {x: 11.33, y: -1.49, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32880,38 +32883,6 @@ PrefabInstance:
       propertyPath: groundLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
-    - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_Size.x
-      value: 0.27950925
-      objectReference: {fileID: 0}
-    - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_Size.y
-      value: 1.0456271
-      objectReference: {fileID: 0}
-    - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.00058900565
-      objectReference: {fileID: 0}
-    - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.03281355
-      objectReference: {fileID: 0}
-    - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 16384
-      objectReference: {fileID: 0}
-    - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.3333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 346535555476449052, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.3333334
-      objectReference: {fileID: 0}
     - target: {fileID: 998218191473885583, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.55
@@ -32968,22 +32939,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.238
       objectReference: {fileID: 0}
-    - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 8794534825845012287, guid: b83a1afae4b03de4d9806a4ffdc361c1, type: 3}
-    - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_SortingLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 865756547
-      objectReference: {fileID: 0}
-    - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 37a2f0b11e2c1ad4780bd246855c7951, type: 2}
     - target: {fileID: 8247612003943236394, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_Name
       value: Player
@@ -33852,6 +33807,10 @@ PrefabInstance:
     - target: {fileID: 7626468262133428791, guid: f02a7a961ccb1524096fb61f6ecf502f, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626468262133428791, guid: f02a7a961ccb1524096fb61f6ecf502f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7626468262133428791, guid: f02a7a961ccb1524096fb61f6ecf502f, type: 3}
       propertyPath: m_TagString

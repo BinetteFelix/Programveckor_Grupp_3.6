@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &497800207173336227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4813709362521118779}
+  m_Layer: 0
+  m_Name: AttackHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4813709362521118779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497800207173336227}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.05, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8490438600298981296}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4506076492463093142
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +141,7 @@ GameObject:
   - component: {fileID: 3719511269527332482}
   - component: {fileID: 1988291148663440985}
   - component: {fileID: 6741229952682416896}
+  - component: {fileID: 3317553802475912290}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -133,6 +165,7 @@ Transform:
   - {fileID: 7282602013123832779}
   - {fileID: 998218191473885583}
   - {fileID: 4903309965566349656}
+  - {fileID: 4813709362521118779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7999114382479548287
@@ -161,7 +194,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 37a2f0b11e2c1ad4780bd246855c7951, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -180,11 +213,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 865756547
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 8794534825845012287, guid: b83a1afae4b03de4d9806a4ffdc361c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -237,7 +270,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -255,17 +288,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.06}
+  m_Offset: {x: -0.00058900565, y: -0.03281355}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.3333334, y: 1.3333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.3, y: 1.1}
+  m_Size: {x: 0.27950925, y: 1.0456271}
   m_EdgeRadius: 0
 --- !u!58 &1369229907139503394
 CircleCollider2D:
@@ -353,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   slashSoundFXs: []
+  AttackDelay: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -373,3 +407,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110b6c784d9788e4f9aa1dc30627ddcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &3317553802475912290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8247612003943236394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71be20ff55c20e64f975d6b54d3878c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  AttackDelay: 0.5
+  slashSoundFXs:
+  - {fileID: 8300000, guid: b88ba24f82df2064fad1a97da414a813, type: 3}
+  - {fileID: 8300000, guid: 20dcb2ea908d63d4cac0c81f24533ddd, type: 3}
+  attackHitBox: {fileID: 4813709362521118779}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 16384
