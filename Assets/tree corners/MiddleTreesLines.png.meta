@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 1e8e8bd886753ba4093824532baa54ef
+guid: ed2f418c343211f4e862c5abbaf2f961
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2078784973862997102
-    second: attack animations-Sheet_0
+      213: 8415759534160275209
+    second: lines middle trees_0
   - first:
-      213: -6255263127104169025
-    second: attack animations-Sheet_1
+      213: -3386966912601725234
+    second: lines middle trees_1
   - first:
-      213: -2450198882501725356
-    second: attack animations-Sheet_2
+      213: -7814239322926013568
+    second: lines middle trees_2
   - first:
-      213: 7768077533723175439
-    second: attack animations-Sheet_3
+      213: 8721321321857836505
+    second: lines middle trees_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -55,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -122,89 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: attack animations-Sheet_0
+      name: lines middle trees_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 0
-        width: 48
-        height: 48
+        width: 41
+        height: 460
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6c068b7be359dc10800000000000000
-      internalID: 2078784973862997102
+      spriteID: 907eabc25b8cac470800000000000000
+      internalID: 8415759534160275209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack animations-Sheet_1
+      name: lines middle trees_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 42
+        height: 460
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fbb5b54e357d039a0800000000000000
-      internalID: -6255263127104169025
+      spriteID: ec66f54b9831ff0d0800000000000000
+      internalID: -3386966912601725234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack animations-Sheet_2
+      name: lines middle trees_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 211
         y: 0
-        width: 48
-        height: 48
+        width: 39
+        height: 460
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 453fc6b19152ffdd0800000000000000
-      internalID: -2450198882501725356
+      spriteID: 0832b17ccbe3e8390800000000000000
+      internalID: -7814239322926013568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack animations-Sheet_3
+      name: lines middle trees_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 297
         y: 0
-        width: 48
-        height: 48
+        width: 35
+        height: 460
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0a23412c51cdcb60800000000000000
-      internalID: 7768077533723175439
+      spriteID: 9d56061e88b580970800000000000000
+      internalID: 8721321321857836505
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ccf308b43397f9d4e89483e96b984b3d
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -221,14 +221,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      attack animations-Sheet_0: 2078784973862997102
-      attack animations-Sheet_1: -6255263127104169025
-      attack animations-Sheet_2: -2450198882501725356
-      attack animations-Sheet_3: 7768077533723175439
+      lines middle trees_0: 8415759534160275209
+      lines middle trees_1: -3386966912601725234
+      lines middle trees_2: -7814239322926013568
+      lines middle trees_3: 8721321321857836505
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,7 +14,8 @@ public class SaveController : MonoBehaviour
     {
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         inventoryManager = FindAnyObjectByType<InventoryManager>();
-        LoadGame();
+        if (!SceneController.Instance.IsMainMenuScene())
+            LoadGame();
     }
 
     public void SaveGame()
@@ -35,7 +36,7 @@ public class SaveController : MonoBehaviour
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
 
             // Stänger av det här temporarily för man börjar på fel ställe i vissa scener
-            // GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
+            GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
 
             inventoryManager.SetInventoryItems(saveData.inventorySaveData);
         }

@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
 
     private bool isWallSliding;
     private bool isFacingRight = false;
+    private bool canAttack;
 
     private float maxSpeed = 7f;
     private float jumpPower = 8f;
@@ -29,6 +30,7 @@ public class Movement : MonoBehaviour
     private float fallSpeedIncreaseAtJumpApex = 2f;
     private float LastPressedJumpTime;
     private float LastOnGroundTime;
+    private float LastAttackTime;
 
     private bool isWallJumping;
     private float wallJumpingDirection;
@@ -42,9 +44,9 @@ public class Movement : MonoBehaviour
     private bool canRun = true;
     private float AnimationDirection;
 
-    private bool lastDirection;
+    [Range(0.5f, 5f)] public float AttackDelay;
 
-    
+
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask wallLayer;
@@ -69,12 +71,18 @@ public class Movement : MonoBehaviour
         spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
         LastPressedJumpTime -= Time.deltaTime;
         LastOnGroundTime -= Time.deltaTime;
+        LastAttackTime -= Time.deltaTime;
 
         #region GET ACTION VALUES
         moveValue = moveAction.ReadValue<Vector2>();
         jumpValue = jumpAction.IsPressed();
         runValue = runAction.IsPressed();
         #endregion
+
+        if (LastAttackTime < 0)
+            canAttack = true;
+        else
+            canAttack = false;
 
         WallSlide();
         WallJump();
@@ -94,9 +102,11 @@ public class Movement : MonoBehaviour
         }
             
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canAttack)
         {
+            LastAttackTime = AttackDelay;
             SoundFXManager.Instance.PlaySoundFXClip(slashSoundFXs, transform);
+            animator.Play("AttackLeft");
         }
         if (IsGrounded())
         {

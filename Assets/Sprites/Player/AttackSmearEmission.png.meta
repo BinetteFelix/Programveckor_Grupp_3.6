@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: ed2f418c343211f4e862c5abbaf2f961
+guid: 68a1e6694c44c9740a7dfeec9380da25
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8415759534160275209
-    second: lines middle trees_0
+      213: -8872782567947150321
+    second: AttackSmearEmission_0
   - first:
-      213: -3386966912601725234
-    second: lines middle trees_1
-  - first:
-      213: -7814239322926013568
-    second: lines middle trees_2
-  - first:
-      213: 8721321321857836505
-    second: lines middle trees_3
+      213: -1665235666165763268
+    second: AttackSmearEmission_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,10 +51,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 36
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -82,8 +76,8 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -105,93 +99,62 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lines middle trees_0
+      name: AttackSmearEmission_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 41
-        height: 460
+        x: 48
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 907eabc25b8cac470800000000000000
-      internalID: 8415759534160275209
+      spriteID: f0c5b34b34b8dd480800000000000000
+      internalID: -8872782567947150321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lines middle trees_1
+      name: AttackSmearEmission_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 42
-        height: 460
+        x: 96
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec66f54b9831ff0d0800000000000000
-      internalID: -3386966912601725234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lines middle trees_2
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 0
-        width: 39
-        height: 460
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0832b17ccbe3e8390800000000000000
-      internalID: -7814239322926013568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lines middle trees_3
-      rect:
-        serializedVersion: 2
-        x: 297
-        y: 0
-        width: 35
-        height: 460
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9d56061e88b580970800000000000000
-      internalID: 8721321321857836505
+      spriteID: c33f0e20cf4e3e8e0800000000000000
+      internalID: -1665235666165763268
       vertices: []
       indices: 
       edges: []
@@ -200,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 71c479bd7d6a0e643b92b6a50d9b62fb
     internalID: 0
     vertices: []
     indices: 
@@ -208,12 +171,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":7.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      lines middle trees_0: 8415759534160275209
-      lines middle trees_1: -3386966912601725234
-      lines middle trees_2: -7814239322926013568
-      lines middle trees_3: 8721321321857836505
+      AttackSmearEmission_0: -8872782567947150321
+      AttackSmearEmission_1: -1665235666165763268
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

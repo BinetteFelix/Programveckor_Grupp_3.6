@@ -1627,6 +1627,55 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &412288172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412288174}
+  - component: {fileID: 412288173}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &412288173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412288172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 2b3c2011147ddd54da3555ec6b544fc1, type: 2}
+--- !u!4 &412288174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412288172}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.033539, y: -3.3673468, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &425518033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,7 +1909,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -32596,6 +32645,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
+      propertyPath: AttackDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: slashSoundFX
       value: 
       objectReference: {fileID: 8300000, guid: b88ba24f82df2064fad1a97da414a813, type: 3}
@@ -32627,6 +32680,10 @@ PrefabInstance:
       propertyPath: 'SOs.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 74b4ea3dd2b4870478b22bd0e7c74166, type: 2}
+    - target: {fileID: 3719511269527332482, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
+      propertyPath: warpObject.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 4506076492463093142, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -32638,7 +32695,7 @@ PrefabInstance:
     - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a884406af184c62438a78b3086a76210, type: 3}
+      objectReference: {fileID: 8794534825845012287, guid: b83a1afae4b03de4d9806a4ffdc361c1, type: 3}
     - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -32647,6 +32704,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 865756547
       objectReference: {fileID: 0}
+    - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 37a2f0b11e2c1ad4780bd246855c7951, type: 2}
     - target: {fileID: 8247612003943236394, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_Name
       value: Player
@@ -33504,6 +33565,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 865756547
       objectReference: {fileID: 0}
+    - target: {fileID: 6257516627634863007, guid: f02a7a961ccb1524096fb61f6ecf502f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 7626468262133428791, guid: f02a7a961ccb1524096fb61f6ecf502f, type: 3}
       propertyPath: m_Name
       value: WarpObject
@@ -33549,3 +33614,4 @@ SceneRoots:
   - {fileID: 6925745741207886741}
   - {fileID: 7023749665387324507}
   - {fileID: 324239720}
+  - {fileID: 412288174}

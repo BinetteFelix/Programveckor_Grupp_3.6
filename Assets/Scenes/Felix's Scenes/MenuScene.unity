@@ -1230,11 +1230,12 @@ MonoBehaviour:
   DeathPanel: {fileID: 404385502}
   HealthUI: {fileID: 439165546}
   ControlsPopup: {fileID: 1267946000}
+  gameOver: 0
   settingsAnimator: {fileID: 1897611034}
   controlsAnimator: {fileID: 1267946005}
   mixerGroup: {fileID: -2221993235946724623, guid: 57dce75041a6e6b48a3ee87083a6dbba, type: 2}
   _songA: {fileID: 11400000, guid: d5be9ee88041f504e9a45d06171af05c, type: 2}
-  _songB: {fileID: 11400000, guid: 810e48b6a54bcc74ea5119d8176dcb6d, type: 2}
+  _songB: {fileID: 11400000, guid: 792ef4233e0b2f2418ad5a1f102c82f0, type: 2}
 --- !u!4 &207459837
 Transform:
   m_ObjectHideFlags: 0
