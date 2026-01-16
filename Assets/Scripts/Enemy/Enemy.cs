@@ -6,16 +6,23 @@ public class Enemy : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rb;
     private GameObject player;
-    private float speed = 2.5f;
+    
 
     [SerializeField] private Transform hurtBox;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    private float speed = 2.5f;
+    [SerializeField] private int damage;
+    [SerializeField] private int health;
+    private Animator animator;
+
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,17 +46,24 @@ public class Enemy : MonoBehaviour
         {
             Jump(6f);
         }
-        if (Physics2D.OverlapBox(hurtBox.position, this.transform.localScale, 90f).gameObject.CompareTag("Player"))
-        {
-            //Debug.Log("hit!");
-            //Hurt player code here
-        }
 
     }
 
-    private void Move()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        rb.linearVelocityX = direction.normalized.x * speed;
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            InvokeRepeating(nameof(Damage), 0.5f, 1);
+        }
+        else
+        {
+            Jump(3f);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        CancelInvoke(nameof(Damage));
     }
 
     private bool IsGrounded()
@@ -57,12 +71,34 @@ public class Enemy : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer);
 
     }
+    private void Move()
+    {
+        animator.Play("Walk");
+        rb.linearVelocityX = direction.normalized.x * speed;
+    }
+
+    private void Damage()
+    {
+        if (SceneController.Instance.gameOver) return;
+        animator.Play("Attack");
+        HealthManager.Instance.Damage(damage);
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if(health <= 0)
+        {
+            animator.Play("Death");
+            Destroy(this.gameObject);
+        }
+    }
 
     private void Jump(float force)
     {
         if(IsGrounded())
         {
-            rb.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
         }
     }
 

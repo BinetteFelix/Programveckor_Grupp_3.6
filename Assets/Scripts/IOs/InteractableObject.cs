@@ -40,8 +40,8 @@ public class InteractableObject : MonoBehaviour
         CMISource.GenerateImpulse();
        
         if (SceneController.Instance.CurrentOpenScene == NormalSceneIndex)
-            SceneController.Instance.StartCoroutine(SceneController.Instance.LoadScene(2));
+            StartCoroutine(SceneController.Instance.LoadScene(2));
         else if (SceneController.Instance.CurrentOpenScene == DistortedSceneIndex)
-            SceneController.Instance.StartCoroutine(SceneController.Instance.LoadScene(1));
+            StartCoroutine(SceneController.Instance.LoadScene(1));
     }
 }

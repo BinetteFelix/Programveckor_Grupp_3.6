@@ -35,7 +35,7 @@ public class PlayerInteract : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Item"))
+        if (collision.gameObject.CompareTag("Item"))
         {
             Item item = collision.GetComponent<Item>();
 

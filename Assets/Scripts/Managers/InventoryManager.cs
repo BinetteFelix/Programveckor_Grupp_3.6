@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
     private ItemDictionary itemDictionary;
 
-    [SerializeField] private Transform InventoryGrid;
+    public Transform InventoryGrid;
     [SerializeField] private GameObject SlotPrefab;
     [SerializeField] private GameObject BaseItemPrefab;
     public int slotCount;
@@ -66,6 +66,7 @@ public class InventoryManager : MonoBehaviour
         }
         for(int i = 0; i < slotCount; i++)
         {
+            Debug.Log("Created a slot");
             Instantiate(SlotPrefab, InventoryGrid.transform);
         }
         foreach(InventorySaveData data in inventorySaveData)

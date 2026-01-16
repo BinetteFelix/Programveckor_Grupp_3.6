@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: 9327797b37c2f2f438729dda1fa5db15
+guid: d6c62bbfee69e3e4fb36f711aa0c09a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7942297775469238771
-    second: lines front trees_0
-  - first:
-      213: -7630320149718950033
-    second: lines front trees_1
-  - first:
-      213: 7162470283365135574
-    second: lines front trees_2
-  - first:
-      213: 7516211277810664125
-    second: lines front trees_3
-  - first:
-      213: 7292248622202885346
-    second: lines front trees_4
-  - first:
-      213: 1866588276987226664
-    second: lines front trees_5
+      213: 4173590578064588592
+    second: tiles med kant och stock_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 36
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -88,8 +73,8 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -115,133 +100,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lines front trees_0
+      name: tiles med kant och stock_0
       rect:
         serializedVersion: 2
-        x: 70
+        x: 0
+        y: 18
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03ff473a4829be930800000000000000
+      internalID: 4173590578064588592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles med kant och stock_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1e5cf143f296ba40b98f3e3d938ad2d
+      internalID: -744158364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles med kant och stock_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 18
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95b7f9e09384684fb47571e6e08d9f9
+      internalID: 45703646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles med kant och stock_3
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
-        width: 70
-        height: 460
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d06e7c8d04a47c190800000000000000
-      internalID: -7942297775469238771
+      spriteID: 66f12790212aa8945b12d8240e28b03e
+      internalID: 817270021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lines front trees_1
+      name: tiles med kant och stock_4
       rect:
         serializedVersion: 2
-        x: 116
-        y: 303
-        width: 37
-        height: 157
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f6f1f714048ab1690800000000000000
-      internalID: -7630320149718950033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lines front trees_2
-      rect:
-        serializedVersion: 2
-        x: 203
+        x: 18
         y: 0
-        width: 52
-        height: 460
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6d4354a36c4366360800000000000000
-      internalID: 7162470283365135574
+      spriteID: ef8c03f2096724a449ce2ddcaf11c8d3
+      internalID: 1129688216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lines front trees_3
+      name: tiles med kant och stock_5
       rect:
         serializedVersion: 2
-        x: 376
+        x: 36
         y: 0
-        width: 45
-        height: 460
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: db280b6a552fe4860800000000000000
-      internalID: 7516211277810664125
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lines front trees_4
-      rect:
-        serializedVersion: 2
-        x: 398
-        y: 293
-        width: 27
-        height: 167
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2e41c346c75433560800000000000000
-      internalID: 7292248622202885346
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lines front trees_5
-      rect:
-        serializedVersion: 2
-        x: 488
-        y: 0
-        width: 106
-        height: 460
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 82a6bb7f52477e910800000000000000
-      internalID: 1866588276987226664
+      spriteID: 60453550c213e4e4ca2069040cb1c935
+      internalID: -1165334114
       vertices: []
       indices: 
       edges: []
@@ -250,7 +235,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9b6745593fbc5c74f93df71456011a21
     internalID: 0
     vertices: []
     indices: 
@@ -258,14 +243,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":2.0},"gridSpriteSize":{"x":18.0,"y":18.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      lines front trees_0: -7942297775469238771
-      lines front trees_1: -7630320149718950033
-      lines front trees_2: 7162470283365135574
-      lines front trees_3: 7516211277810664125
-      lines front trees_4: 7292248622202885346
-      lines front trees_5: 1866588276987226664
+      tiles med kant och stock_0: 4173590578064588592
+      tiles med kant och stock_1: -744158364
+      tiles med kant och stock_2: 45703646
+      tiles med kant och stock_3: 817270021
+      tiles med kant och stock_4: 1129688216
+      tiles med kant och stock_5: -1165334114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

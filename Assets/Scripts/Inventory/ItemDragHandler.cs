@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -69,6 +70,8 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // center the item
     }
 
+
+
     public void OnPointerClick(PointerEventData eventData)
     {
 
@@ -86,4 +89,18 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         #endregion
 
     }
+
+    public void ShowInfo()
+    {
+        GameObject itemInformationParent = GameObject.FindGameObjectWithTag("ItemInformation");
+
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemSprite.gameObject.SetActive(true);
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemName.gameObject.SetActive(true);
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemDescription.gameObject.SetActive(true);
+
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemSprite.sprite = itemData.itemSprite;
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemName.text = itemData.itemName;
+        itemInformationParent.GetComponent<ItemInformationContent>().selectedItemDescription.text = itemData.itemInformation;
+    }
+
 }

@@ -14,6 +14,8 @@ public class InputManager : MonoBehaviour
 
     public InputAction interactAction { get; private set; }
 
+    public InputAction attackAction { get; private set; }
+
     private void Awake()
     {
         InputSystem.actions.Enable();
@@ -27,6 +29,30 @@ public class InputManager : MonoBehaviour
         menuAction = InputSystem.actions.FindAction("Menu");
         inventoryAction = InputSystem.actions.FindAction("Inventory");
         interactAction = InputSystem.actions.FindAction("Interact");
+        attackAction = InputSystem.actions.FindAction("Attack");
 
+    }
+
+
+    public void DisablePlayerActions()
+    {
+        moveAction.Disable();
+        jumpAction.Disable();
+        runAction.Disable();
+        menuAction.Disable();
+        attackAction.Disable();
+        inventoryAction.Disable();
+        interactAction.Disable();
+    }
+
+    public void EnablePlayerActions()
+    {
+        moveAction.Enable();
+        jumpAction.Enable();
+        runAction.Enable();
+        menuAction.Enable();
+        attackAction.Enable();
+        inventoryAction.Enable();
+        interactAction.Enable();
     }
 }
