@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     private bool canAttack;
 
     private float maxSpeed = 7f;
-    private float jumpPower = 8f;
+    private float jumpPower = 9.5f;
     private float maxFallSpeed = 10f;
     private float wallSlidingSpeed = 2f;
 
@@ -44,13 +44,16 @@ public class Movement : MonoBehaviour
     private float runSpeedMultiplier = 5f;
     private float AnimationDirection;
 
-    [Range(0.5f, 5f)] public float AttackDelay;
-
 
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask wallLayer;
     [SerializeField] Transform wallCheck;
+
+    private float LastAttackTime;
+    [Range(0.5f, 5f)] public float AttackDelay;
+    [SerializeField] Transform attackHitBox;
+    [SerializeField] LayerMask enemyLayer;
 
     void Start()
     {
@@ -62,7 +65,7 @@ public class Movement : MonoBehaviour
         {
             Debug.Log("No load????");
         }
-            moveAction = InputManager.instance.moveAction;
+        moveAction = InputManager.instance.moveAction;
         jumpAction = InputManager.instance.jumpAction;
         runAction = InputManager.instance.runAction;
 
@@ -74,7 +77,6 @@ public class Movement : MonoBehaviour
     void Update()
     {
         animator.SetBool("IsGrounded", IsGrounded());
-
         if (rb.linearVelocityY < -1) animator.ResetTrigger("Jump");
         spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
         LastPressedJumpTime -= Time.deltaTime;
@@ -89,6 +91,7 @@ public class Movement : MonoBehaviour
 
         WallSlide();
         WallJump();
+        Attack();
         if (!isWallJumping)
         {
             Flip();
@@ -120,13 +123,19 @@ public class Movement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.02f, groundLayer); 
     }
 
+    bool isPlaying(Animator anim, string stateName)
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            return true;
+        else
+            return false;
+    }
+
     private bool IsWalled()
     {
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
-
-
-
     void Flip()
     {
         if(isFacingRight && moveValue.x < 0f || !isFacingRight && moveValue.x > 0f)
@@ -137,8 +146,8 @@ public class Movement : MonoBehaviour
             wallCheck.transform.localPosition = wallCheckLocalPos;        }
     }
 
-    
 
+    #region Movement methods
     private void Move(float lerpAmount)
     {
         
@@ -184,6 +193,8 @@ public class Movement : MonoBehaviour
         }  
 
     }
+
+
 
     private void Jump()
     {
@@ -287,5 +298,43 @@ public class Movement : MonoBehaviour
     private void StopWallJumping()
     {
         isWallJumping = false;
+    }
+
+    #endregion
+
+    #region Attacking
+
+    private void Attack()
+    {
+        LastAttackTime -= Time.deltaTime;
+        if (LastAttackTime < 0)
+            canAttack = true;
+        else
+            canAttack = false;
+
+        if (InputManager.instance.attackAction.WasPressedThisFrame() && canAttack)
+        {
+            LastAttackTime = AttackDelay;
+            SoundFXManager.Instance.PlaySoundFXClip(slashSoundFXs, transform);
+            animator.Play("AttackLeft");
+            Physics2D.OverlapCircle(attackHitBox.transform.position, 2f, enemyLayer).transform.gameObject.TryGetComponent<Enemy>(out Enemy enemy);
+            if (enemy != null) enemy.TakeDamage(1);
+        }
+
+        if(isPlaying(animator, "AttackLeft"))
+        {
+            if (isFacingRight) spriteRenderer.flipX = true;
+            else spriteRenderer.flipX = false;
+        }
+    }
+
+    #endregion
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(wallCheck.position, 0.2f);
     }
 }

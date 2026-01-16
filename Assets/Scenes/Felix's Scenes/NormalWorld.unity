@@ -1780,7 +1780,7 @@ GameObject:
   - component: {fileID: 477031054}
   - component: {fileID: 477031053}
   - component: {fileID: 477031057}
-  - component: {fileID: 477031052}
+  - component: {fileID: 477031058}
   m_Layer: 14
   m_Name: EnemySpider
   m_TagString: Untagged
@@ -1788,27 +1788,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &477031052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 477031051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b21c8044701e9244db0cdd630e47c6ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  hurtBox: {fileID: 1096716279}
-  groundCheck: {fileID: 536394697}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  damage: 1
-  health: 4
-  wanderPos1: {fileID: 0}
-  wanderPos2: {fileID: 0}
 --- !u!61 &477031053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1980,6 +1959,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &477031058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477031051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d694be56aeace2f428c49bc95922cfad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
+  patrolRight: {fileID: 1704533656}
+  patrolLeft: {fileID: 2134021231}
+  DoDamage: 0
+  IsStunned: 0
+  VisionRange: 2
+  AttackRange: 1
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &482633849
 GameObject:
   m_ObjectHideFlags: 0
@@ -31996,6 +31996,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1496387313389764480, guid: db079e260012efd44a252d2d1126c614, type: 3}
   m_PrefabInstance: {fileID: 7023749665387324507}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1704533655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1704533656}
+  m_Layer: 0
+  m_Name: Patrol1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1704533656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704533655}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.104809, y: 0.83554006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1837063545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709680020
 GameObject:
   m_ObjectHideFlags: 0
@@ -32279,6 +32310,39 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1837063544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837063545}
+  m_Layer: 0
+  m_Name: PatrolPositions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1837063545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837063544}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.94519, y: -2.51271, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1704533656}
+  - {fileID: 2134021231}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863032421
 GameObject:
   m_ObjectHideFlags: 0
@@ -32653,6 +32717,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &2134021230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2134021231}
+  m_Layer: 0
+  m_Name: Patrol1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2134021231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134021230}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3651905, y: 0.83554006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1837063545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &285745284974891155
 Transform:
   m_ObjectHideFlags: 0
@@ -32892,29 +32987,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: AttackDelay
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: slashSoundFX
       value: 
       objectReference: {fileID: 8300000, guid: b88ba24f82df2064fad1a97da414a813, type: 3}
-    - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: wallLayer.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: slashSoundFXs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: 'slashSoundFXs.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: b88ba24f82df2064fad1a97da414a813, type: 3}
-    - target: {fileID: 1988291148663440985, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
-      propertyPath: 'slashSoundFXs.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 20dcb2ea908d63d4cac0c81f24533ddd, type: 3}
     - target: {fileID: 3719511269527332482, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: SOs.Array.size
       value: 0
@@ -33810,7 +33885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7626468262133428791, guid: f02a7a961ccb1524096fb61f6ecf502f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7626468262133428791, guid: f02a7a961ccb1524096fb61f6ecf502f, type: 3}
       propertyPath: m_TagString
@@ -33851,3 +33926,4 @@ SceneRoots:
   - {fileID: 324239720}
   - {fileID: 412288174}
   - {fileID: 477031056}
+  - {fileID: 1837063545}

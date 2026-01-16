@@ -385,16 +385,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d0a7174f583cf48ba50c53240c8e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  slashSoundFXs: []
-  AttackDelay: 0.5
+  slashSoundFXs:
+  - {fileID: 8300000, guid: b88ba24f82df2064fad1a97da414a813, type: 3}
+  - {fileID: 8300000, guid: 20dcb2ea908d63d4cac0c81f24533ddd, type: 3}
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 998218191473885583}
   wallLayer:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 256
   wallCheck: {fileID: 4903309965566349656}
+  AttackDelay: 0.5
+  attackHitBox: {fileID: 4813709362521118779}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!114 &6741229952682416896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,11 +425,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71be20ff55c20e64f975d6b54d3878c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  AttackDelay: 0.5
-  slashSoundFXs:
-  - {fileID: 8300000, guid: b88ba24f82df2064fad1a97da414a813, type: 3}
-  - {fileID: 8300000, guid: 20dcb2ea908d63d4cac0c81f24533ddd, type: 3}
-  attackHitBox: {fileID: 4813709362521118779}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 16384
