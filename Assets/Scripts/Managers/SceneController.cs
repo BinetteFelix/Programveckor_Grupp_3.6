@@ -1,12 +1,10 @@
 using SoundSystem;
 using System.Collections;
-using TMPro;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {

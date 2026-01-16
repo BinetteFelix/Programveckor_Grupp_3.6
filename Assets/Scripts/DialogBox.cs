@@ -33,6 +33,11 @@ public class DialogBox : MonoBehaviour
 
     }
 
+    public void ResetText()
+    {
+        textBoxText.text = "";
+        nameText.text = "";
+    }
     private void OnEnable()
     {
         textBoxText.text = "";

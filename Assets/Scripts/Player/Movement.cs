@@ -1,7 +1,3 @@
-using System.Collections;
-using Unity.Mathematics;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -317,8 +313,12 @@ public class Movement : MonoBehaviour
             LastAttackTime = AttackDelay;
             SoundFXManager.Instance.PlaySoundFXClip(slashSoundFXs, transform);
             animator.Play("AttackLeft");
-            Physics2D.OverlapCircle(attackHitBox.transform.position, 2f, enemyLayer).transform.gameObject.TryGetComponent<Enemy>(out Enemy enemy);
-            if (enemy != null) enemy.TakeDamage(1);
+            Collider2D enemy = Physics2D.OverlapCircle(attackHitBox.transform.position, 2f, enemyLayer);
+            if (enemy != null)
+            {
+                EnemyPatrol enemy1 = enemy.GetComponent<EnemyPatrol>();
+                enemy1.TakeDamage(1);
+            }
         }
 
         if(isPlaying(animator, "AttackLeft"))

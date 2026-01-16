@@ -21,6 +21,7 @@ public class frienddialogue : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            SaveController.Instance.SaveGame();
             InputManager.instance.DisablePlayerActions();
             SceneController.Instance.dialogBox.gameObject.SetActive(true);
             StartCoroutine(TriggerDialog());
@@ -32,20 +33,22 @@ public class frienddialogue : MonoBehaviour
     {
         dialogBox.nameText.text = "Tessa:";
         StartCoroutine(dialogBox.scrollText("Opal…is that you?"));
-
         yield return new WaitForSeconds(5f);
 
+        dialogBox.ResetText();
         dialogBox.nameText.text = "Opal:";
         StartCoroutine(dialogBox.scrollText("Tessa? ... Tessa!"));
-        yield return new WaitForSeconds(4f);
+        dialogBox.ResetText();
+        yield return new WaitForSeconds(3f);
+        dialogBox.nameText.text = "Opal:";
         StartCoroutine(dialogBox.scrollText("How did you find me?"));
 
         yield return new WaitForSeconds(5f);
-
+        dialogBox.ResetText();
         dialogBox.nameText.text = "Tessa:";
         StartCoroutine(dialogBox.scrollText("Long story, but at least we're together"));
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         SceneController.Instance.creditsUi.SetActive(true);
 

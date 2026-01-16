@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2485232456643103701}
-  - component: {fileID: 1527527661933185128}
   - component: {fileID: 8225822220499203400}
   - component: {fileID: 3286834488148655198}
   m_Layer: 0
@@ -34,20 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1527527661933185128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126896360953306395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96481065060e934ea31e3ff9a20b06d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  creditsObject: {fileID: 0}
-  dialogBox: {fileID: 0}
 --- !u!61 &8225822220499203400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -106,5 +91,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96481065060e934ea31e3ff9a20b06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::frienddialogue
-  creditsObject: {fileID: 0}
   dialogBox: {fileID: 0}

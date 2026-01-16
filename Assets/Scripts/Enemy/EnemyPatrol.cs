@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
@@ -8,6 +7,9 @@ public class EnemyPatrol : MonoBehaviour
 
     [SerializeField] Transform patrolRight;
     [SerializeField] Transform patrolLeft;
+
+    [SerializeField] private int damage;
+    [SerializeField] private int health;
 
     private GameObject playerObject;
 
@@ -126,11 +128,38 @@ public class EnemyPatrol : MonoBehaviour
 
         RB.linearVelocityX = 2.5f * MoveDirection;
     }
-  
+
     #endregion
 
     #region ATTACK METHODS
+    private void Damage()
+    {
+        if (SceneController.Instance.gameOver) return;
+        animator.Play("Attack");
+        HealthManager.Instance.Damage(damage);
+    }
 
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            animator.Play("Death");
+            Destroy(this.gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            InvokeRepeating(nameof(Damage), 0.5f, 1);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        CancelInvoke(nameof(Damage));
+    }
     #endregion
 
     #region EDITOR METHODS
