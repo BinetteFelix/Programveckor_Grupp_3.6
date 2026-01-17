@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     private bool canAttack;
 
     private float maxSpeed = 7f;
-    private float jumpPower = 9.5f;
+    private float jumpPower = 7.5f;
     private float maxFallSpeed = 10f;
     private float wallSlidingSpeed = 2f;
 
@@ -194,7 +194,7 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
-        Vector2 force = (runValue) ? ((Vector2.up * jumpPower) * 1.20f) : (Vector2.up * jumpPower);
+        Vector2 force = (runValue && rb.linearVelocityX > 0.5f || rb.linearVelocityX < -0.5f) ? ((Vector2.up * jumpPower) * 1.20f) : (Vector2.up * jumpPower);
         //Jump
         if (jumpValue && IsGrounded() && LastPressedJumpTime < 0 && LastOnGroundTime > 0)
         {
@@ -224,7 +224,7 @@ public class Movement : MonoBehaviour
 
     private void WallSlide()
     {
-        if(IsWalled() && !IsGrounded() && moveValue.x != 0f)
+        if(IsWalled() && !IsGrounded() && moveValue.x != 0f && LastPressedJumpTime < 0)
         {
             isWallSliding = true;
             animator.SetFloat("DirectionX", 0);
@@ -254,7 +254,7 @@ public class Movement : MonoBehaviour
         {
             wallJumpingCounter -= Time.deltaTime;
         }
-        if (jumpAction.WasPressedThisFrame() && wallJumpingCounter > 0f)
+        if (jumpAction.WasPressedThisFrame() && wallJumpingCounter > 0f && !IsGrounded())
         {
             Debug.Log("Wall Jump!");
             isWallJumping = true;
