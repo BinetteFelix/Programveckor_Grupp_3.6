@@ -18,6 +18,7 @@ TagManager:
   - UIObject
   - InventoryMenu
   - ResumeButton
+  - UpdatePanel
   layers:
   - Default
   - TransparentFX

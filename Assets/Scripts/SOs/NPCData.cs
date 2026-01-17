@@ -5,7 +5,6 @@ using UnityEngine;
 public class NPCData : ScriptableObject
 {
     [Space(15)]
-    public string name;
 
     [Header("Interactable")]
     public bool isInteractable;

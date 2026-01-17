@@ -1,5 +1,6 @@
 using SoundSystem;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
@@ -17,9 +18,11 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject UserInterfaceObject;
     [SerializeField] private GameObject ResumeButton;
     [SerializeField] private GameObject PlayButton;
+    [SerializeField] private GameObject SaveButton;
     [SerializeField] private GameObject MainMenuUI;
+    [SerializeField] private GameObject UpdatePanel;
 
-    [SerializeField] private GameObject DeathPanel;
+   [SerializeField] private GameObject DeathPanel;
     [SerializeField] private GameObject HealthUI;
     [SerializeField] public GameObject ControlsPopup;
     [SerializeField] private GameObject textBox;
@@ -33,7 +36,7 @@ public class SceneController : MonoBehaviour
     #region UI ANIMATIONS
     [SerializeField] private Animator settingsAnimator;
     [SerializeField] private Animator controlsAnimator;
-
+    [SerializeField] private Animator updateAnimator;
     #endregion
 
     #region MUSIC 
@@ -49,6 +52,7 @@ public class SceneController : MonoBehaviour
     #endregion
 
     #region TIMERS
+    
     #endregion
 
     private void Awake()
@@ -97,6 +101,11 @@ public class SceneController : MonoBehaviour
 
             }
         }
+
+        if (IsMainMenuScene())
+            SaveButton.SetActive(false);
+        else 
+            SaveButton.SetActive(true);
     }
 
     #region OPENING & CLOSING PANELS
@@ -178,6 +187,19 @@ public class SceneController : MonoBehaviour
     }
     #endregion
 
+    bool IsPlayingAnimation(Animator anim, string stateName)
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            return true;
+        else
+            return false;
+    }
+    public void SendGameUpdate(string update)
+    {
+        UpdatePanel.GetComponentInChildren<TextMeshProUGUI>().text = update;
+        updateAnimator.SetTrigger("Update");
+    }
     public IEnumerator LoadScene(int index)
     {
         HasFinishedLoading = false;
@@ -200,7 +222,7 @@ public class SceneController : MonoBehaviour
         StartCoroutine(Loading());
 
     }
-
+    
     public void ReturnToMenu()
     {
         TogglePause();
@@ -250,7 +272,7 @@ public class SceneController : MonoBehaviour
         gameOver = true;
         TurnOffAllUI();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<SpriteRenderer>().enabled = false;
+        player.GetComponent<SpriteRenderer>().color = Color.red;
 
         InputManager.instance.DisablePlayerActions();
         DeathPanel.SetActive(true);

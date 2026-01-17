@@ -1,4 +1,5 @@
 using System.IO;
+using TMPro;
 using UnityEngine;
 
 public class SaveController : MonoBehaviour
@@ -6,7 +7,6 @@ public class SaveController : MonoBehaviour
     public static SaveController Instance;
     private string saveLocation;
     private InventoryManager inventoryManager;
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -21,9 +21,14 @@ public class SaveController : MonoBehaviour
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         inventoryManager = FindAnyObjectByType<InventoryManager>();
     }
+    private void Update()
+    {
+        
+    }
 
     public void SaveGame()
     {
+        SceneController.Instance.SendGameUpdate("Game Saved");
         SaveData saveData = new SaveData()
         { 
             playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position,
@@ -37,7 +42,7 @@ public class SaveController : MonoBehaviour
     {
         if (File.Exists(saveLocation))
         {
-            Debug.Log("Exists!!! :D");
+            SceneController.Instance.SendGameUpdate("Loading Save");
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
             // Stänger av det här temporarily för man börjar på fel ställe i vissa scener
             GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;

@@ -32,10 +32,10 @@ public class frienddialogue : MonoBehaviour
     IEnumerator TriggerDialog()
     {
         dialogBox.nameText.text = "Tessa:";
-        StartCoroutine(dialogBox.scrollText("Opal…is that you?"));
+        StartCoroutine(dialogBox.scrollText("Opal… is that you?"));
         yield return new WaitForSeconds(3f);
         dialogBox.ResetText();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.5f);
         dialogBox.nameText.text = "Opal:";
         StartCoroutine(dialogBox.scrollText("Tessa? ... Tessa!"));
         yield return new WaitForSeconds(1f);
@@ -48,7 +48,7 @@ public class frienddialogue : MonoBehaviour
         dialogBox.ResetText();
         yield return new WaitForSeconds(1f);
         dialogBox.nameText.text = "Tessa:";
-        StartCoroutine(dialogBox.scrollText("Long story, but at least we're together"));
+        StartCoroutine(dialogBox.scrollText("Long story, but at least we're together now..."));
 
         yield return new WaitForSeconds(4f);
 

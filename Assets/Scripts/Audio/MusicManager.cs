@@ -55,6 +55,7 @@ public class MusicManager : MonoBehaviour
         {
             _audioSource.clip = musicEvent.MusicLayers[0];
             _audioSource.outputAudioMixerGroup = audioMixerGroup;
+            _audioSource.loop = true;
             _audioSource.Play();
         }
     }

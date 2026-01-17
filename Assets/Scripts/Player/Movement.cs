@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -21,7 +22,7 @@ public class Movement : MonoBehaviour
     private bool canAttack;
 
     private float maxSpeed = 7f;
-    private float jumpPower = 7.5f;
+    private float jumpPower = 8f;
     private float maxFallSpeed = 10f;
     private float wallSlidingSpeed = 2f;
 
@@ -104,7 +105,6 @@ public class Movement : MonoBehaviour
             LastOnGroundTime = 0.1f;
         }
     }
-
     private void FixedUpdate()
     {
         if (!isWallJumping)
@@ -194,7 +194,7 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
-        Vector2 force = (runValue && rb.linearVelocityX > 0.5f || rb.linearVelocityX < -0.5f) ? ((Vector2.up * jumpPower) * 1.20f) : (Vector2.up * jumpPower);
+        Vector2 force = (runValue && rb.linearVelocityX > 0.5f || rb.linearVelocityX < -0.5f) ? ((Vector2.up * jumpPower) * 1.27f) : (Vector2.up * jumpPower);
         //Jump
         if (jumpValue && IsGrounded() && LastPressedJumpTime < 0 && LastOnGroundTime > 0)
         {

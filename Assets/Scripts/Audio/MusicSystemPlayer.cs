@@ -7,9 +7,11 @@ public class MusicSystemPlayer : MonoBehaviour
 {
     public static MusicSystemPlayer Instance;
 
-    [SerializeField] private MusicEvent _songA;
-    [SerializeField] private MusicEvent _songB;
+    private float SongTime;
 
+    [SerializeField] private MusicEvent[] songs;
+
+    MusicEvent currentSong;
     AudioMixerGroup mixerGroup;
 
     private void Awake()
@@ -25,22 +27,33 @@ public class MusicSystemPlayer : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 0 && FindFirstObjectByType<MusicManager>() != null)
         {
-            MusicManager.Instance.PlayMusic(_songA, mixerGroup);
+            MusicManager.Instance.PlayMusic(songs[0], mixerGroup);
         }
         else 
         {
-            MusicManager.Instance.StopMusic(_songA, mixerGroup);
+            MusicManager.Instance.StopMusic(songs[0], mixerGroup);
         }
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        SongTime -= Time.deltaTime;
+
+        if (currentSong.MusicLayers[0].length - SongTime == 0)
         {
-            _songA.Play(2.5f);
+
         }
-        if (Input.GetKeyDown(KeyCode.O))
+    }
+
+    private void SwitchMusic(MusicEvent currentMusic)
+    {
+        if (currentMusic == null)
         {
-            _songB.Play(2.5f);
+            MusicManager.Instance.PlayMusic(songs[0], mixerGroup);
+            currentSong = currentMusic;
+        }
+        else if (currentSong != currentMusic)
+        {
+            MusicManager.Instance.PlayMusic(songs[+1], mixerGroup);
         }
     }
 }
