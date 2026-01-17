@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
 [CreateAssetMenuAttribute(fileName = "InteractionObjectData", menuName = "InteractionObjectData")]
