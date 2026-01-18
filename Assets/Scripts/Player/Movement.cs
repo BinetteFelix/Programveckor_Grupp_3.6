@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
     private float wallJumpingTime = 0.4f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.05f;
-    private Vector2 wallJumpingPower = new Vector2(10f, 7.5f);
+    private Vector2 wallJumpingPower = new Vector2(8f, 6.5f);
 
     private Animator animator;
     private float runSpeedMultiplier = 5f;
@@ -155,7 +155,11 @@ public class Movement : MonoBehaviour
 
         if (!IsGrounded())
         {
-            force = movement * Vector2.right;
+            force = movement * Vector2.right / 1.2f;
+        }
+        if (IsWalled())
+        {
+            force = Vector2.zero;
         }
 
         rb.AddForce(force, ForceMode2D.Force);
@@ -193,11 +197,10 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
-        Vector2 force = (runValue && rb.linearVelocityX > 0.5f || rb.linearVelocityX < -0.5f) ? ((Vector2.up * jumpPower) * 1.27f) : (Vector2.up * jumpPower);
+        Vector2 force = (runValue) ? ((Vector2.up * jumpPower) * 1.27f) : (Vector2.up * jumpPower);
         //Jump
         if (jumpValue && IsGrounded() && LastPressedJumpTime < 0 && LastOnGroundTime > 0)
         {
-            Debug.Log("Jumped!");
             animator.Play("Jump");
             LastPressedJumpTime = 0.2f;
             rb.AddForce(force, ForceMode2D.Impulse);
@@ -205,7 +208,7 @@ public class Movement : MonoBehaviour
         //Make it so when you release the jump button velocity is halfed, so you can do shorter jumps by just tapping
         else if (!jumpValue && rb.linearVelocityY > 0 && !IsGrounded())
         {
-            rb.linearVelocityY /= 3;
+            rb.linearVelocityY /= 2;
         }
         //Make it so you gravity increases when you start falling
         else if (rb.linearVelocityY < 0 && isFalling == false)
@@ -223,7 +226,7 @@ public class Movement : MonoBehaviour
 
     private void WallSlide()
     {
-        if(IsWalled() && !IsGrounded() && moveValue.x != 0f && LastPressedJumpTime < 0)
+        if(IsWalled() && !IsGrounded() && moveValue.x != 0 && LastPressedJumpTime < 0 && rb.linearVelocityY < -1)
         {
             isWallSliding = true;
             animator.SetFloat("DirectionX", 0);
@@ -244,8 +247,6 @@ public class Movement : MonoBehaviour
             isWallJumping = false;
             wallJumpingDirection = (isFacingRight) ? -1 : 1;
             wallJumpingCounter = wallJumpingTime;
-            Debug.Log("wall slide + " + wallJumpingCounter);
-            Debug.Log($"jumpAction: {jumpAction.enabled}");
 
             CancelInvoke(nameof(StopWallJumping));
         }
@@ -255,7 +256,7 @@ public class Movement : MonoBehaviour
         }
         if (jumpAction.WasPressedThisFrame() && wallJumpingCounter > 0f && !IsGrounded())
         {
-            Debug.Log("Wall Jump!");
+            animator.Play("Jump");
             isWallJumping = true;
             LastPressedJumpTime = 0.2f;
             rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);

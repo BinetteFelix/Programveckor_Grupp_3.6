@@ -1,5 +1,4 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 
 public class frienddialogue : MonoBehaviour
@@ -38,7 +37,7 @@ public class frienddialogue : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         dialogBox.nameText.text = "Opal:";
         StartCoroutine(dialogBox.scrollText("Tessa? ... Tessa!"));
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         dialogBox.ResetText();
         yield return new WaitForSeconds(3f);
         dialogBox.nameText.text = "Opal:";

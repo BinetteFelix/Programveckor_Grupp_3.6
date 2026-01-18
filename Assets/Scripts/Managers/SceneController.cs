@@ -36,6 +36,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private Animator settingsAnimator;
     [SerializeField] private Animator controlsAnimator;
     [SerializeField] private Animator updateAnimator;
+    [SerializeField] private Animator pauseAnimator;
     #endregion
 
     #region MUSIC 
@@ -94,7 +95,7 @@ public class SceneController : MonoBehaviour
                 ToggleInventory();
                 foreach (Transform slot in InventoryManager.Instance.InventoryGrid)
                 {
-                    if (slot != null) SceneController.Instance.SetSelectedButton(slot.gameObject);
+                    if (slot != null) SetSelectedButton(slot.gameObject);
                     break;
                 }
 
@@ -112,6 +113,8 @@ public class SceneController : MonoBehaviour
     {
         IsPaused = !PauseMenu.activeSelf;
         PauseMenu.SetActive(IsPaused);
+        if (PauseMenu.activeSelf)
+            pauseAnimator.SetTrigger("Pause");
         SettingsMenu.SetActive(false);
         SetSelectedButton(ResumeButton);
         Time.timeScale = PauseMenu.activeSelf ? 0.0f : 1.0f;

@@ -56,29 +56,35 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 3895764665
+  - name: Background Level 1
+    uniqueID: 2796129103
     locked: 0
-  - name: Trees Back
-    uniqueID: 921382473
+  - name: Background Level 2
+    uniqueID: 102230583
     locked: 0
-  - name: Trees Middle
-    uniqueID: 2671536721
+  - name: Ground Level 1
+    uniqueID: 1025017721
     locked: 0
-  - name: Ground
-    uniqueID: 3171343323
+  - name: Ground Level 2
+    uniqueID: 2793005335
     locked: 0
-  - name: Earth
-    uniqueID: 162543073
+  - name: Enemies Level 1
+    uniqueID: 4075710147
     locked: 0
-  - name: Spikes
-    uniqueID: 2011491903
+  - name: Enemies Level 2
+    uniqueID: 2438186123
     locked: 0
-  - name: Logs
-    uniqueID: 1869882585
+  - name: Player Level 1
+    uniqueID: 4151557777
     locked: 0
-  - name: InfrontCameraLayer
-    uniqueID: 478435951
+  - name: Player Level 2
+    uniqueID: 3264872115
+    locked: 0
+  - name: Foreground Level 1
+    uniqueID: 993518775
+    locked: 0
+  - name: Foreground Level 2
+    uniqueID: 1855197587
     locked: 0
   m_RenderingLayers:
   - Default
