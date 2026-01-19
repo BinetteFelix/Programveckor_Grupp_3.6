@@ -258,7 +258,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 288
+        y: 336
         width: 48
         height: 48
       alignment: 0
@@ -280,7 +280,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 288
+        y: 336
         width: 48
         height: 48
       alignment: 0
@@ -302,7 +302,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 288
+        y: 336
         width: 48
         height: 48
       alignment: 0
@@ -324,7 +324,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 288
+        y: 336
         width: 48
         height: 48
       alignment: 0
@@ -346,7 +346,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 240
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -368,7 +368,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 240
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -390,7 +390,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 240
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -412,7 +412,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 240
+        y: 288
         width: 48
         height: 48
       alignment: 0
@@ -433,7 +433,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_8
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 240
         width: 48
         height: 48
@@ -455,7 +455,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_9
       rect:
         serializedVersion: 2
-        x: 240
+        x: 48
         y: 240
         width: 48
         height: 48
@@ -477,8 +477,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 96
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -499,8 +499,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_11
       rect:
         serializedVersion: 2
-        x: 48
-        y: 192
+        x: 144
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -521,8 +521,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_12
       rect:
         serializedVersion: 2
-        x: 96
-        y: 192
+        x: 192
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -543,8 +543,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_13
       rect:
         serializedVersion: 2
-        x: 144
-        y: 192
+        x: 240
+        y: 240
         width: 48
         height: 48
       alignment: 0
@@ -565,7 +565,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_14
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 192
         width: 48
         height: 48
@@ -587,7 +587,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_15
       rect:
         serializedVersion: 2
-        x: 240
+        x: 48
         y: 192
         width: 48
         height: 48
@@ -609,8 +609,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_16
       rect:
         serializedVersion: 2
-        x: 0
-        y: 144
+        x: 96
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -631,8 +631,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_17
       rect:
         serializedVersion: 2
-        x: 48
-        y: 144
+        x: 144
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -653,8 +653,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_18
       rect:
         serializedVersion: 2
-        x: 96
-        y: 144
+        x: 192
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -675,8 +675,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_19
       rect:
         serializedVersion: 2
-        x: 144
-        y: 144
+        x: 240
+        y: 192
         width: 48
         height: 48
       alignment: 0
@@ -697,7 +697,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_20
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 144
         width: 48
         height: 48
@@ -719,7 +719,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_21
       rect:
         serializedVersion: 2
-        x: 240
+        x: 48
         y: 144
         width: 48
         height: 48
@@ -741,8 +741,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_22
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 96
+        y: 144
         width: 48
         height: 48
       alignment: 0
@@ -763,8 +763,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_23
       rect:
         serializedVersion: 2
-        x: 48
-        y: 96
+        x: 144
+        y: 144
         width: 48
         height: 48
       alignment: 0
@@ -785,8 +785,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_24
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 192
+        y: 144
         width: 48
         height: 48
       alignment: 0
@@ -807,8 +807,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_25
       rect:
         serializedVersion: 2
-        x: 144
-        y: 96
+        x: 240
+        y: 144
         width: 48
         height: 48
       alignment: 0
@@ -829,7 +829,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_26
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 96
         width: 48
         height: 48
@@ -851,7 +851,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_27
       rect:
         serializedVersion: 2
-        x: 240
+        x: 48
         y: 96
         width: 48
         height: 48
@@ -873,8 +873,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_28
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
+        x: 96
+        y: 96
         width: 48
         height: 48
       alignment: 0
@@ -895,8 +895,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_29
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
+        x: 144
+        y: 96
         width: 48
         height: 48
       alignment: 0
@@ -917,8 +917,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_30
       rect:
         serializedVersion: 2
-        x: 96
-        y: 48
+        x: 192
+        y: 96
         width: 48
         height: 48
       alignment: 0
@@ -939,8 +939,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_31
       rect:
         serializedVersion: 2
-        x: 144
-        y: 48
+        x: 240
+        y: 96
         width: 48
         height: 48
       alignment: 0
@@ -961,7 +961,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_32
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 48
         width: 48
         height: 48
@@ -983,7 +983,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_33
       rect:
         serializedVersion: 2
-        x: 240
+        x: 48
         y: 48
         width: 48
         height: 48
@@ -1005,7 +1005,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_34
       rect:
         serializedVersion: 2
-        x: 288
+        x: 96
         y: 48
         width: 48
         height: 48
@@ -1027,7 +1027,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_35
       rect:
         serializedVersion: 2
-        x: 336
+        x: 144
         y: 48
         width: 48
         height: 48
@@ -1049,7 +1049,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_36
       rect:
         serializedVersion: 2
-        x: 384
+        x: 192
         y: 48
         width: 48
         height: 48
@@ -1071,7 +1071,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_37
       rect:
         serializedVersion: 2
-        x: 432
+        x: 240
         y: 48
         width: 48
         height: 48
@@ -1093,8 +1093,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_38
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 288
+        y: 48
         width: 48
         height: 48
       alignment: 0
@@ -1115,8 +1115,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_39
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 336
+        y: 48
         width: 48
         height: 48
       alignment: 0
@@ -1137,8 +1137,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_40
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 384
+        y: 48
         width: 48
         height: 48
       alignment: 0
@@ -1159,8 +1159,8 @@ TextureImporter:
       name: PlayerAnimationsSheet_41
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
+        x: 432
+        y: 48
         width: 48
         height: 48
       alignment: 0
@@ -1181,7 +1181,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_42
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 0
         width: 48
         height: 48
@@ -1203,7 +1203,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_43
       rect:
         serializedVersion: 2
-        x: 240
+        x: 48
         y: 0
         width: 48
         height: 48
@@ -1225,7 +1225,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_44
       rect:
         serializedVersion: 2
-        x: 288
+        x: 96
         y: 0
         width: 48
         height: 48
@@ -1247,7 +1247,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_45
       rect:
         serializedVersion: 2
-        x: 336
+        x: 144
         y: 0
         width: 48
         height: 48
@@ -1269,7 +1269,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_46
       rect:
         serializedVersion: 2
-        x: 384
+        x: 192
         y: 0
         width: 48
         height: 48
@@ -1291,7 +1291,7 @@ TextureImporter:
       name: PlayerAnimationsSheet_47
       rect:
         serializedVersion: 2
-        x: 432
+        x: 240
         y: 0
         width: 48
         height: 48
@@ -1305,6 +1305,94 @@ TextureImporter:
       bones: []
       spriteID: 4252f3f73e4a64480800000000000000
       internalID: -8915257115333941980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerAnimationsSheet_48
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db54655e7e3a5ed48bd57be4226fec25
+      internalID: -731559196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerAnimationsSheet_49
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767666cfded278f44b64e554dbe184e0
+      internalID: 842978911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerAnimationsSheet_50
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97cf8c66430f3d4b8f672ccae27a545
+      internalID: -1869539035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerAnimationsSheet_51
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c2d96f8174082343a83679fa2070382
+      internalID: -436551999
       vertices: []
       indices: 
       edges: []
@@ -1325,7 +1413,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":7.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":8.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       PlayerAnimationsSheet_0: -2551206142005591634
       PlayerAnimationsSheet_1: 5796580150718465050
@@ -1370,7 +1458,11 @@ TextureImporter:
       PlayerAnimationsSheet_45: -5790130195324167957
       PlayerAnimationsSheet_46: 225355395627042651
       PlayerAnimationsSheet_47: -8915257115333941980
+      PlayerAnimationsSheet_48: -731559196
+      PlayerAnimationsSheet_49: 842978911
       PlayerAnimationsSheet_5: 3411660340361405779
+      PlayerAnimationsSheet_50: -1869539035
+      PlayerAnimationsSheet_51: -436551999
       PlayerAnimationsSheet_6: 7048550416257643649
       PlayerAnimationsSheet_7: 5166964669208787493
       PlayerAnimationsSheet_8: 2126725116024270388

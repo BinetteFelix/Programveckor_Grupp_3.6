@@ -163,7 +163,12 @@ public class Movement : MonoBehaviour
         }
 
         rb.AddForce(force, ForceMode2D.Force);
-        animator.SetFloat("DirectionX", (runValue) ? moveValue.x * 2 : moveValue.x);
+        animator.SetFloat("DirectionX", moveValue.x);
+        animator.SetFloat("RunInput", (runValue) ? 1 : 0);
+
+        if (moveValue.x < -0.5f || moveValue.x > 0.5f)
+            animator.SetFloat("LastDirectionX", moveValue.x);
+
 
         //Increase speed if running
         /*
@@ -201,7 +206,7 @@ public class Movement : MonoBehaviour
         //Jump
         if (jumpValue && IsGrounded() && LastPressedJumpTime < 0 && LastOnGroundTime > 0)
         {
-            animator.Play("Jump");
+            animator.SetTrigger("Jump");
             LastPressedJumpTime = 0.2f;
             rb.AddForce(force, ForceMode2D.Impulse);
         }
@@ -312,19 +317,13 @@ public class Movement : MonoBehaviour
         {
             LastAttackTime = AttackDelay;
             SoundFXManager.Instance.PlaySoundFXClip(slashSoundFXs, transform);
-            animator.Play("AttackLeft");
+            animator.SetTrigger("Attack");
             Collider2D enemy = Physics2D.OverlapCircle(attackHitBox.transform.position, 2f, enemyLayer);
             if (enemy != null)
             {
                 EnemyPatrol enemy1 = enemy.GetComponent<EnemyPatrol>();
                 enemy1.TakeDamage(1);
             }
-        }
-
-        if(isPlaying(animator, "AttackLeft"))
-        {
-            if (isFacingRight) spriteRenderer.flipX = true;
-            else spriteRenderer.flipX = false;
         }
     }
 

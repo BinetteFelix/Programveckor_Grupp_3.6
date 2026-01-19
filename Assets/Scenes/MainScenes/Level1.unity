@@ -3570,9 +3570,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6444708670646867854, guid: 771e14eb1e415324ba9608e8d5b8074a, type: 3}
+      objectReference: {fileID: -4928096294897939178, guid: b83a1afae4b03de4d9806a4ffdc361c1, type: 3}
     - target: {fileID: 7999114382479548287, guid: 29307d5e0d1a58540aa4e8561b6a8148, type: 3}
       propertyPath: m_SortingLayer
       value: 7
