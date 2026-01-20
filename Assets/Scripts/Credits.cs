@@ -14,11 +14,16 @@ public class Credits : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.up * 75 * Time.deltaTime;
+        if (InputManager.instance.skipAction.WasPressedThisFrame())
+        {
+            StopCoroutine(QuitGame());
+            SceneController.Instance.ReturnToMenu();
+        }
     }
 
     private void OnEnable()
     {
-        InputSystem.actions.Disable();
+        InputManager.instance.DisablePlayerActions();
         StartCoroutine(QuitGame());
     }
 

@@ -5194,6 +5194,8 @@ MonoBehaviour:
   dialogueBoxText: {fileID: 1541695453}
   dialogueBoxTitle: {fileID: 1114036655}
   isScrolling: 0
+  skipped: 0
+  scrollSpeed: 0.05
 --- !u!1 &1014705906
 GameObject:
   m_ObjectHideFlags: 0
