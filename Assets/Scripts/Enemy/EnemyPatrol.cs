@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
@@ -29,7 +30,6 @@ public class EnemyPatrol : MonoBehaviour
     public float AttackRange;
 
     public bool IsAttacking { get; private set; }
-
 
     [SerializeField] private LayerMask _playerLayer;
 
@@ -70,12 +70,17 @@ public class EnemyPatrol : MonoBehaviour
                 if (!IsAttacking && !_isAttackMotion && !IsStunned)
                 {
                     //Attack Method
+                    StartCoroutine(AttackPlayer());
                 }
             }
         }
         if ((_isPlayerInSight && !_isAttackRange && !_isJustExitedAttack) || (!_isPlayerInSight && !_isAttackRange && !_isJustExitedAttack) && !IsStunned && !IsAttacking)
         {
             Patrol();
+        }
+        else
+        {
+            
         }
     }
 
@@ -132,13 +137,34 @@ public class EnemyPatrol : MonoBehaviour
     #endregion
 
     #region ATTACK METHODS
-    private void Damage()
+    private IEnumerator AttackPlayer()
     {
-        if (SceneController.Instance.gameOver) return;
-        animator.Play("Attack");
-        HealthManager.Instance.Damage(damage);
-    }
+        float startTime = Time.time;
 
+        IsAttacking = true;
+
+        while (Time.time - startTime <= 2)
+        {
+            yield return null;
+        }
+
+        _isAttackMotion = true;
+
+        if (_isAttackMotion)
+        {
+            _isAttackMotion = false;
+            IsAttacking = false;
+            _isJustExitedAttack = true;
+            animator.Play("Attack");
+            Debug.Log("Attacking");
+            RB.AddForce(new Vector2(2, 3f), ForceMode2D.Impulse);
+            yield return new WaitForSecondsRealtime(0.6f);
+        }
+
+        _isJustExitedAttack = false;
+
+    }
+    #endregion
     public void TakeDamage(int amount)
     {
         health -= amount;
@@ -148,19 +174,6 @@ public class EnemyPatrol : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            InvokeRepeating(nameof(Damage), 0.5f, 1);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        CancelInvoke(nameof(Damage));
-    }
-    #endregion
 
     #region EDITOR METHODS
     private void OnDrawGizmosSelected()
