@@ -30,28 +30,14 @@ public class frienddialogue : MonoBehaviour
 
     IEnumerator TriggerDialog()
     {
-        dialogBox.nameText.text = "Tessa:";
-        StartCoroutine(dialogBox.scrollText("Opal… is that you?"));
+        StartCoroutine(dialogBox.scrollText("Tessa:", "Opal… is that you?"));
         yield return new WaitForSeconds(3f);
-        dialogBox.ResetText();
-        yield return new WaitForSeconds(2.5f);
-        dialogBox.nameText.text = "Opal:";
-        StartCoroutine(dialogBox.scrollText("Tessa? ... Tessa!"));
+        StartCoroutine(dialogBox.scrollText("Opal:", "Tessa? ... Tessa!"));
         yield return new WaitForSeconds(3f);
-        dialogBox.ResetText();
+        StartCoroutine(dialogBox.scrollText("Opal:", "How did you find me?"));
         yield return new WaitForSeconds(3f);
-        dialogBox.nameText.text = "Opal:";
-        StartCoroutine(dialogBox.scrollText("How did you find me?"));
-
-        yield return new WaitForSeconds(3f);
-        dialogBox.ResetText();
-        yield return new WaitForSeconds(1f);
-        dialogBox.nameText.text = "Tessa:";
-        StartCoroutine(dialogBox.scrollText("Long story, but at least we're together now..."));
-
+        StartCoroutine(dialogBox.scrollText("Tessa:", "Long story, but at least we're together now..."));
         yield return new WaitForSeconds(4f);
-
         SceneController.Instance.creditsUi.SetActive(true);
-
     }
 }

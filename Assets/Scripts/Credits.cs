@@ -13,7 +13,7 @@ public class Credits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.up * 50 * Time.deltaTime;
+        transform.position += Vector3.up * 75 * Time.deltaTime;
     }
 
     private void OnEnable()
@@ -25,6 +25,6 @@ public class Credits : MonoBehaviour
     IEnumerator QuitGame()
     {
         yield return new WaitForSeconds(15f);
-        Application.Quit();
+        SceneController.Instance.ReturnToMenu();
     }
 }

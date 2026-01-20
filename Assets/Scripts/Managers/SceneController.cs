@@ -213,8 +213,7 @@ public class SceneController : MonoBehaviour
         if(index == 1)
         {
             dialogBox.gameObject.SetActive(true);
-            dialogBox.nameText.text = "Narrator:";
-            StartCoroutine(dialogBox.scrollText("In a vast forest filled with a wide range of animals and vegetation alike, Tessa has a mission. A mission to save her lost best friend, Opal. "));
+            StartCoroutine(dialogBox.scrollText("Narrator", "In a vast forest filled with a wide range of animals and vegetation alike, Tessa has a mission. A mission to save her lost best friend, Opal. "));
             HealthUI.SetActive(true);
         }
         if(index == 0)

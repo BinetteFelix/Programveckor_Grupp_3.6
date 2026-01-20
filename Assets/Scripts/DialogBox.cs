@@ -6,23 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class DialogBox : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI textBoxText;
-    public TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI dialogueBoxText;
+    public TextMeshProUGUI dialogueBoxTitle;
     public bool isScrolling = false;
+    private bool skipped = false;
     
     
-    public IEnumerator scrollText(string dialogue)
+    public IEnumerator scrollText(string titleText, string dialogue)
     {
-        
-        if (isScrolling) StopCoroutine(scrollText(""));
+        if (isScrolling) StopCoroutine(scrollText("", ""));
+        dialogueBoxText.text = "";
+        dialogueBoxTitle.text = "";
         isScrolling = true;
 
         for (int i = 0; i < dialogue.Length; i++)
         {
-            textBoxText.text += dialogue.Substring(i, 1);
+            dialogueBoxText.text += dialogue.Substring(i, 1);
             yield return new WaitForSeconds(0.05f);
-            isScrolling = false;
         }
+        isScrolling = false;
         //if (skipped == false) ControlsPopup.SetActive(true);
         yield return new WaitForSeconds(2f);
         if(SceneManager.GetActiveScene().buildIndex == 1)
@@ -33,14 +35,23 @@ public class DialogBox : MonoBehaviour
 
     }
 
-    public void ResetText()
+    private void Update()
     {
-        textBoxText.text = "";
-        nameText.text = "";
+        if (InputManager.instance.skipAction.WasPressedThisFrame())
+        {
+            skipped = true;
+        }
+        else skipped = false;
+
+        if(skipped && SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
     private void OnEnable()
     {
-        textBoxText.text = "";
+        dialogueBoxText.text = "";
+        dialogueBoxTitle.text = "";
         InputManager.instance.DisablePlayerActions();
     }
 

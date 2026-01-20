@@ -16,6 +16,8 @@ public class InputManager : MonoBehaviour
 
     public InputAction attackAction { get; private set; }
 
+    public InputAction skipAction { get; private set; }
+
     private void Awake()
     {
         InputSystem.actions.Enable();
@@ -30,6 +32,7 @@ public class InputManager : MonoBehaviour
         inventoryAction = InputSystem.actions.FindAction("Inventory");
         interactAction = InputSystem.actions.FindAction("Interact");
         attackAction = InputSystem.actions.FindAction("Attack");
+        skipAction = InputSystem.actions.FindAction("Skip");
 
     }
 
