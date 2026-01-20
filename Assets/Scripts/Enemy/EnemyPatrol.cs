@@ -78,10 +78,6 @@ public class EnemyPatrol : MonoBehaviour
         {
             Patrol();
         }
-        else
-        {
-            
-        }
     }
 
     #region PATROL METHODS
@@ -157,8 +153,7 @@ public class EnemyPatrol : MonoBehaviour
             _isJustExitedAttack = true;
             animator.Play("Attack");
             Debug.Log("Attacking");
-            RB.AddForce(new Vector2(2, 3f), ForceMode2D.Impulse);
-            yield return new WaitForSecondsRealtime(0.6f);
+            RB.AddForce(new Vector2(2, 3) * MoveDirection, ForceMode2D.Impulse);
         }
 
         _isJustExitedAttack = false;
