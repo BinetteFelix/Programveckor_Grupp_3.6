@@ -113,6 +113,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TeleportScene",
+                    "type": "Button",
+                    "id": "a6533e78-d79e-451b-ab2f-e4a3ac355a1f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -564,6 +573,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce2bac4f-325b-4358-989b-7b4faffac48d",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TeleportScene",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

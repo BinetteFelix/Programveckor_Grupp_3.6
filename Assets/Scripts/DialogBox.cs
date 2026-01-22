@@ -11,6 +11,7 @@ public class DialogBox : MonoBehaviour
     public bool isScrolling = false;
     public bool skipped = false;
     public float scrollSpeed = 0.05f;
+    public GameObject skipTextTip;
     
     
     public IEnumerator scrollText(string titleText, string dialogue)
@@ -23,10 +24,12 @@ public class DialogBox : MonoBehaviour
 
         for (int i = 0; i < dialogue.Length; i++)
         {
+            if (skipped && SceneController.Instance.CurrentOpenScene != 2) break; //only stop scrolling the text if its not level 2, i gave up on making it so u can skip the end dialog.
             dialogueBoxText.text += dialogue.Substring(i, 1);
             yield return new WaitForSeconds(scrollSpeed);
         }
         isScrolling = false;
+        if (skipped) skipped = false;
         //if (skipped == false) ControlsPopup.SetActive(true);
         yield return new WaitForSeconds(2f);
         if(SceneManager.GetActiveScene().buildIndex == 1 && !skipped)
@@ -39,8 +42,6 @@ public class DialogBox : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.instance.inventoryAction.WasPressedThisFrame()) scrollSpeed *= 2f;
-        else scrollSpeed = 0.05f;
         if (InputManager.instance.skipAction.WasPressedThisFrame())
         {
             skipped = true;
@@ -53,6 +54,7 @@ public class DialogBox : MonoBehaviour
     }
     private void OnEnable()
     {
+        Debug.Log("Enable Dialog");
         skipped = false;
         dialogueBoxText.text = "";
         dialogueBoxTitle.text = "";

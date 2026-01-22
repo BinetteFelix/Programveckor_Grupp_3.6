@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
@@ -102,9 +103,14 @@ public class SceneController : MonoBehaviour
             }
         }
 
+        if(Application.isEditor && InputManager.instance.teleportSceneAction.WasPressedThisFrame())
+        {
+            StartCoroutine(LoadScene(2));
+        }
+
         if (IsMainMenuScene())
             SaveButton.SetActive(false);
-        else 
+        else
             SaveButton.SetActive(true);
     }
 
@@ -212,6 +218,7 @@ public class SceneController : MonoBehaviour
         if(index != 0) MainMenuUI.SetActive(false);
         if(index == 1)
         {
+            Debug.Log("start dialog");
             dialogBox.gameObject.SetActive(true);
             StartCoroutine(dialogBox.scrollText("Narrator", "In a vast forest filled with a wide range of animals and vegetation alike, Tessa has a mission. A mission to save her lost best friend, Opal. "));
             HealthUI.SetActive(true);

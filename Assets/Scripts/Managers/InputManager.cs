@@ -18,6 +18,9 @@ public class InputManager : MonoBehaviour
 
     public InputAction skipAction { get; private set; }
 
+    public InputAction teleportSceneAction { get; private set; }
+
+
     private void Awake()
     {
         InputSystem.actions.Enable();
@@ -33,6 +36,7 @@ public class InputManager : MonoBehaviour
         interactAction = InputSystem.actions.FindAction("Interact");
         attackAction = InputSystem.actions.FindAction("Attack");
         skipAction = InputSystem.actions.FindAction("Skip");
+        teleportSceneAction = InputSystem.actions.FindAction("TeleportScene");
 
     }
 

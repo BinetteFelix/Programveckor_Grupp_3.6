@@ -16,20 +16,17 @@ public class Credits : MonoBehaviour
         transform.position += Vector3.up * 75 * Time.deltaTime;
         if (InputManager.instance.skipAction.WasPressedThisFrame())
         {
-            StopCoroutine(QuitGame());
             SceneController.Instance.ReturnToMenu();
+        }
+        if(transform.localPosition.y >= 2150)
+        {
+            SceneController.Instance.ReturnToMenu();
+            InputManager.instance.EnablePlayerActions();
         }
     }
 
     private void OnEnable()
     {
         InputManager.instance.DisablePlayerActions();
-        StartCoroutine(QuitGame());
-    }
-
-    IEnumerator QuitGame()
-    {
-        yield return new WaitForSeconds(15f);
-        SceneController.Instance.ReturnToMenu();
     }
 }

@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class frienddialogue : MonoBehaviour
 {
     public DialogBox dialogBox;
+    float time = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,6 +16,20 @@ public class frienddialogue : MonoBehaviour
     void Update()
     {
         
+        if (Application.isEditor && InputManager.instance.skipAction.IsPressed())
+        {
+            time += Time.fixedDeltaTime;
+            Debug.Log("test" + time);
+            if(time >= 1.5f)
+            {
+                SceneController.Instance.creditsUi.SetActive(true);
+                dialogBox.skipTextTip.SetActive(true);
+                StopCoroutine(TriggerDialog());
+                time = 0f;
+            }
+
+        }
+        else time = 0f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,21 +39,41 @@ public class frienddialogue : MonoBehaviour
             SaveController.Instance.SaveGame();
             InputManager.instance.DisablePlayerActions();
             SceneController.Instance.dialogBox.gameObject.SetActive(true);
+            dialogBox.skipTextTip.SetActive(false);
             StartCoroutine(TriggerDialog());
 
         }
+
+
     }
 
     IEnumerator TriggerDialog()
     {
         StartCoroutine(dialogBox.scrollText("Tessa:", "Opal… is that you?"));
-        yield return new WaitForSeconds(3f);
+        while (dialogBox.isScrolling)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitForSeconds(2.5f);
         StartCoroutine(dialogBox.scrollText("Opal:", "Tessa? ... Tessa!"));
-        yield return new WaitForSeconds(3f);
+        while (dialogBox.isScrolling)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitForSeconds(2.5f);
         StartCoroutine(dialogBox.scrollText("Opal:", "How did you find me?"));
-        yield return new WaitForSeconds(3f);
+        while (dialogBox.isScrolling)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitForSeconds(2.5f);
         StartCoroutine(dialogBox.scrollText("Tessa:", "Long story, but at least we're together now..."));
-        yield return new WaitForSeconds(4f);
+        while (dialogBox.isScrolling)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitForSeconds(2.5f);
         SceneController.Instance.creditsUi.SetActive(true);
+        dialogBox.skipTextTip.SetActive(true);
     }
 }
