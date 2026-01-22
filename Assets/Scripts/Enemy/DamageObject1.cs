@@ -11,7 +11,7 @@ public class DamageObject1 : MonoBehaviour
         Movement player = other.GetComponent<Movement>();
 
         if (player != null)
-            InvokeRepeating(nameof(Damage), 0.20f, 1f);
+            InvokeRepeating(nameof(Damage), 0.05f, 1f);
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
