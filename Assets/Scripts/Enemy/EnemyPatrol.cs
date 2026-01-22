@@ -153,7 +153,7 @@ public class EnemyPatrol : MonoBehaviour
             _isJustExitedAttack = true;
             animator.Play("Attack");
             Debug.Log("Attacking");
-            RB.AddForce(new Vector2(2, 3) * MoveDirection, ForceMode2D.Impulse);
+            RB.AddForce(new Vector2(2 * MoveDirection, 3), ForceMode2D.Impulse);
         }
 
         _isJustExitedAttack = false;
