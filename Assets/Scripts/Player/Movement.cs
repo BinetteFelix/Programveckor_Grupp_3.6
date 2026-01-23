@@ -71,7 +71,7 @@ public class Movement : MonoBehaviour
     }
 
     void Update()
-    {
+    { 
         animator.SetBool("IsGrounded", IsGrounded());
         if (rb.linearVelocityY < -1) animator.ResetTrigger("Jump");
         spriteRenderer.flipX = (isWallSliding && !isFacingRight) ? true : false;
