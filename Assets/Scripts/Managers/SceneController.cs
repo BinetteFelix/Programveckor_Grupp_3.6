@@ -194,7 +194,10 @@ public class SceneController : MonoBehaviour
         #endregion
     }
     #endregion
-
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
     bool IsPlayingAnimation(Animator anim, string stateName)
     {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&

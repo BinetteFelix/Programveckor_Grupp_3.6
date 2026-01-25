@@ -21,7 +21,7 @@ public class VideoSettings : MonoBehaviour
     {
         selectedResolution = resolutions[resolutionIndex];
     }
-    public void selectFullscreenMode(int fullscreenModeIndex)
+    public void SelectFullscreenMode(int fullscreenModeIndex)
     {
         selectedFullscreenMode = fullScreenModes[fullscreenModeIndex];
     }
