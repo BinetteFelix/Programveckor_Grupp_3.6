@@ -318,15 +318,18 @@ public class Movement : MonoBehaviour
             LastAttackTime = AttackDelay;
             SoundFXManager.Instance.PlaySoundFXClip(slashSoundFXs, transform);
             animator.SetTrigger("Attack");
-            Collider2D enemy = Physics2D.OverlapCircle(attackHitBox.transform.position, 2f, enemyLayer);
-            if (enemy != null)
+            if(Physics2D.OverlapCircle(attackHitBox.transform.position, 2f).TryGetComponent<EnemyPatrol>(out EnemyPatrol enemy))
             {
-                EnemyPatrol enemy1 = enemy.GetComponent<EnemyPatrol>();
-                enemy1.TakeDamage(1);
+                enemy.TakeDamage(1);
             }
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackHitBox.position, 2f);
+    }
     #endregion
     private void OnDrawGizmosSelected()
     {
