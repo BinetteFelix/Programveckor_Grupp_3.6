@@ -1,6 +1,7 @@
 using SoundSystem;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
@@ -48,7 +49,6 @@ public class SceneController : MonoBehaviour
     #region STATE PARAMETERS
     public bool IsPaused { get; private set; }
     public bool HasFinishedLoading { get; private set; }
-    public int CurrentOpenScene { get; private set; }
     #endregion
 
     #region TIMERS
@@ -69,9 +69,9 @@ public class SceneController : MonoBehaviour
             MusicManager.Instance.PlayMenuMusic(_songA, mixerGroup);
     }
 
-    public bool IsMainMenuScene()
+    public int CurrentScene()
     {
-        return (CurrentOpenScene == 0);
+        return SceneManager.GetActiveScene().buildIndex;
     }
 
     public void SetSelectedButton(GameObject button)
@@ -81,13 +81,12 @@ public class SceneController : MonoBehaviour
 
     private void Update()
     {
-        CurrentOpenScene = SceneManager.GetActiveScene().buildIndex;
 
-        if (InputManager.instance.menuAction.WasPressedThisFrame() && !IsMainMenuScene() && !InventoryMenu.activeSelf && !SettingsMenu.activeSelf)
+        if (InputManager.instance.menuAction.WasPressedThisFrame() && CurrentScene() != 0 && !InventoryMenu.activeSelf && !SettingsMenu.activeSelf)
         {
             TogglePause();
         }
-        if (InputManager.instance.inventoryAction.WasPressedThisFrame() && !PauseMenu.activeSelf && !IsMainMenuScene())
+        if (InputManager.instance.inventoryAction.WasPressedThisFrame() && !PauseMenu.activeSelf && CurrentScene() != 0)
         {
             foreach (Transform child in UserInterfaceObject.transform.Find("Canvas"))
             {
@@ -107,7 +106,7 @@ public class SceneController : MonoBehaviour
             StartCoroutine(LoadScene(2));
         }
 
-        if (IsMainMenuScene())
+        if (CurrentScene() == 0)
             SaveButton.SetActive(false);
         else
             SaveButton.SetActive(true);
@@ -123,11 +122,19 @@ public class SceneController : MonoBehaviour
         SettingsMenu.SetActive(false);
         SetSelectedButton(ResumeButton);
         Time.timeScale = PauseMenu.activeSelf ? 0.0f : 1.0f;
+        if(PauseMenu.activeSelf)
+        {
+            MusicManager.Instance.StopMusic(_songB, mixerGroup);
+        }
+        else
+        {
+            MusicManager.Instance.PlayMusic(_songB, mixerGroup);
+        }
     }
 
     public void CloseSettingsMenu()
     {
-        if (!IsMainMenuScene())
+        if (CurrentScene() != 0)
         {
             PauseMenu.SetActive(true);
             SettingsMenu.SetActive(false);
@@ -160,7 +167,7 @@ public class SceneController : MonoBehaviour
         buttons = MainMenuUI.transform.Find("Buttons").gameObject;
         playButton = buttons.transform.Find("PlayButton").gameObject;
 
-        if (IsMainMenuScene())
+        if (CurrentScene() == 0)
         {
             titleText.SetActive(true);
             buttons.SetActive(true);
@@ -222,7 +229,7 @@ public class SceneController : MonoBehaviour
         {
             Debug.Log("start dialog");
             dialogBox.gameObject.SetActive(true);
-            StartCoroutine(dialogBox.scrollText("Narrator", "In a vast forest filled with a wide range of animals and vegetation alike, Tessa has a mission. A mission to save her lost best friend, Opal. "));
+            StartCoroutine(dialogBox.scrollText("Narrator", "In a vast forest filled with a wide range of animals and vegetation alike, Tessa has a mission. A mission to save her lost best friend, Opal. ", new Color(0.48f, 0.44f, 0.44f)));
             HealthUI.SetActive(true);
         }
         if(index == 0)
@@ -262,16 +269,16 @@ public class SceneController : MonoBehaviour
         HasFinishedLoading = true;
         controlsAnimator.SetTrigger("Open");
 
-        if (IsMainMenuScene())
+        if (CurrentScene() == 0)
         {
             MusicManager.Instance.StopMenuMusic(_songA, mixerGroup);
         }
-        else if (SceneManager.GetActiveScene().buildIndex == 1)
+        else if (CurrentScene() == 1)
             MusicManager.Instance.StopMenuMusic(_songB, mixerGroup);
 
         yield return new WaitForSecondsRealtime(0.1f);
 
-        if (IsMainMenuScene())
+        if (CurrentScene() == 0)
             MusicManager.Instance.PlayMenuMusic(_songA, mixerGroup);
         else
             MusicManager.Instance.PlayMenuMusic(_songB, mixerGroup);

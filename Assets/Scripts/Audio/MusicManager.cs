@@ -69,6 +69,10 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    public void CeaseMusic()
+    {
+        _audioSource.Stop();
+    }
     public void PlayMenuMusic(MusicEvent song, AudioMixerGroup audioMixerGroup)
     {
         if (!_audioSource.isPlaying && _audioSource.clip != song)

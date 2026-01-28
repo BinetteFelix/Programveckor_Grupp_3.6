@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2485232456643103701}
   - component: {fileID: 8225822220499203400}
-  - component: {fileID: 3286834488148655198}
+  - component: {fileID: 858142715459556786}
   m_Layer: 0
   m_Name: TriggerEndCutscene
   m_TagString: Untagged
@@ -79,7 +79,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3286834488148655198
+--- !u!114 &858142715459556786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,5 +90,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e96481065060e934ea31e3ff9a20b06d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::frienddialogue
+  m_EditorClassIdentifier: Assembly-CSharp::FriendDialogue
   dialogBox: {fileID: 0}

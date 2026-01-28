@@ -25,13 +25,13 @@ public class InteractableObject : MonoBehaviour
     }
     public void InteractWarpObject()
     {
-        if (SceneController.Instance.CurrentOpenScene == NormalSceneIndex)
+        if (SceneController.Instance.CurrentScene() == NormalSceneIndex)
         {
             SaveController.Instance.SaveGame();
             StartCoroutine(SceneController.Instance.LoadScene(2));
 
         }
-        else if (SceneController.Instance.CurrentOpenScene == DistortedSceneIndex)
+        else if (SceneController.Instance.CurrentScene() == DistortedSceneIndex)
         {
             SaveController.Instance.SaveGame();
             StartCoroutine(SceneController.Instance.LoadScene(1));

@@ -10,27 +10,37 @@ public class DialogBox : MonoBehaviour
     public TextMeshProUGUI dialogueBoxTitle;
     public bool isScrolling = false;
     public bool skipped = false;
-    public float scrollSpeed = 0.05f;
+    public float scrollSpeed = 0.08f;
     public GameObject skipTextTip;
     
-    public IEnumerator scrollText(string titleText, string dialogue)
+    public IEnumerator scrollText(string titleText, string dialogue, Color textColor)
     {
-        if (isScrolling) StopCoroutine(scrollText("", ""));
+        if (isScrolling) StopCoroutine(scrollText("", "", dialogueBoxTitle.color));
         dialogueBoxText.text = "";
         dialogueBoxTitle.text = "";
+        dialogueBoxTitle.color = textColor;
+        Debug.Log(textColor);
         isScrolling = true;
         dialogueBoxTitle.text = titleText;
 
         for (int i = 0; i < dialogue.Length; i++)
         {
-            if (skipped && SceneController.Instance.CurrentOpenScene != 2) break; //only stop scrolling the text if its not level 2, i gave up on making it so u can skip the end dialogue.
+            if (skipped && SceneController.Instance.CurrentScene() != 2) break; //only stop scrolling the text if its not level 2, i gave up on making it so u can skip the end dialogue.
             dialogueBoxText.text += dialogue.Substring(i, 1);
             yield return new WaitForSeconds(scrollSpeed);
         }
         isScrolling = false;
         
-        yield return new WaitForSeconds(0.5f);
-        if(SceneManager.GetActiveScene().buildIndex == 1 && skipped)
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            yield return new WaitForSeconds(3);
+        }
+        else
+        {
+            yield return new WaitForSeconds(4);
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 1 && !skipped)
         {
             SceneController.Instance.ControlsPopup.SetActive(true);
             this.gameObject.SetActive(false);
@@ -44,8 +54,12 @@ public class DialogBox : MonoBehaviour
             skipped = true;
         }
 
+
+
         if(skipped && SceneManager.GetActiveScene().buildIndex == 1)
         {
+            StopCoroutine(scrollText("", "", dialogueBoxTitle.color));
+            InputManager.instance.EnablePlayerActions();
             this.gameObject.SetActive(false);
         }
     }
@@ -56,5 +70,12 @@ public class DialogBox : MonoBehaviour
         dialogueBoxText.text = "";
         dialogueBoxTitle.text = "";
         InputManager.instance.DisablePlayerActions();
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("Disable Dialog");
+        dialogueBoxText.text = "";
+        dialogueBoxTitle.text = "";
     }
 }

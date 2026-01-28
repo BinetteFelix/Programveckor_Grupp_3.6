@@ -7863,8 +7863,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 175}
-  m_SizeDelta: {x: 975, y: 90}
+  m_AnchoredPosition: {x: -331.31, y: 180}
+  m_SizeDelta: {x: 304.38, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1114036655
 MonoBehaviour:
@@ -7886,7 +7886,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'narrator:'
+  m_text: 'Narattor:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6243193451472bd40836cd7836279eca, type: 2}
   m_sharedMaterial: {fileID: 2289202533678383468, guid: 6243193451472bd40836cd7836279eca, type: 2}
@@ -7895,8 +7895,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281084976
+  m_fontColor: {r: 0.18867922, g: 0.17384595, b: 0.17384595, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7913,12 +7913,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 99.4
+  m_fontSize: 73.75
   m_fontSizeBase: 99.4
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 80
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -11215,8 +11215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -35}
-  m_SizeDelta: {x: 925, y: 350}
+  m_AnchoredPosition: {x: -18.5, y: -27.0352}
+  m_SizeDelta: {x: 930, y: 363.464}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1541695453
 MonoBehaviour:
@@ -11238,7 +11238,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'In a vast forest filled with a wide range of animals and vegetation alike,
+    Tessa has a mission. A mission to save her lost best friend, Opal. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6243193451472bd40836cd7836279eca, type: 2}
   m_sharedMaterial: {fileID: 2289202533678383468, guid: 6243193451472bd40836cd7836279eca, type: 2}
@@ -11265,10 +11266,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
+  m_fontSize: 72
   m_fontSizeBase: 65
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -11304,7 +11305,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -5.7724, y: 0, z: -11.544739, w: -23.089653}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
