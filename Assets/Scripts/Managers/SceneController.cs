@@ -105,11 +105,6 @@ public class SceneController : MonoBehaviour
         {
             StartCoroutine(LoadScene(2));
         }
-
-        if (CurrentScene() == 0)
-            SaveButton.SetActive(false);
-        else
-            SaveButton.SetActive(true);
     }
 
     #region OPENING & CLOSING PANELS
@@ -124,7 +119,7 @@ public class SceneController : MonoBehaviour
         Time.timeScale = PauseMenu.activeSelf ? 0.0f : 1.0f;
         if(PauseMenu.activeSelf)
         {
-            MusicManager.Instance.StopMusic(_songB, mixerGroup);
+            MusicManager.Instance.PauseMusic(_songB, mixerGroup);   
         }
         else
         {

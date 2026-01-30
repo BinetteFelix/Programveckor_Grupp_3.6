@@ -68,7 +68,15 @@ public class MusicManager : MonoBehaviour
             _audioSource.Stop();
         }
     }
-
+    public void PauseMusic(MusicEvent musicEvent, AudioMixerGroup audioMixerGroup)
+    {
+        if (IsPlayingClip)
+        {
+            _audioSource.clip = musicEvent.MusicLayers[0];
+            _audioSource.outputAudioMixerGroup = audioMixerGroup;
+            _audioSource.Pause();
+        }
+    }
     public void CeaseMusic()
     {
         _audioSource.Stop();
