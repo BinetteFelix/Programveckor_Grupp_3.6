@@ -33,6 +33,8 @@ public class SceneController : MonoBehaviour
     private string tempText;
     public GameObject creditsUi;
 
+    [SerializeField] private AudioClip[] deathSoundFx;
+
     #region UI ANIMATIONS
     [SerializeField] private Animator settingsAnimator;
     [SerializeField] private Animator controlsAnimator;
@@ -283,7 +285,9 @@ public class SceneController : MonoBehaviour
     {
         gameOver = true;
         TurnOffAllUI();
+        MusicManager.Instance.CeaseMusic();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        SoundFXManager.Instance.PlaySoundFXClip(deathSoundFx, player.transform);
         player.GetComponent<SpriteRenderer>().color = Color.red;
 
         InputManager.instance.DisablePlayerActions();

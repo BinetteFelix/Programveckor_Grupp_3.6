@@ -4,12 +4,17 @@ public class DamageObject : MonoBehaviour
 {
     [SerializeField] private int damage;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        InvokeRepeating(nameof(Damage), 0.20f, 1f);
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Collided with spike COLLISIONENTER");
+            InvokeRepeating(nameof(Damage), 0.05f, 1f);
+        }
+
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         CancelInvoke(nameof(Damage));
     }
