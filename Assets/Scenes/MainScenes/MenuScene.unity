@@ -1831,6 +1831,8 @@ MonoBehaviour:
   dialogBox: {fileID: 1004281959}
   gameOver: 0
   creditsUi: {fileID: 2020050109}
+  deathSoundFx:
+  - {fileID: 8300000, guid: 2db2d67cecc56644dbf74b7128a900a6, type: 3}
   settingsAnimator: {fileID: 1897611034}
   controlsAnimator: {fileID: 1267946005}
   updateAnimator: {fileID: 506178920}

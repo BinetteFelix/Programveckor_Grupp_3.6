@@ -65915,11 +65915,11 @@ Transform:
   m_GameObject: {fileID: 940388619}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2, y: 0, z: 0}
-  m_LocalScale: {x: 0.18976997, y: 0.0627401, z: 0.24288352}
+  m_LocalPosition: {x: -22.323444, y: -3.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1635506729}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &940388622
 Rigidbody2D:
@@ -70934,7 +70934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2485232456643103701, guid: ba077ea3c89e8e84ebd7ee82c0475c00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16
+      value: -14.74
       objectReference: {fileID: 0}
     - target: {fileID: 2485232456643103701, guid: ba077ea3c89e8e84ebd7ee82c0475c00, type: 3}
       propertyPath: m_LocalPosition.y
@@ -70974,19 +70974,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8225822220499203400, guid: ba077ea3c89e8e84ebd7ee82c0475c00, type: 3}
       propertyPath: m_Size.x
-      value: 0.3667549
+      value: 0.76242614
       objectReference: {fileID: 0}
     - target: {fileID: 8225822220499203400, guid: ba077ea3c89e8e84ebd7ee82c0475c00, type: 3}
       propertyPath: m_Offset.x
-      value: -0.46989214
+      value: -0.27205646
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3286834488148655198, guid: ba077ea3c89e8e84ebd7ee82c0475c00, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2485232456643103701, guid: ba077ea3c89e8e84ebd7ee82c0475c00, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 940388621}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba077ea3c89e8e84ebd7ee82c0475c00, type: 3}
 --- !u!1 &1429365823
@@ -71853,11 +71850,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallaxing
   cam: {fileID: 1317775723}
   player: {fileID: 966102824}
---- !u!4 &1635506729 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2485232456643103701, guid: ba077ea3c89e8e84ebd7ee82c0475c00, type: 3}
-  m_PrefabInstance: {fileID: 1399017659}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1641767533
 GameObject:
   m_ObjectHideFlags: 0
@@ -74827,4 +74819,5 @@ SceneRoots:
   - {fileID: 492425625}
   - {fileID: 966102823}
   - {fileID: 1950300260}
+  - {fileID: 940388621}
   - {fileID: 1399017659}

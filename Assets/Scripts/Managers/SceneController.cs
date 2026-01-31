@@ -295,6 +295,7 @@ public class SceneController : MonoBehaviour
 
         GameObject restartButton = DeathPanel.transform.Find("Panel").transform.Find("RestartButton").gameObject;
         SetSelectedButton(restartButton);
+
     }
 
     public void TextEnable()

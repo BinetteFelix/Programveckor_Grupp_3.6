@@ -22,14 +22,13 @@ public class FriendDialogue : MonoBehaviour
     void Update()
     {
         
-        if (Application.isEditor && InputManager.instance.skipAction.IsPressed())
+        if (InputManager.instance.skipAction.IsPressed() && !SceneController.Instance.creditsUi.activeSelf)
         {
             time += Time.fixedDeltaTime;
             Debug.Log("test" + time);
             if(time >= 1.5f)
             {
-                SceneController.Instance.creditsUi.SetActive(true);
-                dialogBox.skipTextTip.SetActive(true);
+                ActivateCredits();
                 StopCoroutine(TriggerDialog());
                 time = 0f;
             }
@@ -80,8 +79,16 @@ public class FriendDialogue : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(2.5f);
+        ActivateCredits();
+    }
+
+    private void ActivateCredits()
+    {
         SceneController.Instance.creditsUi.SetActive(true);
         MusicManager.Instance.CeaseMusic();
         dialogBox.skipTextTip.SetActive(true);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = new Vector3(-16.1900005f, -3.75999999f, 0);
+        SaveController.Instance.SaveGame();
     }
 }
