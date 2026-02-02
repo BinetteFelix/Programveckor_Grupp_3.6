@@ -7445,6 +7445,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 1075111108}
+        m_TargetAssemblyTypeName: ButtonSoundFXPlayer, Assembly-CSharp
+        m_MethodName: PlaySoundFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1037569402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7683,6 +7695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1075111106}
   - component: {fileID: 1075111107}
+  - component: {fileID: 1075111108}
   m_Layer: 0
   m_Name: SoundFXManager
   m_TagString: Untagged
@@ -7719,6 +7732,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundFXManager
   soundFXObject: {fileID: 1120846293782207557, guid: 1fcbe4d0c56ce1e47a69dd33c27d13a2, type: 3}
   SoundFXDelay: 0.5
+--- !u!114 &1075111108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075111105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddf2727f37a54f4eb63557775e8277c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonSoundFXPlayer
+  audioClips:
+  - {fileID: 8300000, guid: 8fd66f852def8464bb36cd71626479c7, type: 3}
+  - {fileID: 8300000, guid: a9a7fcda53fc1b144bdc9049ec812318, type: 3}
 --- !u!1 &1076644603
 GameObject:
   m_ObjectHideFlags: 0
