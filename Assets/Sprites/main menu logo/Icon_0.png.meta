@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a40f59f8d9a0c444ca4f98b3c81b806e
+guid: abdde9056098ad54298879470655e238
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1695432967857845313
-    second: Logo main menu_0
+      213: 4160596017183259584
+    second: Icon_0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,9 +73,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Logo main menu_0
+      name: Icon_0_0
       rect:
         serializedVersion: 2
-        x: 1232
-        y: 856
-        width: 1026
-        height: 1380
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14437ad2d43678710800000000000000
-      internalID: 1695432967857845313
+      spriteID: 0cbfc1aa8086db930800000000000000
+      internalID: 4160596017183259584
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Logo main menu_0: 1695432967857845313
+      Icon_0_0: 4160596017183259584
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
