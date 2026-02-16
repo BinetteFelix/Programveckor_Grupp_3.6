@@ -19,7 +19,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private GameObject ResumeButton;
     [SerializeField] private GameObject PlayButton;
     [SerializeField] private GameObject SaveButton;
-    [SerializeField] private GameObject MainMenuUI;
+    [SerializeField] private GameObject[] MainMenuUI;
     [SerializeField] private GameObject UpdatePanel;
 
    [SerializeField] private GameObject DeathPanel;
@@ -139,7 +139,10 @@ public class SceneController : MonoBehaviour
         else
         {
             SettingsMenu.SetActive(false);
-            MainMenuUI.SetActive(true);
+            foreach (GameObject mainMenuObject in MainMenuUI)
+            {
+                mainMenuObject.SetActive(true);
+            }
             PauseMenu.SetActive(false);
         }
     }
@@ -160,8 +163,8 @@ public class SceneController : MonoBehaviour
         GameObject buttons;
         GameObject playButton;
 
-        titleText = MainMenuUI.transform.Find("TitleText").gameObject;
-        buttons = MainMenuUI.transform.Find("Buttons").gameObject;
+        titleText = MainMenuUI[0].transform.Find("TitleText").gameObject;
+        buttons = MainMenuUI[0].transform.Find("Buttons").gameObject;
         playButton = buttons.transform.Find("PlayButton").gameObject;
 
         if (CurrentScene() == 0)
@@ -221,7 +224,13 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(index);
 
         LoadingMenu.SetActive(true);
-        if(index != 0) MainMenuUI.SetActive(false);
+        if (index != 0) 
+        {
+            foreach (GameObject mainMenuObject in MainMenuUI)
+            {
+                mainMenuObject.SetActive(false);
+            }
+        }
         if(index == 1)
         {
             Debug.Log("start dialog");
@@ -242,7 +251,10 @@ public class SceneController : MonoBehaviour
         TogglePause();
         StartCoroutine(LoadScene(0));
         TurnOffAllUI();
-        MainMenuUI.SetActive(true);
+        foreach (GameObject mainMenuObject in MainMenuUI)
+        {
+            mainMenuObject.SetActive(true);
+        }
         gameOver = false;
     }
 
