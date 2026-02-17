@@ -86,5 +86,8 @@ TagManager:
   - name: Foreground Level 2
     uniqueID: 1855197587
     locked: 0
+  - name: PortalMainMenu
+    uniqueID: 1811497281
+    locked: 0
   m_RenderingLayers:
   - Default
